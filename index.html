@@ -1,0 +1,1169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aetherium Whitepaper</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: #B8C5D1;
+            background: #0A0A0A;
+            overflow-x: hidden;
+        }
+        
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        
+        /* Cover Page */
+        .cover-page {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            background: radial-gradient(ellipse at top, #1A1A2E 0%, #0A0A0A 100%);
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .cover-page::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(0,212,255,0.1) 0%, transparent 70%);
+            animation: rotate 20s linear infinite;
+        }
+        
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        
+        .logo-container {
+            margin-bottom: 40px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .logo-svg {
+            width: 250px;
+            height: 250px;
+            filter: drop-shadow(0 0 30px rgba(0,212,255,0.5));
+            animation: float 3s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+        
+        h1 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 72px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            letter-spacing: -2px;
+            background: linear-gradient(135deg, #00D4FF 0%, #7B2CBF 50%, #FF6B35 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-fill-color: transparent;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .subtitle {
+            font-size: 24px;
+            font-weight: 300;
+            margin-bottom: 60px;
+            color: #B8C5D1;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .version-info {
+            font-size: 18px;
+            margin-bottom: 40px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .prepared-by {
+            background: rgba(22,33,62,0.8);
+            padding: 30px 50px;
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(0,212,255,0.3);
+            position: relative;
+            z-index: 1;
+        }
+        
+        /* Section Styles */
+        .section {
+            margin-bottom: 80px;
+            page-break-inside: avoid;
+        }
+        
+        h2 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 42px;
+            font-weight: 700;
+            background: linear-gradient(135deg, #00D4FF 0%, #7B2CBF 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-fill-color: transparent;
+            margin-bottom: 40px;
+            position: relative;
+            padding-left: 30px;
+        }
+        
+        h2::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 6px;
+            height: 50px;
+            background: linear-gradient(to bottom, #00D4FF, #7B2CBF);
+            border-radius: 3px;
+            box-shadow: 0 0 20px rgba(0,212,255,0.5);
+        }
+        
+        h3 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 28px;
+            font-weight: 600;
+            color: #00D4FF;
+            margin-bottom: 25px;
+            margin-top: 40px;
+        }
+        
+        h4 {
+            font-size: 20px;
+            font-weight: 600;
+            color: #FF6B35;
+            margin-bottom: 15px;
+        }
+        
+        p {
+            font-size: 17px;
+            line-height: 1.8;
+            margin-bottom: 25px;
+            color: #B8C5D1;
+        }
+        
+        ul {
+            color: #B8C5D1;
+        }
+        
+        ul li {
+            margin-bottom: 10px;
+        }
+        
+        /* Table of Contents */
+        .toc {
+            background: linear-gradient(135deg, #1A1A2E 0%, #16213E 100%);
+            padding: 50px;
+            border-radius: 20px;
+            margin-bottom: 80px;
+            border: 1px solid rgba(0,212,255,0.2);
+            box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+        }
+        
+        .toc h2 {
+            text-align: center;
+            margin-bottom: 40px;
+            padding-left: 0;
+        }
+        
+        .toc h2::before {
+            display: none;
+        }
+        
+        .toc-list {
+            list-style: none;
+        }
+        
+        .toc-list li {
+            padding: 15px 20px;
+            border-bottom: 1px solid rgba(184,197,209,0.1);
+            font-size: 18px;
+            transition: all 0.3s;
+        }
+        
+        .toc-list li:hover {
+            background: rgba(0,212,255,0.05);
+            padding-left: 30px;
+        }
+        
+        .toc-list li:last-child {
+            border-bottom: none;
+        }
+        
+        .toc-list a {
+            text-decoration: none;
+            color: #B8C5D1;
+            display: flex;
+            justify-content: space-between;
+            transition: color 0.3s;
+        }
+        
+        .toc-list a:hover {
+            color: #00D4FF;
+        }
+        
+        /* Key Features */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin: 50px 0;
+        }
+        
+        .feature-card {
+            background: linear-gradient(135deg, #1A1A2E 0%, #16213E 100%);
+            padding: 35px;
+            border-radius: 20px;
+            border: 1px solid rgba(0,212,255,0.2);
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            background: linear-gradient(135deg, #00D4FF, #7B2CBF, #FF6B35);
+            border-radius: 20px;
+            opacity: 0;
+            transition: opacity 0.3s;
+            z-index: -1;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0,212,255,0.2);
+        }
+        
+        .feature-card:hover::before {
+            opacity: 1;
+        }
+        
+        .feature-icon {
+            font-size: 56px;
+            margin-bottom: 25px;
+            filter: drop-shadow(0 0 10px currentColor);
+        }
+        
+        /* Tokenomics */
+        .token-chart {
+            text-align: center;
+            margin: 60px 0;
+        }
+        
+        .pie-chart-container {
+            position: relative;
+            display: inline-block;
+        }
+        
+        .pie-chart {
+            width: 450px;
+            height: 450px;
+            position: relative;
+            border-radius: 50%;
+            background: conic-gradient(
+                #00D4FF 0deg 108deg,
+                #7B2CBF 108deg 198deg,
+                #FF6B35 198deg 270deg,
+                #00FF88 270deg 324deg,
+                #FFD700 324deg 360deg
+            );
+            box-shadow: 0 20px 60px rgba(0,0,0,0.5),
+                       inset 0 0 60px rgba(0,212,255,0.2);
+        }
+        
+        .chart-center {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 250px;
+            height: 250px;
+            background: #1A1A2E;
+            border-radius: 50%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            border: 3px solid #00D4FF;
+            box-shadow: inset 0 0 30px rgba(0,212,255,0.3);
+        }
+        
+        .chart-center h4 {
+            font-size: 48px;
+            color: #00D4FF;
+            margin-bottom: 10px;
+        }
+        
+        .chart-center p {
+            margin: 5px 0;
+            font-weight: 500;
+        }
+        
+        .token-table {
+            width: 100%;
+            margin: 50px 0;
+            border-collapse: collapse;
+            background: #16213E;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+        }
+        
+        .token-table th,
+        .token-table td {
+            padding: 20px;
+            text-align: left;
+        }
+        
+        .token-table th {
+            background: linear-gradient(135deg, #00D4FF 0%, #7B2CBF 100%);
+            color: white;
+            font-weight: 600;
+            font-size: 18px;
+        }
+        
+        .token-table tr {
+            border-bottom: 1px solid rgba(184,197,209,0.1);
+        }
+        
+        .token-table tr:last-child {
+            border-bottom: none;
+        }
+        
+        .token-table tr:hover {
+            background: rgba(0,212,255,0.05);
+        }
+        
+        .token-table td:first-child {
+            color: #00D4FF;
+            font-weight: 600;
+        }
+        
+        /* Roadmap */
+        .roadmap {
+            position: relative;
+            padding: 80px 0;
+            margin: 60px 0;
+        }
+        
+        .roadmap-line {
+            position: absolute;
+            top: 100px;
+            left: 0;
+            right: 0;
+            height: 6px;
+            background: linear-gradient(to right, #00D4FF, #7B2CBF, #FF6B35, #00FF88);
+            border-radius: 3px;
+            box-shadow: 0 0 20px rgba(0,212,255,0.5);
+        }
+        
+        .roadmap-items {
+            display: flex;
+            justify-content: space-between;
+            position: relative;
+            z-index: 1;
+            gap: 20px;
+        }
+        
+        .roadmap-item {
+            background: linear-gradient(135deg, #1A1A2E 0%, #16213E 100%);
+            padding: 35px;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+            text-align: center;
+            flex: 1;
+            border: 1px solid rgba(0,212,255,0.2);
+            transition: all 0.3s;
+        }
+        
+        .roadmap-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 50px rgba(0,212,255,0.3);
+        }
+        
+        .phase-number {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #00D4FF, #7B2CBF);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 32px;
+            font-weight: 700;
+            margin: -60px auto 25px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+        
+        .roadmap-item h4 {
+            font-size: 24px;
+            margin-bottom: 15px;
+        }
+        
+        .roadmap-item ul {
+            text-align: left;
+            color: #B8C5D1;
+            font-size: 15px;
+        }
+        
+        /* Team Section */
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 40px;
+            margin: 50px 0;
+        }
+        
+        .team-member {
+            background: linear-gradient(135deg, #1A1A2E 0%, #16213E 100%);
+            padding: 40px;
+            border-radius: 20px;
+            text-align: center;
+            border: 1px solid rgba(0,212,255,0.2);
+            transition: all 0.3s;
+        }
+        
+        .team-member:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 50px rgba(123,44,191,0.3);
+        }
+        
+        .member-avatar {
+            width: 120px;
+            height: 120px;
+            background: linear-gradient(135deg, #00D4FF, #7B2CBF);
+            border-radius: 50%;
+            margin: 0 auto 25px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 42px;
+            font-weight: 700;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+        
+        /* Call to Action */
+        .cta {
+            background: linear-gradient(135deg, #7B2CBF 0%, #FF6B35 100%);
+            color: white;
+            padding: 80px;
+            border-radius: 30px;
+            text-align: center;
+            margin-top: 80px;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(123,44,191,0.4);
+        }
+        
+        .cta::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+            animation: rotate 15s linear infinite;
+        }
+        
+        .cta > * {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .cta h2 {
+            color: white;
+            margin-bottom: 30px;
+            background: none;
+            -webkit-text-fill-color: white;
+            font-size: 48px;
+        }
+        
+        .cta h2::before {
+            display: none;
+        }
+        
+        .contact-info {
+            background: rgba(26,26,46,0.8);
+            padding: 40px;
+            border-radius: 20px;
+            margin-top: 40px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            h1 { font-size: 48px; }
+            h2 { font-size: 32px; }
+            .roadmap-items { flex-direction: column; }
+            .roadmap-item { margin: 40px 0; }
+            .roadmap-line { display: none; }
+            .pie-chart { width: 300px; height: 300px; }
+            .chart-center { width: 180px; height: 180px; }
+            .cta { padding: 40px 20px; }
+        }
+        
+        /* Print Styles */
+        @media print {
+            body { background: white; color: #000; }
+            .cover-page { background: white; color: #000; }
+            h2, h3, h4 { -webkit-text-fill-color: #000; }
+            .feature-card, .roadmap-item, .team-member { 
+                background: white; 
+                border: 1px solid #ccc; 
+            }
+        }
+        
+        /* Animations */
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
+        }
+        
+        .pulse {
+            animation: pulse 2s ease-in-out infinite;
+        }
+    </style>
+</head>
+<body>
+    <!-- Cover Page -->
+    <div class="cover-page">
+        <div class="logo-container">
+            <svg class="logo-svg" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                <!-- Aetherium Logo Recreation -->
+                <defs>
+                    <linearGradient id="logoGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" style="stop-color:#00D4FF;stop-opacity:1" />
+                        <stop offset="50%" style="stop-color:#7B2CBF;stop-opacity:1" />
+                        <stop offset="100%" style="stop-color:#FF6B35;stop-opacity:1" />
+                    </linearGradient>
+                    <filter id="glow">
+                        <feGaussianBlur stdDeviation="4" result="coloredBlur"/>
+                        <feMerge>
+                            <feMergeNode in="coloredBlur"/>
+                            <feMergeNode in="SourceGraphic"/>
+                        </feMerge>
+                    </filter>
+                </defs>
+                
+                <!-- A-shaped network design -->
+                <g filter="url(#glow)">
+                    <!-- Main A structure -->
+                    <path d="M100 40 L60 140 L80 140 L88 120 L112 120 L120 140 L140 140 Z M100 70 L92 100 L108 100 Z" 
+                          fill="none" stroke="url(#logoGradient)" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+                    
+                    <!-- Network nodes -->
+                    <circle cx="100" cy="40" r="12" fill="#00D4FF"/>
+                    <circle cx="60" cy="140" r="12" fill="#7B2CBF"/>
+                    <circle cx="140" cy="140" r="12" fill="#FF6B35"/>
+                    <circle cx="80" cy="90" r="8" fill="#00FF88"/>
+                    <circle cx="120" cy="90" r="8" fill="#FFD700"/>
+                    
+                    <!-- Connecting lines -->
+                    <line x1="100" y1="40" x2="80" y2="90" stroke="url(#logoGradient)" stroke-width="2" opacity="0.6"/>
+                    <line x1="100" y1="40" x2="120" y2="90" stroke="url(#logoGradient)" stroke-width="2" opacity="0.6"/>
+                    <line x1="80" y1="90" x2="120" y2="90" stroke="url(#logoGradient)" stroke-width="2" opacity="0.6"/>
+                </g>
+            </svg>
+        </div>
+        <h1>AETHERIUM</h1>
+        <p class="subtitle">A New Paradigm for the Decentralized Economy</p>
+        <div class="version-info">
+            <p><strong>Whitepaper Version 1.0</strong></p>
+            <p>Date: August 31, 2025</p>
+        </div>
+        <div class="prepared-by">
+            <p><strong>Prepared by: Metaweb Technologies FZ LLC, Dubai</strong></p>
+            <p>Building the Future of Decentralized Social Economy</p>
+        </div>
+    </div>
+    
+    <!-- Main Content -->
+    <div class="container">
+        <!-- Table of Contents -->
+        <div class="toc">
+            <h2>Table of Contents</h2>
+            <ul class="toc-list">
+                <li><a href="#executive-summary">1. Executive Summary <span>3</span></a></li>
+                <li><a href="#problem">2. The Problem <span>5</span></a></li>
+                <li><a href="#solution">3. The Solution <span>8</span></a></li>
+                <li><a href="#tokenomics">4. Tokenomics <span>12</span></a></li>
+                <li><a href="#technical">5. Technical Architecture <span>16</span></a></li>
+                <li><a href="#market">6. Market Analysis <span>20</span></a></li>
+                <li><a href="#roadmap">7. Roadmap <span>24</span></a></li>
+                <li><a href="#team">8. Team & Partnership <span>28</span></a></li>
+                <li><a href="#conclusion">9. Conclusion <span>32</span></a></li>
+            </ul>
+        </div>
+        
+        <!-- Executive Summary -->
+        <section id="executive-summary" class="section">
+            <h2>1. Executive Summary</h2>
+            <p>
+                Aetherium is a revolutionary Web3 ecosystem designed to empower users and redefine the digital landscape. 
+                We are building a unified platform that seamlessly integrates social media, decentralized finance (DeFi), 
+                non-fungible tokens (NFTs), and play-to-earn (P2E) gaming. Our mission is to create a decentralized economy 
+                where users are not just consumers but active participants who are rewarded for their contributions.
+            </p>
+            
+            <p>
+                We believe that the future of the internet is a more equitable and transparent one, where users have control 
+                over their data and are compensated for the value they create. Aetherium is our answer to this future, 
+                a comprehensive ecosystem that will unlock the full potential of Web3.
+            </p>
+            
+            <h3>Key Highlights:</h3>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon" style="color: #00D4FF;">🌐</div>
+                    <h4>Unified Ecosystem</h4>
+                    <p>One platform for social media, DeFi, NFTs, and gaming</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon" style="color: #7B2CBF;">🤖</div>
+                    <h4>AI-Powered Features</h4>
+                    <p>Advanced AI image generation and trading tools</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon" style="color: #FF6B35;">💎</div>
+                    <h4>User Empowerment</h4>
+                    <p>Rewards for all platform activities</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon" style="color: #00FF88;">🔗</div>
+                    <h4>Multi-Chain Support</h4>
+                    <p>Compatible with major blockchain networks</p>
+                </div>
+            </div>
+        </section>
+        
+        <!-- The Problem -->
+        <section id="problem" class="section">
+            <h2>2. The Problem: A Fragmented and Exploitative Digital World</h2>
+            <p>
+                The current digital landscape is dominated by centralized platforms that exploit user data and offer 
+                little to no compensation for the value that users create. This has led to several critical problems:
+            </p>
+            
+            <h3>2.1. Data Exploitation</h3>
+            <p>
+                Centralized platforms harvest user data and sell it to advertisers without the user's consent or 
+                compensation. Users generate billions of dollars in value through their content and engagement, 
+                yet receive no financial benefit.
+            </p>
+            
+            <h3>2.2. Censorship and Control</h3>
+            <p>
+                Centralized platforms have the power to censor content and de-platform users at will, stifling 
+                free speech and expression. This creates an environment where users are at the mercy of corporate policies.
+            </p>
+            
+            <h3>2.3. Lack of Ownership</h3>
+            <p>
+                Users do not truly own their digital assets on centralized platforms. They are at the mercy of the 
+                platform's terms of service and can lose access to their assets at any time.
+            </p>
+            
+            <h3>2.4. Fragmented User Experience</h3>
+            <p>
+                Users are forced to use multiple platforms for different activities, such as social media, finance, 
+                and gaming. This creates a fragmented and disjointed user experience that reduces efficiency and engagement.
+            </p>
+        </section>
+        
+        <!-- The Solution -->
+        <section id="solution" class="section">
+            <h2>3. The Solution: The Aetherium Ecosystem</h2>
+            <p>
+                Aetherium solves these problems by creating a unified and decentralized ecosystem where users are in control. 
+                Our platform is built on the principles of transparency, fairness, and user empowerment.
+            </p>
+            
+            <h3>3.1. Four Pillars of Aetherium</h3>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon" style="color: #00D4FF;">🌐</div>
+                    <h4>Aetherium Social</h4>
+                    <p>A decentralized social media platform where users are rewarded for content creation and engagement 
+                    with the native Aetherium Token (AET). Features include AI-powered content creation tools and NFT integration.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon" style="color: #7B2CBF;">💰</div>
+                    <h4>Aetherium Finance</h4>
+                    <p>A comprehensive DeFi suite offering staking, yield farming, and a decentralized exchange (DEX). 
+                    Built with security and user experience as top priorities.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon" style="color: #FF6B35;">🎨</div>
+                    <h4>Aetherium Marketplace</h4>
+                    <p>A next-generation NFT marketplace with curated collections, artist partnerships, and low transaction fees. 
+                    Integrated AI image generation platform for unique NFT creation.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon" style="color: #00FF88;">🎮</div>
+                    <h4>Aetherium Gaming</h4>
+                    <p>A play-to-earn gaming hub featuring tournaments, leaderboards, and diverse gaming experiences 
+                    with crypto rewards.</p>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Tokenomics -->
+        <section id="tokenomics" class="section">
+            <h2>4. Tokenomics</h2>
+            
+            <h3>4.1. The Aetherium Token (AET)</h3>
+            <p>
+                The Aetherium Token (AET) is the native utility token of the Aetherium ecosystem. It is a BEP-20 
+                token that serves multiple functions:
+            </p>
+            <ul style="margin-left: 40px; margin-bottom: 30px; color: #B8C5D1;">
+                <li><strong style="color: #00D4FF;">Rewards:</strong> Users earn AET for content creation and platform engagement</li>
+                <li><strong style="color: #00D4FF;">Payments:</strong> Transaction fees across all Aetherium services</li>
+                <li><strong style="color: #00D4FF;">Gaming:</strong> In-game currency for P2E games and tournaments</li>
+                <li><strong style="color: #00D4FF;">Governance:</strong> Voting rights for ecosystem decisions</li>
+                <li><strong style="color: #00D4FF;">Staking:</strong> Yield generation through various staking mechanisms</li>
+            </ul>
+            
+            <h3>4.2. Token Distribution</h3>
+            <div class="token-chart">
+                <div class="pie-chart-container">
+                    <div class="pie-chart">
+                        <div class="chart-center">
+                            <h4>AET</h4>
+                            <p style="color: #FFD700; font-size: 24px;">1 Billion</p>
+                            <p>Total Supply</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <p style="text-align: center; font-size: 24px; color: #00D4FF; margin: 30px 0;"><strong>Total Supply:</strong> 1,000,000,000 AET</p>
+            
+            <table class="token-table">
+                <thead>
+                    <tr>
+                        <th>Category</th>
+                        <th>Allocation</th>
+                        <th>Amount</th>
+                        <th>Purpose</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Community & Rewards</td>
+                        <td>30%</td>
+                        <td>300,000,000 AET</td>
+                        <td>User incentives and engagement rewards</td>
+                    </tr>
+                    <tr>
+                        <td>Liquidity & Staking</td>
+                        <td>25%</td>
+                        <td>250,000,000 AET</td>
+                        <td>DeFi yield generation and liquidity mining</td>
+                    </tr>
+                    <tr>
+                        <td>Ecosystem Development</td>
+                        <td>20%</td>
+                        <td>200,000,000 AET</td>
+                        <td>Platform development and partnerships</td>
+                    </tr>
+                    <tr>
+                        <td>Team & Advisors</td>
+                        <td>15%</td>
+                        <td>150,000,000 AET</td>
+                        <td>Core team and strategic advisors</td>
+                    </tr>
+                    <tr>
+                        <td>Public Sale</td>
+                        <td>10%</td>
+                        <td>100,000,000 AET</td>
+                        <td>Public fundraising and market distribution</td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <h3>4.3. Token Utility & Value Drivers</h3>
+            <ul style="margin-left: 40px; color: #B8C5D1;">
+                <li><strong style="color: #FFD700;">Limited Supply:</strong> Fixed total supply with deflationary mechanisms</li>
+                <li><strong style="color: #FFD700;">Multi-Utility Demand:</strong> Token required across all platform features</li>
+                <li><strong style="color: #FFD700;">Token Burning:</strong> Regular buyback and burn programs</li>
+                <li><strong style="color: #FFD700;">Staking Rewards:</strong> Incentivizes long-term holding</li>
+                <li><strong style="color: #FFD700;">Ecosystem Growth:</strong> Increasing user base drives token demand</li>
+            </ul>
+        </section>
+        
+        <!-- Technical Architecture -->
+        <section id="technical" class="section">
+            <h2>5. Technical Architecture</h2>
+            
+            <h3>5.1. Blockchain Infrastructure</h3>
+            <p>
+                Aetherium is built on a robust multi-chain architecture that supports:
+            </p>
+            <ul style="margin-left: 40px; margin-bottom: 30px; color: #B8C5D1;">
+                <li><strong style="color: #00D4FF;">Binance Smart Chain (BSC)</strong> - Primary blockchain for fast, low-cost transactions</li>
+                <li><strong style="color: #7B2CBF;">Ethereum</strong> - For maximum compatibility and DeFi integration</li>
+                <li><strong style="color: #FF6B35;">Polygon</strong> - Layer 2 scaling solution for enhanced performance</li>
+                <li><strong style="color: #00FF88;">Solana</strong> - High-speed transactions for gaming applications</li>
+            </ul>
+            
+            <p>
+                Our smart contracts are designed with full Web3 operability, ensuring all functions can be called 
+                directly via blockchain explorers without relying on a dedicated DApp frontend.
+            </p>
+            
+            <h3>5.2. AI Integration</h3>
+            <p>One of Aetherium's key differentiators is our advanced AI integration:</p>
+            
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon" style="color: #FF6B35;">🎨</div>
+                    <h4>AI Image Generation Platform</h4>
+                    <ul style="text-align: left; color: #B8C5D1;">
+                        <li>Similar to Midjourney capabilities</li>
+                        <li>Integrated directly into social platform</li>
+                        <li>Instant NFT minting from AI-generated content</li>
+                        <li>Commercial-grade image quality</li>
+                    </ul>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon" style="color: #00D4FF;">📊</div>
+                    <h4>AI-Powered Trading Tools</h4>
+                    <ul style="text-align: left; color: #B8C5D1;">
+                        <li>Market analysis and sentiment tracking</li>
+                        <li>Predictive modeling for investment decisions</li>
+                        <li>Risk assessment algorithms</li>
+                        <li>Automated portfolio optimization</li>
+                    </ul>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon" style="color: #7B2CBF;">🎯</div>
+                    <h4>AI-Powered Personalization</h4>
+                    <ul style="text-align: left; color: #B8C5D1;">
+                        <li>Content recommendation algorithms</li>
+                        <li>Personalized financial advice</li>
+                        <li>Customized user experiences</li>
+                        <li>Behavioral analysis for improved engagement</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <h3>5.3. Security & Compliance</h3>
+            <h4>Security Measures:</h4>
+            <ul style="margin-left: 40px; margin-bottom: 20px; color: #B8C5D1;">
+                <li>Smart contract audits by leading security firms</li>
+                <li>Multi-factor authentication for all accounts</li>
+                <li>Cold storage for user funds</li>
+                <li>Bug bounty programs for continuous security testing</li>
+                <li>Regular security updates and monitoring</li>
+            </ul>
+            
+            <h4>Regulatory Compliance:</h4>
+            <ul style="margin-left: 40px; color: #B8C5D1;">
+                <li>KYC/AML compliance in all operating jurisdictions</li>
+                <li>Proactive engagement with regulatory bodies</li>
+                <li>GDPR and regional privacy law compliance</li>
+                <li>Legal framework development</li>
+            </ul>
+        </section>
+        
+        <!-- Market Analysis -->
+        <section id="market" class="section">
+            <h2>6. Market Analysis</h2>
+            
+            <h3>6.1. Market Opportunity</h3>
+            <p>The Web3 market is experiencing explosive growth:</p>
+            <ul style="margin-left: 40px; margin-bottom: 30px; color: #B8C5D1;">
+                <li><strong style="color: #00D4FF;">Crypto Market Cap:</strong> Over $2 trillion in 2024</li>
+                <li><strong style="color: #7B2CBF;">DeFi Growth:</strong> From $1B (2020) to $100B+ (2024)</li>
+                <li><strong style="color: #FF6B35;">NFT Market:</strong> Projected $80B by 2028</li>
+                <li><strong style="color: #00FF88;">Gaming Industry:</strong> $583B by 2030 with Web3 gaming expansion</li>
+            </ul>
+            <p style="text-align: center; font-size: 28px; color: #FFD700; margin: 40px 0;"><strong>Total Addressable Market: $886B+ by 2030</strong></p>
+            
+            <h3>6.2. Target Market</h3>
+            <h4>Primary Users:</h4>
+            <ul style="margin-left: 40px; margin-bottom: 20px; color: #B8C5D1;">
+                <li>Crypto enthusiasts seeking new utility for digital assets</li>
+                <li>Social media users looking to monetize content</li>
+                <li>Gamers interested in play-to-earn opportunities</li>
+                <li>Investors seeking Web3 investment opportunities</li>
+            </ul>
+            
+            <h4>Geographic Focus:</h4>
+            <ul style="margin-left: 40px; margin-bottom: 30px; color: #B8C5D1;">
+                <li>Initial focus on emerging markets with high crypto adoption</li>
+                <li>Expansion to developed markets with established user bases</li>
+                <li>Global accessibility through multi-language support</li>
+            </ul>
+            
+            <h3>6.3. Competitive Advantages</h3>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <h4>Unified Ecosystem</h4>
+                    <p>First platform to successfully integrate social, finance, gaming, and NFTs</p>
+                </div>
+                <div class="feature-card">
+                    <h4>AI Integration</h4>
+                    <p>Advanced AI tools not available on competing platforms</p>
+                </div>
+                <div class="feature-card">
+                    <h4>Multi-Chain Support</h4>
+                    <p>Broader accessibility across blockchain networks</p>
+                </div>
+                <div class="feature-card">
+                    <h4>User Rewards</h4>
+                    <p>Comprehensive earning opportunities for all activities</p>
+                </div>
+                <div class="feature-card">
+                    <h4>Professional Team</h4>
+                    <p>International expertise from Spain, Germany, and India</p>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Roadmap -->
+        <section id="roadmap" class="section">
+            <h2>7. Roadmap and Milestones</h2>
+            
+            <div class="roadmap">
+                <div class="roadmap-line"></div>
+                <div class="roadmap-items">
+                    <div class="roadmap-item">
+                        <div class="phase-number">1</div>
+                        <h4>Foundation</h4>
+                        <p style="color: #00D4FF;"><strong>Q4 2025</strong></p>
+                        <p style="color: #FFD700;">4-6 weeks | $20,000</p>
+                        <ul style="text-align: left; margin-top: 15px;">
+                            <li>Smart contract development</li>
+                            <li>Website & whitepaper launch</li>
+                            <li>Initial community building</li>
+                            <li>Seed funding round</li>
+                            <li>Core team formation</li>
+                        </ul>
+                    </div>
+                    <div class="roadmap-item">
+                        <div class="phase-number">2</div>
+                        <h4>Beta Launch</h4>
+                        <p style="color: #7B2CBF;"><strong>Q1 2026</strong></p>
+                        <p style="color: #FFD700;">8-12 weeks | $67,500</p>
+                        <ul style="text-align: left; margin-top: 15px;">
+                            <li>Beta app launch</li>
+                            <li>AI platform integration</li>
+                            <li>Security audits</li>
+                            <li>Private sale</li>
+                            <li>Community feedback</li>
+                        </ul>
+                    </div>
+                    <div class="roadmap-item">
+                        <div class="phase-number">3</div>
+                        <h4>Public Launch</h4>
+                        <p style="color: #FF6B35;"><strong>Q2 2026</strong></p>
+                        <p style="color: #FFD700;">Ongoing | $25,000+</p>
+                        <ul style="text-align: left; margin-top: 15px;">
+                            <li>Public app launch</li>
+                            <li>DEX listing</li>
+                            <li>Marketing campaign</li>
+                            <li>Partnership announcements</li>
+                            <li>Customer support</li>
+                        </ul>
+                    </div>
+                    <div class="roadmap-item">
+                        <div class="phase-number">4</div>
+                        <h4>Expansion</h4>
+                        <p style="color: #00FF88;"><strong>Q3-Q4 2026</strong></p>
+                        <p style="color: #FFD700;">Ongoing</p>
+                        <ul style="text-align: left; margin-top: 15px;">
+                            <li>CEX listings</li>
+                            <li>Advanced AI features</li>
+                            <li>Cross-chain integration</li>
+                            <li>Global expansion</li>
+                            <li>Enterprise partnerships</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Team & Partnership -->
+        <section id="team" class="section">
+            <h2>8. Team & Partnership</h2>
+            
+            <h3>8.1. Development Team - Metaweb Technologies</h3>
+            <div class="team-grid">
+                <div class="team-member">
+                    <div class="member-avatar">PM</div>
+                    <h4>Patrico M. (Spain)</h4>
+                    <p>Senior Blockchain Architect with extensive experience in DeFi, NFTs, and smart contract development. 
+                    Deep expertise in Binance Smart Chain and successful project leadership.</p>
+                </div>
+                <div class="team-member">
+                    <div class="member-avatar">BR</div>
+                    <h4>B. Rai (India)</h4>
+                    <p>Full-stack developer specializing in AI and machine learning integration. Expert in building 
+                    innovative blockchain applications with advanced AI features.</p>
+                </div>
+                <div class="team-member">
+                    <div class="member-avatar">DE</div>
+                    <h4>German Development Team</h4>
+                    <p>Specialists in mobile app development and UI/UX design. Experts in creating intuitive user 
+                    interfaces and seamless user experiences.</p>
+                </div>
+            </div>
+            
+            <h3>8.2. Strategic Partnerships</h3>
+            <h4>Blockchain Networks:</h4>
+            <ul style="margin-left: 40px; margin-bottom: 20px; color: #B8C5D1;">
+                <li style="color: #00D4FF;">Binance Smart Chain (Primary)</li>
+                <li>Ethereum, Polygon, Solana (Secondary)</li>
+            </ul>
+            
+            <h4>Technology Partners:</h4>
+            <ul style="margin-left: 40px; margin-bottom: 20px; color: #B8C5D1;">
+                <li>AI platform providers</li>
+                <li>Security audit firms</li>
+                <li>Cloud infrastructure providers</li>
+            </ul>
+            
+            <h4>Business Partners:</h4>
+            <ul style="margin-left: 40px; margin-bottom: 30px; color: #B8C5D1;">
+                <li>NFT artists and gaming studios</li>
+                <li>Payment gateway providers</li>
+                <li>Exchange partnerships for listings</li>
+            </ul>
+            
+            <h3>8.3. Investment Structure</h3>
+            <h4>Step-by-Step Payment Plan:</h4>
+            <ul style="margin-left: 40px; margin-bottom: 20px; color: #B8C5D1;">
+                <li>25% upon contract signing and project initiation</li>
+                <li>25% upon completion of Phase 1 (Foundation)</li>
+                <li>25% upon completion of Phase 2 (MVP Development)</li>
+                <li>25% upon successful launch and deployment</li>
+            </ul>
+            <p style="text-align: center; font-size: 28px; color: #FFD700; margin: 40px 0;">
+                <strong>Total Development Cost: $112,500</strong> 
+                <span style="font-size: 18px; color: #B8C5D1;">(excluding optional CEX listings)</span>
+            </p>
+        </section>
+        
+        <!-- Conclusion -->
+        <section id="conclusion" class="section">
+            <h2>9. Conclusion</h2>
+            <p>
+                Aetherium represents the future of the decentralized economy. By combining social media, DeFi, NFTs, 
+                and gaming into a single, unified platform, we are creating a new paradigm for how users interact 
+                with digital services.
+            </p>
+            
+            <h3>Key Success Factors:</h3>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon pulse" style="color: #00D4FF;">🚀</div>
+                    <h4>Innovation</h4>
+                    <p>Advanced AI integration and comprehensive ecosystem approach</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon pulse" style="color: #7B2CBF;">💡</div>
+                    <h4>User-Centric</h4>
+                    <p>Rewards and empowerment for all platform activities</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon pulse" style="color: #FF6B35;">🔒</div>
+                    <h4>Security</h4>
+                    <p>Multi-layered security architecture and compliance</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon pulse" style="color: #00FF88;">🌍</div>
+                    <h4>Global Reach</h4>
+                    <p>Multi-chain support and international team expertise</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon pulse" style="color: #FFD700;">📈</div>
+                    <h4>Growth Potential</h4>
+                    <p>Positioned at intersection of fastest-growing digital sectors</p>
+                </div>
+            </div>
+            
+            <p>
+                Our advanced AI integration, robust security measures, and commitment to user empowerment make 
+                Aetherium a truly innovative and compelling project. We are confident that Aetherium will become 
+                a leading platform in the Web3 space and will provide significant value to users, investors, 
+                and partners alike.
+            </p>
+        </section>
+        
+        <!-- Call to Action -->
+        <div class="cta">
+            <h2>Ready to Build the Future Together?</h2>
+            <p style="font-size: 20px; margin-bottom: 40px;">
+                Join us in creating the next generation of decentralized digital experiences
+            </p>
+            <div class="contact-info">
+                <h3 style="color: #00D4FF; font-size: 32px;">Contact Metaweb Technologies</h3>
+                <p style="font-size: 18px; margin: 20px 0;"><em>Patrico M. & B. Rai - Senior Blockchain Developers</em></p>
+                <p style="font-size: 20px; margin-top: 30px; color: #FFD700;"><strong>Metaweb Technologies FZ LLC, Dubai</strong></p>
+                
+                <svg style="width: 150px; height: 150px; margin: 40px auto; display: block;" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                    <defs>
+                        <linearGradient id="ctaGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" style="stop-color:#00D4FF;stop-opacity:1" />
+                            <stop offset="50%" style="stop-color:#FFFFFF;stop-opacity:1" />
+                            <stop offset="100%" style="stop-color:#FF6B35;stop-opacity:1" />
+                        </linearGradient>
+                    </defs>
+                    <g filter="url(#glow)">
+                        <path d="M100 40 L60 140 L80 140 L88 120 L112 120 L120 140 L140 140 Z M100 70 L92 100 L108 100 Z" 
+                              fill="none" stroke="url(#ctaGradient)" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+                        <circle cx="100" cy="40" r="12" fill="#FFFFFF"/>
+                        <circle cx="60" cy="140" r="12" fill="#FFFFFF"/>
+                        <circle cx="140" cy="140" r="12" fill="#FFFFFF"/>
+                    </g>
+                </svg>
+                
+                <p style="font-size: 18px; font-style: italic; margin-top: 20px;">
+                    Building the Future of Decentralized Social Economy
+                </p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
