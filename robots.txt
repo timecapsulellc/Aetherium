@@ -2,7 +2,7 @@ User-agent: *
 Allow: /
 
 # Sitemaps
-Sitemap: https://orphichain.github.io/Aetherium/sitemap.xml
+Sitemap: https://aetherium.vercel.app/sitemap.xml
 
 # Important pages
 Crawl-delay: 1
