@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+
+# Sitemaps
+Sitemap: https://orphichain.github.io/Aetherium/sitemap.xml
+
+# Important pages
+Crawl-delay: 1
