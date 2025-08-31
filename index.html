@@ -3,1581 +3,1417 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aetherium - Revolutionary Web3 Ecosystem | The Future of Decentralized Economy</title>
-    <meta name="description" content="Experience Aetherium, the next-generation Web3 ecosystem unifying social media, DeFi, NFTs, and gaming. Join the decentralized economy revolution with AI-powered tools and blockchain innovation.">
+    <title>Aetherium - The Future of Decentralized Economy</title>
     
     <!-- SEO Meta Tags -->
-    <meta name="keywords" content="Aetherium, Web3, DeFi, NFT, Gaming, Blockchain, Cryptocurrency, AET Token, Social Media, Decentralized, AI">
-    <meta name="author" content="Metaweb Technologies FZ LLC">
-    <meta name="robots" content="index, follow">
-    <meta name="theme-color" content="#00D4FF">
+    <meta name="description" content="Experience the next evolution of Web3 with Aetherium's unified ecosystem combining DApps, DeFi, NFTs, gaming, and AI-powered tools.">
+    <meta name="keywords" content="Web3, DApp, DeFi, NFT, Blockchain, Gaming, AI Tools, Cryptocurrency, Exchange, NFT Marketplace">
+    <meta name="author" content="Aetherium Team">
     
-    <!-- Open Graph Meta Tags -->
-    <meta property="og:title" content="Aetherium - Revolutionary Web3 Ecosystem">
-    <meta property="og:description" content="The future of decentralized digital experiences. Unified platform combining social media, DeFi, NFTs, and gaming.">
+    <!-- Open Graph Tags -->
+    <meta property="og:title" content="Aetherium - The Future of Decentralized Economy">
+    <meta property="og:description" content="Launch DApps, trade tokens, create NFTs, play games, and access AI tools in one unified Web3 ecosystem">
+    <meta property="og:image" content="https://aetherium.vercel.app/og-image.png">
+    <meta property="og:url" content="https://aetherium.vercel.app">
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://aetherium.vercel.app/">
-    <meta property="og:site_name" content="Aetherium">
-    <meta property="og:locale" content="en_US">
     
-    <!-- Twitter Card Meta Tags -->
+    <!-- Twitter Card Tags -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Aetherium - Revolutionary Web3 Ecosystem">
-    <meta name="twitter:description" content="Unified platform combining social media, DeFi, NFTs, and gaming.">
-    
-    <!-- Preconnect for Performance -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    
-    <!-- Advanced Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <meta name="twitter:title" content="Aetherium - The Future of Decentralized Economy">
+    <meta name="twitter:description" content="Launch DApps, trade tokens, create NFTs, play games, and access AI tools">
+    <meta name="twitter:image" content="https://aetherium.vercel.app/twitter-card.png">
     
     <!-- Favicon -->
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><defs><linearGradient id='g' x1='0%25' y1='0%25' x2='100%25' y2='100%25'><stop offset='0%25' style='stop-color:%2300D4FF'/><stop offset='100%25' style='stop-color:%237B2CBF'/></linearGradient></defs><circle cx='50' cy='50' r='45' fill='url(%23g)'/></svg>">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='40' fill='%2300d4ff'/><path d='M30,50 Q50,20 70,50 Q50,80 30,50' fill='%236c63ff'/></svg>">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     
     <style>
-        :root {
-            --primary-cyan: #00D4FF;
-            --primary-purple: #7B2CBF;
-            --primary-orange: #FF6B35;
-            --primary-green: #00FF88;
-            --primary-gold: #FFD700;
-            --bg-dark: #0A0A0A;
-            --bg-darker: #050505;
-            --bg-card: #1A1A2E;
-            --bg-card-secondary: #16213E;
-            --text-primary: #FFFFFF;
-            --text-secondary: #B8C5D1;
-            --border-glow: rgba(0, 212, 255, 0.3);
-            --glass-bg: rgba(26, 26, 46, 0.1);
-            --glass-border: rgba(255, 255, 255, 0.1);
-        }
-
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-
-        html {
-            scroll-behavior: smooth;
-            overflow-x: hidden;
+        
+        :root {
+            --primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --secondary-gradient: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            --accent-gradient: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            --success-gradient: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
+            --warning-gradient: linear-gradient(135deg, #fcb045 0%, #fd1d1d 100%);
+            --text-primary: #ffffff;
+            --text-secondary: #a0aec0;
+            --text-muted: #718096;
+            --background-primary: #0d1117;
+            --background-secondary: #161b22;
+            --background-tertiary: #21262d;
+            --background-card: rgba(33, 38, 45, 0.8);
+            --glass-bg: rgba(255, 255, 255, 0.05);
+            --glass-border: rgba(255, 255, 255, 0.1);
+            --shadow-primary: 0 8px 32px rgba(0, 0, 0, 0.4);
+            --shadow-glass: 0 8px 32px rgba(31, 38, 135, 0.2);
+            --border-radius: 16px;
+            --border-radius-lg: 24px;
+            --spacing-unit: 1rem;
         }
-
+        
         body {
-            font-family: 'Inter', sans-serif;
-            background: var(--bg-dark);
-            color: var(--text-secondary);
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: var(--background-primary);
+            color: var(--text-primary);
             line-height: 1.6;
             overflow-x: hidden;
-            position: relative;
+            font-size: 16px;
         }
-
-        /* Advanced Background Effects */
-        .bg-gradient-animated {
+        
+        /* Animated Background */
+        .animated-bg {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
-            height: 100%;
-            z-index: -1;
-            background: linear-gradient(
-                45deg,
-                var(--bg-darker) 0%,
-                var(--bg-dark) 25%,
-                #0F0F23 50%,
-                var(--bg-dark) 75%,
-                var(--bg-darker) 100%
-            );
+            height: 100vh;
+            background: linear-gradient(45deg, var(--background-primary), var(--background-secondary), var(--background-tertiary));
             background-size: 400% 400%;
-            animation: gradientShift 15s ease infinite;
+            animation: gradientShift 20s ease infinite;
+            z-index: -2;
         }
-
+        
         @keyframes gradientShift {
             0%, 100% { background-position: 0% 50%; }
             50% { background-position: 100% 50%; }
         }
-
-        /* Particle System */
-        .particles {
+        
+        /* Navigation - Fixed Layout Issues */
+        .navbar {
             position: fixed;
             top: 0;
             left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
-            pointer-events: none;
-        }
-
-        .particle {
-            position: absolute;
-            width: 2px;
-            height: 2px;
-            background: var(--primary-cyan);
-            border-radius: 50%;
-            animation: float 20s infinite linear;
-            opacity: 0.3;
-        }
-
-        .particle:nth-child(odd) {
-            background: var(--primary-purple);
-            animation-duration: 25s;
-        }
-
-        .particle:nth-child(3n) {
-            background: var(--primary-green);
-            animation-duration: 30s;
-        }
-
-        @keyframes float {
-            0% {
-                transform: translateY(100vh) translateX(0);
-                opacity: 0;
-            }
-            10% {
-                opacity: 0.3;
-            }
-            90% {
-                opacity: 0.3;
-            }
-            100% {
-                transform: translateY(-100vh) translateX(100px);
-                opacity: 0;
-            }
-        }
-
-        /* Advanced Navigation */
-        .navbar {
-            position: fixed;
-            top: 20px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 95%;
-            max-width: 1200px;
+            right: 0;
             z-index: 1000;
-            padding: 16px 32px;
-            background: rgba(10, 10, 10, 0.8);
+            padding: 0.75rem 0;
             backdrop-filter: blur(20px);
-            border: 1px solid var(--glass-border);
-            border-radius: 50px;
+            background: rgba(13, 17, 23, 0.9);
+            border-bottom: 1px solid var(--glass-border);
             transition: all 0.3s ease;
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
         }
-
-        .navbar.scrolled {
-            background: rgba(10, 10, 10, 0.95);
-            box-shadow: 0 8px 32px rgba(0, 212, 255, 0.1);
-        }
-
+        
         .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
             display: flex;
             justify-content: space-between;
             align-items: center;
+            height: 60px;
         }
-
+        
         .logo {
             display: flex;
             align-items: center;
-            gap: 12px;
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: 24px;
+            gap: 0.5rem;
+            font-size: 1.25rem;
             font-weight: 700;
             color: var(--text-primary);
             text-decoration: none;
+            z-index: 1001;
         }
-
-        .logo-icon {
+        
+        .logo-svg {
             width: 32px;
             height: 32px;
+            flex-shrink: 0;
+            animation: logoRotate 15s linear infinite;
         }
-
-        .nav-menu {
+        
+        @keyframes logoRotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        
+        .nav-links {
             display: flex;
             list-style: none;
-            gap: 32px;
+            gap: 1.5rem;
             align-items: center;
         }
-
-        .nav-menu a {
+        
+        .nav-links a {
             color: var(--text-secondary);
             text-decoration: none;
             font-weight: 500;
+            font-size: 0.9rem;
             transition: all 0.3s ease;
-            position: relative;
-            padding: 8px 16px;
-            border-radius: 24px;
+            padding: 0.5rem 0.75rem;
+            border-radius: 8px;
+            white-space: nowrap;
         }
-
-        .nav-menu a:hover {
-            color: var(--primary-cyan);
-            background: rgba(0, 212, 255, 0.1);
+        
+        .nav-links a:hover {
+            color: var(--text-primary);
+            background: var(--glass-bg);
         }
-
+        
         .cta-button {
-            background: linear-gradient(135deg, var(--primary-cyan), var(--primary-purple));
-            color: white;
-            padding: 12px 24px;
-            border-radius: 50px;
-            text-decoration: none;
+            background: var(--accent-gradient);
+            padding: 0.6rem 1.2rem;
+            border-radius: 10px;
             font-weight: 600;
+            font-size: 0.9rem;
             transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(0, 212, 255, 0.3);
-            position: relative;
-            overflow: hidden;
+            box-shadow: var(--shadow-glass);
         }
-
-        .cta-button::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-            transition: left 0.5s;
-        }
-
-        .cta-button:hover::before {
-            left: 100%;
-        }
-
+        
         .cta-button:hover {
             transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(0, 212, 255, 0.4);
+            box-shadow: 0 8px 32px rgba(79, 172, 254, 0.4);
         }
-
-        /* Advanced Hero Section */
+        
+        /* Mobile Menu */
+        .mobile-menu-btn {
+            display: none;
+            flex-direction: column;
+            gap: 4px;
+            background: none;
+            border: none;
+            padding: 8px;
+            cursor: pointer;
+        }
+        
+        .mobile-menu-btn span {
+            width: 24px;
+            height: 2px;
+            background: var(--text-primary);
+            transition: all 0.3s ease;
+        }
+        
+        /* Hero Section - Fixed Typography */
         .hero {
             min-height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
             text-align: center;
+            padding: 2rem 1rem;
             position: relative;
-            overflow: hidden;
-            padding: 0 20px;
         }
-
+        
         .hero-content {
-            max-width: 1000px;
-            position: relative;
-            z-index: 2;
+            max-width: 800px;
+            z-index: 10;
         }
-
+        
         .hero-logo {
-            width: 280px;
-            height: 280px;
-            margin: 0 auto 60px;
-            filter: drop-shadow(0 0 40px rgba(0, 212, 255, 0.6));
-            animation: heroFloat 4s ease-in-out infinite;
-            transform-style: preserve-3d;
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 1.5rem;
+            display: block;
+            animation: heroFloat 6s ease-in-out infinite;
         }
-
+        
         @keyframes heroFloat {
-            0%, 100% { 
-                transform: translateY(0) rotateY(0deg);
-                filter: drop-shadow(0 0 40px rgba(0, 212, 255, 0.6));
-            }
-            50% { 
-                transform: translateY(-20px) rotateY(5deg);
-                filter: drop-shadow(0 0 60px rgba(123, 44, 191, 0.6));
-            }
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
         }
-
+        
         .hero h1 {
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: clamp(48px, 8vw, 96px);
-            font-weight: 900;
-            margin-bottom: 32px;
+            font-size: clamp(2rem, 6vw, 3.5rem);
+            font-weight: 800;
             line-height: 1.1;
-            background: linear-gradient(135deg, #00D4FF 0%, #7B2CBF 30%, #FF6B35 60%, #00FF88 100%);
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+            background-size: 200% 200%;
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
-            background-size: 300% 100%;
-            animation: gradientText 8s ease infinite;
-            text-shadow: 0 0 40px rgba(0, 212, 255, 0.3);
+            animation: gradientMove 4s ease-in-out infinite;
         }
-
-        @keyframes gradientText {
+        
+        @keyframes gradientMove {
             0%, 100% { background-position: 0% 50%; }
             50% { background-position: 100% 50%; }
         }
-
-        .hero .subtitle {
-            font-size: clamp(20px, 4vw, 32px);
-            font-weight: 300;
+        
+        .hero p {
+            font-size: clamp(1rem, 2vw, 1.2rem);
             color: var(--text-secondary);
-            margin-bottom: 48px;
-            line-height: 1.4;
-            opacity: 0;
-            animation: slideInUp 1s ease 0.5s forwards;
+            margin-bottom: 2rem;
+            line-height: 1.5;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
         }
-
-        @keyframes slideInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
+        
         .hero-buttons {
             display: flex;
-            gap: 24px;
+            gap: 1rem;
             justify-content: center;
             flex-wrap: wrap;
-            margin-bottom: 60px;
-            opacity: 0;
-            animation: slideInUp 1s ease 1s forwards;
+            margin-bottom: 2rem;
         }
-
+        
         .btn-primary {
-            background: linear-gradient(135deg, var(--primary-cyan), var(--primary-purple));
+            background: var(--accent-gradient);
             color: white;
-            padding: 18px 36px;
-            border-radius: 50px;
+            padding: 0.875rem 1.75rem;
+            border-radius: var(--border-radius);
             text-decoration: none;
             font-weight: 600;
-            font-size: 18px;
-            transition: all 0.4s ease;
-            box-shadow: 0 8px 32px rgba(0, 212, 255, 0.3);
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            box-shadow: var(--shadow-glass);
             display: inline-flex;
             align-items: center;
-            gap: 12px;
-            position: relative;
-            overflow: hidden;
+            gap: 0.5rem;
+            border: none;
+            cursor: pointer;
         }
-
+        
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 40px rgba(79, 172, 254, 0.4);
+        }
+        
         .btn-secondary {
             background: var(--glass-bg);
-            backdrop-filter: blur(10px);
             color: var(--text-primary);
-            padding: 18px 36px;
-            border: 2px solid var(--primary-cyan);
-            border-radius: 50px;
+            padding: 0.875rem 1.75rem;
+            border-radius: var(--border-radius);
             text-decoration: none;
             font-weight: 600;
-            font-size: 18px;
-            transition: all 0.4s ease;
+            font-size: 1rem;
+            border: 1px solid var(--glass-border);
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+        
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.1);
+            transform: translateY(-2px);
+        }
+        
+        /* Web3 Action Buttons */
+        .web3-actions {
+            display: flex;
+            gap: 0.75rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 1rem;
+        }
+        
+        .web3-btn {
+            background: var(--background-card);
+            color: var(--text-primary);
+            padding: 0.6rem 1rem;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.875rem;
+            border: 1px solid var(--glass-border);
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
             display: inline-flex;
             align-items: center;
-            gap: 12px;
+            gap: 0.375rem;
         }
-
-        .btn-primary:hover, .btn-secondary:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 12px 40px rgba(0, 212, 255, 0.4);
-        }
-
-        .btn-secondary:hover {
-            background: var(--primary-cyan);
-            color: var(--bg-dark);
-        }
-
-        /* Advanced Stats Section */
-        .stats {
-            padding: 100px 0;
-            position: relative;
-        }
-
-        .stats-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 40px;
-        }
-
-        .stat-item {
-            text-align: center;
+        
+        .web3-btn:hover {
             background: var(--glass-bg);
-            backdrop-filter: blur(20px);
-            border: 1px solid var(--glass-border);
-            border-radius: 24px;
-            padding: 40px 20px;
-            transition: all 0.4s ease;
-            position: relative;
-            overflow: hidden;
+            transform: translateY(-1px);
+            box-shadow: var(--shadow-glass);
         }
-
-        .stat-item::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 4px;
-            background: linear-gradient(90deg, var(--primary-cyan), var(--primary-purple));
-            transform: scaleX(0);
-            transform-origin: left;
-            transition: transform 0.4s ease;
+        
+        /* DApp Launch Section */
+        .dapp-section {
+            padding: 4rem 1.5rem;
+            background: var(--background-secondary);
         }
-
-        .stat-item:hover::before {
-            transform: scaleX(1);
-        }
-
-        .stat-item:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 20px 60px rgba(0, 212, 255, 0.2);
-        }
-
-        .stat-number {
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: clamp(32px, 6vw, 56px);
-            font-weight: 700;
-            color: var(--primary-cyan);
-            display: block;
-            margin-bottom: 12px;
-            background: linear-gradient(135deg, var(--primary-cyan), var(--primary-green));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        .stat-label {
-            font-size: 16px;
-            color: var(--text-secondary);
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            font-weight: 500;
-        }
-
-        /* Advanced Features Section */
-        .features {
-            padding: 120px 0;
-            position: relative;
-        }
-
-        .container {
+        
+        .dapp-container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 0 20px;
         }
-
+        
         .section-header {
             text-align: center;
-            margin-bottom: 100px;
+            margin-bottom: 3rem;
         }
-
+        
         .section-title {
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: clamp(36px, 6vw, 72px);
-            font-weight: 800;
-            margin-bottom: 24px;
-            background: linear-gradient(135deg, var(--primary-cyan) 0%, var(--primary-purple) 100%);
+            font-size: clamp(1.8rem, 4vw, 2.5rem);
+            font-weight: 700;
+            margin-bottom: 0.75rem;
+            background: var(--primary-gradient);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
         }
-
-        .section-description {
-            font-size: clamp(18px, 3vw, 24px);
+        
+        .section-subtitle {
+            font-size: 1rem;
             color: var(--text-secondary);
-            max-width: 700px;
+            max-width: 500px;
             margin: 0 auto;
-            line-height: 1.6;
         }
-
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 40px;
-            margin-top: 80px;
-        }
-
-        .feature-card {
-            background: var(--glass-bg);
-            backdrop-filter: blur(20px);
-            padding: 50px;
-            border-radius: 32px;
-            border: 1px solid var(--glass-border);
-            position: relative;
-            overflow: hidden;
-            transition: all 0.5s ease;
-            cursor: pointer;
-            transform-style: preserve-3d;
-        }
-
-        .feature-card::before {
-            content: '';
-            position: absolute;
-            top: -2px;
-            left: -2px;
-            right: -2px;
-            bottom: -2px;
-            background: linear-gradient(135deg, var(--primary-cyan), var(--primary-purple), var(--primary-orange));
-            border-radius: 32px;
-            opacity: 0;
-            transition: opacity 0.5s ease;
-            z-index: -1;
-        }
-
-        .feature-card:hover {
-            transform: translateY(-12px) rotateX(5deg);
-            box-shadow: 0 30px 80px rgba(0, 212, 255, 0.3);
-        }
-
-        .feature-card:hover::before {
-            opacity: 1;
-        }
-
-        .feature-icon {
-            font-size: 80px;
-            margin-bottom: 32px;
-            display: block;
-            filter: drop-shadow(0 0 20px currentColor);
-            animation: iconFloat 3s ease-in-out infinite;
-        }
-
-        @keyframes iconFloat {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-10px); }
-        }
-
-        .feature-card h3 {
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: 28px;
-            font-weight: 700;
-            color: var(--text-primary);
-            margin-bottom: 20px;
-        }
-
-        .feature-card p {
-            color: var(--text-secondary);
-            line-height: 1.7;
-            font-size: 16px;
-        }
-
-        /* Advanced Tokenomics Section */
-        .tokenomics {
-            padding: 120px 0;
-            background: linear-gradient(135deg, rgba(26, 26, 46, 0.3) 0%, rgba(22, 33, 62, 0.3) 100%);
-            position: relative;
-        }
-
-        .tokenomics-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 100px;
-            align-items: center;
-            margin-top: 80px;
-        }
-
-        .token-info h3 {
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: 40px;
-            font-weight: 700;
-            color: var(--text-primary);
-            margin-bottom: 32px;
-        }
-
-        .token-features {
-            list-style: none;
-        }
-
-        .token-features li {
-            display: flex;
-            align-items: center;
-            gap: 16px;
-            padding: 20px 0;
-            border-bottom: 1px solid rgba(0, 212, 255, 0.1);
-            transition: all 0.3s ease;
-        }
-
-        .token-features li:hover {
-            padding-left: 20px;
-            border-left: 3px solid var(--primary-cyan);
-        }
-
-        .token-features li:last-child {
-            border-bottom: none;
-        }
-
-        .token-features .icon {
-            width: 24px;
-            height: 24px;
-            border-radius: 50%;
-            background: linear-gradient(135deg, var(--primary-cyan), var(--primary-green));
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--bg-dark);
-            font-size: 14px;
-            font-weight: bold;
-            flex-shrink: 0;
-        }
-
-        .token-chart {
-            position: relative;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .pie-chart {
-            width: 400px;
-            height: 400px;
-            border-radius: 50%;
-            background: conic-gradient(
-                var(--primary-cyan) 0deg 108deg,
-                var(--primary-purple) 108deg 198deg,
-                var(--primary-orange) 198deg 270deg,
-                var(--primary-green) 270deg 324deg,
-                var(--primary-gold) 324deg 360deg
-            );
-            position: relative;
-            box-shadow: 
-                0 0 0 8px rgba(0, 212, 255, 0.1),
-                0 30px 80px rgba(0, 212, 255, 0.3),
-                inset 0 0 0 8px rgba(255, 255, 255, 0.1);
-            animation: pieRotate 20s linear infinite;
-        }
-
-        @keyframes pieRotate {
-            from { transform: rotate(0deg); }
-            to { transform: rotate(360deg); }
-        }
-
-        .chart-center {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 240px;
-            height: 240px;
-            background: var(--bg-card);
-            border-radius: 50%;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            border: 4px solid var(--primary-cyan);
-            backdrop-filter: blur(10px);
-            box-shadow: inset 0 0 40px rgba(0, 212, 255, 0.2);
-        }
-
-        .chart-center .token-symbol {
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: 48px;
-            font-weight: 800;
-            color: var(--primary-cyan);
-            margin-bottom: 8px;
-        }
-
-        .chart-center .total-supply {
-            font-size: 18px;
-            color: var(--text-secondary);
-            font-weight: 500;
-        }
-
-        /* Advanced Roadmap Section */
-        .roadmap {
-            padding: 120px 0;
-            position: relative;
-            background: linear-gradient(135deg, rgba(10, 10, 10, 0.8) 0%, rgba(26, 26, 46, 0.4) 100%);
-        }
-
-        .roadmap-timeline {
-            position: relative;
-            margin-top: 100px;
-        }
-
-        .timeline-line {
-            position: absolute;
-            top: 80px;
-            left: 0;
-            right: 0;
-            height: 6px;
-            background: linear-gradient(to right, var(--primary-cyan), var(--primary-purple), var(--primary-orange), var(--primary-green));
-            border-radius: 3px;
-            box-shadow: 0 0 30px rgba(0, 212, 255, 0.5);
-            animation: pulse 3s ease-in-out infinite;
-        }
-
-        @keyframes pulse {
-            0%, 100% { 
-                box-shadow: 0 0 30px rgba(0, 212, 255, 0.5);
-                transform: scaleY(1);
-            }
-            50% { 
-                box-shadow: 0 0 50px rgba(0, 212, 255, 0.8);
-                transform: scaleY(1.2);
-            }
-        }
-
-        .roadmap-items {
+        
+        .dapp-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 40px;
-            position: relative;
-            z-index: 1;
+            gap: 1.5rem;
         }
-
-        .roadmap-item {
-            background: var(--glass-bg);
-            backdrop-filter: blur(20px);
-            padding: 40px;
-            border-radius: 24px;
+        
+        .dapp-card {
+            background: var(--background-card);
             border: 1px solid var(--glass-border);
-            text-align: center;
-            position: relative;
-            transition: all 0.5s ease;
-            transform-style: preserve-3d;
-        }
-
-        .roadmap-item:hover {
-            transform: translateY(-15px) rotateX(5deg);
-            box-shadow: 0 25px 60px rgba(0, 212, 255, 0.3);
-        }
-
-        .phase-number {
-            width: 80px;
-            height: 80px;
-            background: linear-gradient(135deg, var(--primary-cyan), var(--primary-purple));
-            color: white;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 32px;
-            font-weight: 800;
-            margin: -60px auto 32px;
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
-            position: relative;
-            z-index: 1;
-        }
-
-        .roadmap-item h4 {
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: 24px;
-            font-weight: 700;
-            color: var(--text-primary);
-            margin-bottom: 16px;
-        }
-
-        .roadmap-item .timeline {
-            color: var(--primary-cyan);
-            font-weight: 600;
-            font-size: 18px;
-            margin-bottom: 20px;
-        }
-
-        .roadmap-item p {
-            color: var(--text-secondary);
-            font-size: 15px;
-            line-height: 1.6;
-        }
-
-        /* Advanced Team Section */
-        .team {
-            padding: 120px 0;
-            position: relative;
-        }
-
-        .team-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 50px;
-            margin-top: 80px;
-        }
-
-        .team-member {
-            background: var(--glass-bg);
+            border-radius: var(--border-radius-lg);
+            padding: 2rem;
             backdrop-filter: blur(20px);
-            padding: 50px;
-            border-radius: 32px;
-            text-align: center;
-            border: 1px solid var(--glass-border);
-            transition: all 0.5s ease;
+            transition: all 0.3s ease;
             position: relative;
             overflow: hidden;
         }
-
-        .team-member::before {
+        
+        .dapp-card::before {
             content: '';
             position: absolute;
             top: 0;
             left: -100%;
             width: 100%;
             height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(0, 212, 255, 0.1), transparent);
-            transition: left 0.8s ease;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.05), transparent);
+            transition: all 0.6s ease;
         }
-
-        .team-member:hover::before {
+        
+        .dapp-card:hover::before {
             left: 100%;
         }
-
-        .team-member:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 30px 70px rgba(123, 44, 191, 0.3);
+        
+        .dapp-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-primary);
+            border-color: var(--glass-border);
         }
-
-        .member-avatar {
-            width: 140px;
-            height: 140px;
-            background: linear-gradient(135deg, var(--primary-cyan), var(--primary-purple));
-            border-radius: 50%;
-            margin: 0 auto 32px;
+        
+        .dapp-icon {
+            width: 60px;
+            height: 60px;
+            margin-bottom: 1rem;
+            background: var(--accent-gradient);
+            border-radius: 12px;
             display: flex;
             align-items: center;
             justify-content: center;
-            color: white;
-            font-size: 52px;
-            font-weight: 800;
-            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
-            border: 4px solid rgba(255, 255, 255, 0.1);
+            font-size: 1.5rem;
         }
-
-        /* Advanced CTA Section */
-        .cta-section {
-            padding: 150px 0;
-            background: linear-gradient(135deg, var(--primary-purple) 0%, var(--primary-orange) 50%, var(--primary-cyan) 100%);
-            position: relative;
-            overflow: hidden;
+        
+        .dapp-card h3 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 0.75rem;
+            color: var(--text-primary);
         }
-
-        .cta-section::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
-            animation: rotate 25s linear infinite;
+        
+        .dapp-card p {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            line-height: 1.5;
+            margin-bottom: 1.5rem;
         }
-
-        .cta-content {
-            text-align: center;
-            position: relative;
-            z-index: 2;
-        }
-
-        .cta-section h2 {
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: clamp(36px, 6vw, 64px);
-            font-weight: 800;
-            color: white;
-            margin-bottom: 32px;
-            text-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
-        }
-
-        .cta-section p {
-            font-size: clamp(18px, 3vw, 24px);
-            color: rgba(255, 255, 255, 0.9);
-            margin-bottom: 50px;
-            max-width: 700px;
-            margin-left: auto;
-            margin-right: auto;
-            line-height: 1.6;
-        }
-
-        .cta-buttons {
+        
+        .dapp-actions {
             display: flex;
-            gap: 32px;
-            justify-content: center;
+            gap: 0.75rem;
             flex-wrap: wrap;
         }
-
-        /* Advanced Footer */
-        .footer {
-            background: var(--bg-darker);
-            padding: 100px 0 40px;
-            border-top: 1px solid rgba(0, 212, 255, 0.1);
+        
+        .dapp-btn {
+            background: var(--glass-bg);
+            color: var(--text-primary);
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.875rem;
+            border: 1px solid var(--glass-border);
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.375rem;
+        }
+        
+        .dapp-btn:hover {
+            background: rgba(255, 255, 255, 0.1);
+            transform: translateY(-1px);
+        }
+        
+        .dapp-btn.primary {
+            background: var(--accent-gradient);
+            border: none;
+        }
+        
+        /* Stats Section - Improved */
+        .stats {
+            padding: 3rem 1.5rem;
+            background: var(--background-primary);
             position: relative;
         }
-
-        .footer::before {
+        
+        .stats-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            text-align: center;
+        }
+        
+        .stat-item {
+            background: var(--glass-bg);
+            padding: 1.5rem;
+            border-radius: var(--border-radius);
+            border: 1px solid var(--glass-border);
+            backdrop-filter: blur(20px);
+            transition: all 0.3s ease;
+        }
+        
+        .stat-item:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-glass);
+        }
+        
+        .stat-number {
+            font-size: 2rem;
+            font-weight: 700;
+            background: var(--accent-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            display: block;
+        }
+        
+        .stat-label {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            margin-top: 0.25rem;
+        }
+        
+        /* Exchange Section */
+        .exchange-section {
+            padding: 4rem 1.5rem;
+            background: var(--background-tertiary);
+        }
+        
+        .exchange-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .exchange-features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .exchange-card {
+            background: var(--background-card);
+            border: 1px solid var(--glass-border);
+            border-radius: var(--border-radius-lg);
+            padding: 2rem;
+            backdrop-filter: blur(20px);
+            transition: all 0.3s ease;
+        }
+        
+        .exchange-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-primary);
+        }
+        
+        .exchange-icon {
+            width: 60px;
+            height: 60px;
+            background: var(--success-gradient);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        /* Tokenomics Section - Improved */
+        .tokenomics {
+            padding: 4rem 1.5rem;
+            background: var(--background-secondary);
+            position: relative;
+        }
+        
+        .tokenomics-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+        
+        .chart-container {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .pie-chart {
+            width: 250px;
+            height: 250px;
+            border-radius: 50%;
+            background: conic-gradient(
+                from 0deg,
+                #667eea 0deg 108deg,
+                #764ba2 108deg 180deg,
+                #f093fb 180deg 252deg,
+                #f5576c 252deg 324deg,
+                #4facfe 324deg 360deg
+            );
+            animation: rotateChart 15s linear infinite;
+            position: relative;
+        }
+        
+        .pie-chart::after {
             content: '';
             position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 1px;
-            background: linear-gradient(90deg, transparent, var(--primary-cyan), transparent);
+            top: 50%;
+            left: 50%;
+            width: 60%;
+            height: 60%;
+            background: var(--background-secondary);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
         }
-
-        .footer-content {
+        
+        @keyframes rotateChart {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        
+        .tokenomics-info h2 {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            background: var(--primary-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .token-distribution {
+            list-style: none;
+        }
+        
+        .token-distribution li {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.75rem 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            font-size: 0.9rem;
+        }
+        
+        .token-color {
+            width: 16px;
+            height: 16px;
+            border-radius: 4px;
+            margin-right: 0.75rem;
+        }
+        
+        /* Gaming Section */
+        .gaming-section {
+            padding: 4rem 1.5rem;
+            background: var(--background-primary);
+        }
+        
+        .gaming-features {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 60px;
-            margin-bottom: 60px;
+            gap: 1.5rem;
+            margin-top: 3rem;
         }
-
-        .footer-section h4 {
-            color: var(--text-primary);
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: 20px;
+        
+        .gaming-card {
+            background: var(--background-card);
+            border: 1px solid var(--glass-border);
+            border-radius: var(--border-radius-lg);
+            padding: 2rem;
+            backdrop-filter: blur(20px);
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+        
+        .gaming-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-primary);
+        }
+        
+        .gaming-icon {
+            width: 60px;
+            height: 60px;
+            background: var(--warning-gradient);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            margin: 0 auto 1rem;
+        }
+        
+        /* AI Tools Section */
+        .ai-tools-section {
+            padding: 4rem 1.5rem;
+            background: var(--background-secondary);
+        }
+        
+        .ai-tools-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .ai-tool-card {
+            background: var(--background-card);
+            border: 1px solid var(--glass-border);
+            border-radius: var(--border-radius-lg);
+            padding: 2rem;
+            backdrop-filter: blur(20px);
+            transition: all 0.3s ease;
+        }
+        
+        .ai-tool-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-primary);
+        }
+        
+        .ai-icon {
+            width: 60px;
+            height: 60px;
+            background: var(--secondary-gradient);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        /* Footer - Improved Organization */
+        .footer {
+            background: var(--background-primary);
+            padding: 3rem 1.5rem 1.5rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .footer-section h3 {
+            font-size: 1.1rem;
             font-weight: 700;
-            margin-bottom: 32px;
+            margin-bottom: 1rem;
+            color: var(--text-primary);
         }
-
+        
         .footer-section ul {
             list-style: none;
         }
-
+        
         .footer-section ul li {
-            margin-bottom: 16px;
+            margin-bottom: 0.5rem;
         }
-
+        
         .footer-section ul li a {
             color: var(--text-secondary);
             text-decoration: none;
+            font-size: 0.9rem;
             transition: all 0.3s ease;
-            padding: 8px 0;
-            display: inline-block;
-        }
-
-        .footer-section ul li a:hover {
-            color: var(--primary-cyan);
-            padding-left: 10px;
-        }
-
-        .footer-bottom {
-            text-align: center;
-            padding-top: 40px;
-            border-top: 1px solid rgba(0, 212, 255, 0.1);
-            color: var(--text-secondary);
-        }
-
-        .social-links {
-            display: flex;
-            gap: 20px;
-            justify-content: center;
-            margin: 40px 0;
-        }
-
-        .social-links a {
-            width: 50px;
-            height: 50px;
-            background: var(--glass-bg);
-            backdrop-filter: blur(10px);
-            border: 1px solid var(--glass-border);
-            border-radius: 50%;
             display: flex;
             align-items: center;
-            justify-content: center;
-            color: var(--text-secondary);
-            transition: all 0.4s ease;
-            text-decoration: none;
-            font-size: 20px;
+            gap: 0.5rem;
         }
-
-        .social-links a:hover {
-            background: var(--primary-cyan);
-            color: var(--bg-dark);
-            transform: translateY(-4px);
-            box-shadow: 0 10px 30px rgba(0, 212, 255, 0.3);
-        }
-
-        /* Mobile Menu Toggle */
-        .mobile-toggle {
-            display: none;
-            background: none;
-            border: none;
+        
+        .footer-section ul li a:hover {
             color: var(--text-primary);
-            font-size: 24px;
-            cursor: pointer;
+            padding-left: 0.25rem;
         }
-
-        /* Responsive Design */
-        @media (max-width: 1024px) {
-            .tokenomics-content {
-                grid-template-columns: 1fr;
-                gap: 60px;
-                text-align: center;
-            }
-            
-            .pie-chart {
-                width: 320px;
-                height: 320px;
-            }
-            
-            .chart-center {
-                width: 200px;
-                height: 200px;
-            }
+        
+        .social-links {
+            display: flex;
+            gap: 0.75rem;
+            margin-top: 1rem;
         }
-
+        
+        .social-link {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 36px;
+            height: 36px;
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 8px;
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+        
+        .social-link:hover {
+            background: var(--accent-gradient);
+            color: white;
+            transform: translateY(-2px);
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            color: var(--text-secondary);
+            font-size: 0.875rem;
+        }
+        
+        .footer-logo {
+            font-size: 1rem;
+            color: #4facfe;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+        
+        /* Mobile Responsiveness */
         @media (max-width: 768px) {
-            .navbar {
-                top: 10px;
-                width: 98%;
-                padding: 12px 20px;
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: rgba(13, 17, 23, 0.95);
+                backdrop-filter: blur(20px);
+                border-bottom: 1px solid var(--glass-border);
+                padding: 1rem;
+                flex-direction: column;
+                gap: 0.75rem;
             }
             
-            .nav-menu {
-                display: none;
+            .nav-links.active {
+                display: flex;
             }
-
-            .mobile-toggle {
-                display: block;
+            
+            .mobile-menu-btn {
+                display: flex;
             }
-
+            
             .hero-buttons {
                 flex-direction: column;
                 align-items: center;
             }
-
-            .btn-primary,
-            .btn-secondary {
-                width: 100%;
-                max-width: 300px;
+            
+            .web3-actions {
                 justify-content: center;
             }
-
-            .features-grid {
+            
+            .tokenomics-container {
                 grid-template-columns: 1fr;
-                gap: 30px;
-            }
-
-            .roadmap-items {
-                grid-template-columns: 1fr;
-                gap: 30px;
-            }
-
-            .stats-grid {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 30px;
-            }
-
-            .footer-content {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 40px;
                 text-align: center;
+                gap: 2rem;
             }
-
-            .cta-buttons {
-                flex-direction: column;
-                align-items: center;
-                gap: 20px;
-            }
-
-            .pie-chart {
-                width: 280px;
-                height: 280px;
-            }
-
-            .chart-center {
-                width: 180px;
-                height: 180px;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .hero-logo {
-                width: 200px;
-                height: 200px;
-            }
-
-            .stats-grid {
+            
+            .dapp-grid,
+            .exchange-features,
+            .gaming-features,
+            .ai-tools-grid {
                 grid-template-columns: 1fr;
-                gap: 24px;
             }
-
-            .footer-content {
-                grid-template-columns: 1fr;
-                gap: 30px;
+            
+            .nav-container {
+                padding: 0 1rem;
             }
-
-            .btn-primary,
-            .btn-secondary {
-                padding: 14px 24px;
-                font-size: 16px;
+            
+            .section-title {
+                font-size: 1.75rem;
             }
-
-            .feature-card {
-                padding: 30px;
-            }
-
-            .team-member {
-                padding: 30px;
-            }
-
-            .roadmap-item {
-                padding: 30px;
+            
+            .hero h1 {
+                font-size: 2rem;
             }
         }
-
-        /* Advanced Animation Classes */
-        .fade-in-up {
-            animation: slideInUp 1s ease-out;
-        }
-
-        .animate-on-scroll {
+        
+        /* Scroll Animations */
+        .fade-in {
             opacity: 0;
-            transform: translateY(30px);
-            transition: all 0.8s ease-out;
+            transform: translateY(20px);
+            transition: all 0.6s ease;
         }
-
-        .animate-on-scroll.animated {
+        
+        .fade-in.visible {
             opacity: 1;
             transform: translateY(0);
         }
-
-        /* Custom scrollbar */
-        ::-webkit-scrollbar {
-            width: 8px;
+        
+        /* Loading Animation */
+        .loading {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            background: var(--background-primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+            transition: opacity 0.5s ease;
         }
-
-        ::-webkit-scrollbar-track {
-            background: var(--bg-darker);
+        
+        .loading.hidden {
+            opacity: 0;
+            pointer-events: none;
         }
-
-        ::-webkit-scrollbar-thumb {
-            background: linear-gradient(var(--primary-cyan), var(--primary-purple));
-            border-radius: 4px;
+        
+        .loading-spinner {
+            width: 50px;
+            height: 50px;
+            border: 3px solid rgba(79, 172, 254, 0.3);
+            border-top: 3px solid #4facfe;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
         }
-
-        ::-webkit-scrollbar-thumb:hover {
-            background: linear-gradient(var(--primary-purple), var(--primary-cyan));
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        /* Particles */
+        .particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            z-index: -1;
+            pointer-events: none;
+        }
+        
+        .particle {
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            animation: float linear infinite;
+        }
+        
+        @keyframes float {
+            0% {
+                opacity: 0;
+                transform: translateY(100vh) scale(0);
+            }
+            10% {
+                opacity: 1;
+            }
+            90% {
+                opacity: 1;
+            }
+            100% {
+                opacity: 0;
+                transform: translateY(-100vh) scale(1);
+            }
         }
     </style>
-    
-    <!-- Structured Data for SEO -->
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "Organization",
-        "name": "Aetherium",
-        "description": "Revolutionary Web3 ecosystem combining social media, DeFi, NFTs, and gaming",
-        "url": "https://aetherium.vercel.app/",
-        "foundingDate": "2025",
-        "founders": [
-            {
-                "@type": "Person",
-                "name": "Metaweb Technologies"
-            }
-        ],
-        "sameAs": [
-            "https://github.com/OrphiChain/Aetherium"
-        ]
-    }
-    </script>
 </head>
 <body>
-    <!-- Animated Background -->
-    <div class="bg-gradient-animated"></div>
+    <!-- Loading Screen -->
+    <div class="loading" id="loading">
+        <div class="loading-spinner"></div>
+    </div>
     
-    <!-- Particle System -->
+    <!-- Animated Background -->
+    <div class="animated-bg"></div>
+    
+    <!-- Particles -->
     <div class="particles" id="particles"></div>
-
-    <!-- Advanced Navigation -->
+    
+    <!-- Navigation -->
     <nav class="navbar" id="navbar">
         <div class="nav-container">
             <a href="#" class="logo">
-                <svg class="logo-icon" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                <svg class="logo-svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
                     <defs>
-                        <linearGradient id="logoGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-                            <stop offset="0%" style="stop-color:#00D4FF;stop-opacity:1" />
-                            <stop offset="50%" style="stop-color:#7B2CBF;stop-opacity:1" />
-                            <stop offset="100%" style="stop-color:#FF6B35;stop-opacity:1" />
+                        <linearGradient id="logoGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" style="stop-color:#667eea"/>
+                            <stop offset="50%" style="stop-color:#764ba2"/>
+                            <stop offset="100%" style="stop-color:#f093fb"/>
                         </linearGradient>
                     </defs>
-                    <path d="M100 40 L60 140 L80 140 L88 120 L112 120 L120 140 L140 140 Z M100 70 L92 100 L108 100 Z" 
-                          fill="none" stroke="url(#logoGrad)" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
-                    <circle cx="100" cy="40" r="8" fill="#00D4FF"/>
-                    <circle cx="60" cy="140" r="8" fill="#7B2CBF"/>
-                    <circle cx="140" cy="140" r="8" fill="#FF6B35"/>
+                    <circle cx="50" cy="50" r="35" fill="url(#logoGradient)" opacity="0.8"/>
+                    <path d="M30,50 Q50,25 70,50 Q50,75 30,50" fill="url(#logoGradient)"/>
                 </svg>
                 AETHERIUM
             </a>
-            <ul class="nav-menu">
+            <ul class="nav-links" id="navLinks">
                 <li><a href="#home">Home</a></li>
-                <li><a href="#features">Ecosystem</a></li>
+                <li><a href="#dapps">DApps</a></li>
+                <li><a href="#exchange">Exchange</a></li>
+                <li><a href="#nft">NFT Market</a></li>
+                <li><a href="#gaming">Gaming</a></li>
+                <li><a href="#ai-tools">AI Tools</a></li>
                 <li><a href="#tokenomics">Tokenomics</a></li>
-                <li><a href="#roadmap">Roadmap</a></li>
-                <li><a href="#team">Team</a></li>
                 <li><a href="whitepaper.html">Whitepaper</a></li>
+                <li><a href="#" class="cta-button">Connect Wallet</a></li>
             </ul>
-            <a href="#join" class="cta-button">Join Revolution</a>
-            <button class="mobile-toggle">☰</button>
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
         </div>
     </nav>
-
-    <!-- Advanced Hero Section -->
-    <section id="home" class="hero">
-        <div class="hero-content fade-in-up">
-            <svg class="hero-logo" viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg">
+    
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <svg class="hero-logo" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
                 <defs>
-                    <linearGradient id="heroLogo" x1="0%" y1="0%" x2="100%" y2="100%">
-                        <stop offset="0%" style="stop-color:#00D4FF;stop-opacity:1" />
-                        <stop offset="25%" style="stop-color:#7B2CBF;stop-opacity:1" />
-                        <stop offset="75%" style="stop-color:#FF6B35;stop-opacity:1" />
-                        <stop offset="100%" style="stop-color:#00FF88;stop-opacity:1" />
+                    <linearGradient id="heroLogoGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" style="stop-color:#667eea"/>
+                        <stop offset="33%" style="stop-color:#764ba2"/>
+                        <stop offset="66%" style="stop-color:#f093fb"/>
+                        <stop offset="100%" style="stop-color:#4facfe"/>
                     </linearGradient>
-                    <filter id="heroGlow">
-                        <feGaussianBlur stdDeviation="8" result="coloredBlur"/>
-                        <feMerge>
-                            <feMergeNode in="coloredBlur"/>
-                            <feMergeNode in="SourceGraphic"/>
-                        </feMerge>
-                    </filter>
                 </defs>
-                <g filter="url(#heroGlow)">
-                    <path d="M150 60 L90 220 L120 220 L135 180 L165 180 L180 220 L210 220 Z M150 110 L140 150 L160 150 Z" 
-                          fill="none" stroke="url(#heroLogo)" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/>
-                    <circle cx="150" cy="60" r="20" fill="#00D4FF"/>
-                    <circle cx="90" cy="220" r="18" fill="#7B2CBF"/>
-                    <circle cx="210" cy="220" r="18" fill="#FF6B35"/>
-                    <circle cx="135" cy="180" r="12" fill="#00FF88"/>
-                    <circle cx="165" cy="180" r="12" fill="#FFD700"/>
-                    <circle cx="150" cy="130" r="10" fill="#00D4FF"/>
-                    
-                    <!-- Animated connecting lines -->
-                    <line x1="150" y1="80" x2="135" y2="168" stroke="url(#heroLogo)" stroke-width="4" opacity="0.6">
-                        <animate attributeName="opacity" values="0.3;0.8;0.3" dur="2s" repeatCount="indefinite"/>
-                    </line>
-                    <line x1="150" y1="80" x2="165" y2="168" stroke="url(#heroLogo)" stroke-width="4" opacity="0.6">
-                        <animate attributeName="opacity" values="0.8;0.3;0.8" dur="2s" repeatCount="indefinite"/>
-                    </line>
-                    <line x1="135" y1="180" x2="165" y2="180" stroke="url(#heroLogo)" stroke-width="4" opacity="0.6">
-                        <animate attributeName="opacity" values="0.5;1;0.5" dur="1.5s" repeatCount="indefinite"/>
-                    </line>
-                </g>
+                <circle cx="50" cy="50" r="35" fill="url(#heroLogoGradient)" opacity="0.9"/>
+                <path d="M30,50 Q50,20 70,50 Q50,80 30,50" fill="url(#heroLogoGradient)"/>
+                <circle cx="50" cy="50" r="15" fill="none" stroke="white" stroke-width="2" opacity="0.8"/>
             </svg>
-            
             <h1>The Future of Decentralized Economy</h1>
-            <p class="subtitle">
-                Experience the next evolution of Web3. One unified ecosystem combining social media, 
-                DeFi, NFTs, and gaming with revolutionary AI-powered tools.
-            </p>
-            
+            <p>Launch DApps, trade tokens, create NFTs, play games, and access AI tools in one unified Web3 ecosystem. Experience the next evolution of decentralized finance and digital ownership.</p>
             <div class="hero-buttons">
-                <a href="#features" class="btn-primary">
-                    Explore Ecosystem
-                    <span>🚀</span>
+                <a href="#dapps" class="btn-primary">
+                    🚀 Launch DApp
                 </a>
-                <a href="whitepaper.html" class="btn-secondary">
-                    Technical Docs
-                    <span>📖</span>
-                </a>
+                <a href="whitepaper.html" class="btn-secondary">Read Whitepaper</a>
+            </div>
+            <div class="web3-actions">
+                <a href="#exchange" class="web3-btn">💱 Trade Tokens</a>
+                <a href="#nft" class="web3-btn">🎨 Mint NFTs</a>
+                <a href="#gaming" class="web3-btn">🎮 Play & Earn</a>
+                <a href="#ai-tools" class="web3-btn">🤖 AI Tools</a>
             </div>
         </div>
     </section>
-
-    <!-- Advanced Stats Section -->
-    <section class="stats">
+    
+    <!-- Stats Section -->
+    <section class="stats fade-in">
         <div class="stats-container">
-            <div class="stats-grid animate-on-scroll">
-                <div class="stat-item">
-                    <span class="stat-number">$886B+</span>
-                    <span class="stat-label">Market Opportunity</span>
+            <div class="stat-item">
+                <span class="stat-number" data-target="250000">0</span>
+                <div class="stat-label">Active DApp Users</div>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number" data-target="1000000">0</span>
+                <div class="stat-label">Total Transactions</div>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number" data-target="75000">0</span>
+                <div class="stat-label">NFTs Created</div>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number" data-target="15000">0</span>
+                <div class="stat-label">Gaming Players</div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- DApp Launch Section -->
+    <section class="dapp-section fade-in" id="dapps">
+        <div class="dapp-container">
+            <div class="section-header">
+                <h2 class="section-title">Launch Decentralized Applications</h2>
+                <p class="section-subtitle">Access powerful Web3 tools and services through our integrated DApp ecosystem</p>
+            </div>
+            <div class="dapp-grid">
+                <div class="dapp-card">
+                    <div class="dapp-icon">🌐</div>
+                    <h3>Social DApp</h3>
+                    <p>Decentralized social platform with content monetization, NFT integration, and community rewards. Own your social presence.</p>
+                    <div class="dapp-actions">
+                        <a href="#" class="dapp-btn primary">🚀 Launch</a>
+                        <a href="#" class="dapp-btn">📊 Analytics</a>
+                    </div>
                 </div>
-                <div class="stat-item">
-                    <span class="stat-number">4</span>
-                    <span class="stat-label">Unified Platforms</span>
+                <div class="dapp-card">
+                    <div class="dapp-icon">💰</div>
+                    <h3>DeFi Suite</h3>
+                    <p>Complete decentralized finance toolkit with lending, borrowing, yield farming, and advanced trading features.</p>
+                    <div class="dapp-actions">
+                        <a href="#" class="dapp-btn primary">🚀 Launch</a>
+                        <a href="#" class="dapp-btn">📈 Markets</a>
+                    </div>
                 </div>
-                <div class="stat-item">
-                    <span class="stat-number">1B</span>
-                    <span class="stat-label">AET Total Supply</span>
+                <div class="dapp-card">
+                    <div class="dapp-icon">🏛️</div>
+                    <h3>Governance</h3>
+                    <p>Participate in protocol governance, propose changes, and vote on ecosystem improvements. Shape the future.</p>
+                    <div class="dapp-actions">
+                        <a href="#" class="dapp-btn primary">🚀 Launch</a>
+                        <a href="#" class="dapp-btn">🗳️ Vote</a>
+                    </div>
                 </div>
-                <div class="stat-item">
-                    <span class="stat-number">2026</span>
-                    <span class="stat-label">Launch Year</span>
-                </div>
-                <div class="stat-item">
-                    <span class="stat-number">∞</span>
-                    <span class="stat-label">Innovation Potential</span>
+                <div class="dapp-card">
+                    <div class="dapp-icon">🏗️</div>
+                    <h3>Builder Tools</h3>
+                    <p>Developer toolkit for creating custom DApps, smart contracts, and integrations with Aetherium ecosystem.</p>
+                    <div class="dapp-actions">
+                        <a href="#" class="dapp-btn primary">🚀 Launch</a>
+                        <a href="#" class="dapp-btn">📚 Docs</a>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
-
-    <!-- Advanced Features Section -->
-    <section id="features" class="features">
-        <div class="container">
-            <div class="section-header animate-on-scroll">
-                <h2 class="section-title">Revolutionary Ecosystem</h2>
-                <p class="section-description">
-                    Four powerful pillars united in one seamless Web3 experience, 
-                    powered by cutting-edge AI and blockchain technology.
-                </p>
+    
+    <!-- Exchange Section -->
+    <section class="exchange-section fade-in" id="exchange">
+        <div class="exchange-container">
+            <div class="section-header">
+                <h2 class="section-title">Decentralized Exchange</h2>
+                <p class="section-subtitle">Trade tokens with zero fees, deep liquidity, and advanced trading features</p>
             </div>
-            
-            <div class="features-grid">
-                <div class="feature-card animate-on-scroll">
-                    <span class="feature-icon" style="color: var(--primary-cyan);">🌐</span>
-                    <h3>Aetherium Social</h3>
-                    <p>Revolutionary decentralized social platform where creativity meets rewards. Create, share, and earn AET tokens through AI-powered content tools, NFT integration, and community engagement. Your content, your ownership, your rewards.</p>
+            <div class="exchange-features">
+                <div class="exchange-card">
+                    <div class="exchange-icon">⚡</div>
+                    <h3>Instant Swaps</h3>
+                    <p>Lightning-fast token swaps with minimal slippage and zero platform fees. Powered by advanced AMM algorithms.</p>
+                    <div class="dapp-actions">
+                        <a href="#" class="dapp-btn primary">💱 Trade Now</a>
+                    </div>
                 </div>
-                
-                <div class="feature-card animate-on-scroll">
-                    <span class="feature-icon" style="color: var(--primary-purple);">💰</span>
-                    <h3>Aetherium Finance</h3>
-                    <p>Next-generation DeFi suite featuring advanced staking mechanisms, yield farming, and our proprietary DEX. Experience lightning-fast transactions with minimal fees, powered by multi-chain infrastructure and AI-driven optimization.</p>
+                <div class="exchange-card">
+                    <div class="exchange-icon">💧</div>
+                    <h3>Liquidity Pools</h3>
+                    <p>Provide liquidity and earn rewards. Access to exclusive yield farming opportunities with high APY returns.</p>
+                    <div class="dapp-actions">
+                        <a href="#" class="dapp-btn primary">💰 Add Liquidity</a>
+                    </div>
                 </div>
-                
-                <div class="feature-card animate-on-scroll">
-                    <span class="feature-icon" style="color: var(--primary-orange);">🎨</span>
-                    <h3>Aetherium Marketplace</h3>
-                    <p>The world's first AI-integrated NFT marketplace. Generate stunning digital art with our Midjourney-level AI engine, mint instantly as NFTs, and trade in a zero-fee environment. Where artificial intelligence meets artistic expression.</p>
-                </div>
-                
-                <div class="feature-card animate-on-scroll">
-                    <span class="feature-icon" style="color: var(--primary-green);">🎮</span>
-                    <h3>Aetherium Gaming</h3>
-                    <p>Premium play-to-earn gaming hub with competitive tournaments, global leaderboards, and immersive gaming experiences. Earn real cryptocurrency rewards while enjoying world-class gaming entertainment.</p>
+                <div class="exchange-card">
+                    <div class="exchange-icon">📊</div>
+                    <h3>Advanced Trading</h3>
+                    <p>Professional trading interface with charts, limit orders, and portfolio management tools for serious traders.</p>
+                    <div class="dapp-actions">
+                        <a href="#" class="dapp-btn primary">📈 Pro Trading</a>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
-
-    <!-- Advanced Tokenomics Section -->
-    <section id="tokenomics" class="tokenomics">
-        <div class="container">
-            <div class="section-header animate-on-scroll">
-                <h2 class="section-title">Advanced Tokenomics</h2>
-                <p class="section-description">
-                    AET token powers the entire ecosystem with innovative reward mechanisms, 
-                    deflationary features, and multi-utility applications.
-                </p>
+    
+    <!-- NFT Marketplace Section -->
+    <section class="dapp-section fade-in" id="nft">
+        <div class="dapp-container">
+            <div class="section-header">
+                <h2 class="section-title">AI-Powered NFT Marketplace</h2>
+                <p class="section-subtitle">Create, trade, and discover unique digital assets with integrated AI generation</p>
             </div>
-            
-            <div class="tokenomics-content">
-                <div class="token-info animate-on-scroll">
-                    <h3>AET Token Utilities</h3>
-                    <ul class="token-features">
-                        <li>
-                            <div class="icon">⚡</div>
-                            <span><strong>Smart Rewards:</strong> AI-optimized earning through platform engagement and content creation</span>
-                        </li>
-                        <li>
-                            <div class="icon">💎</div>
-                            <span><strong>Universal Payment:</strong> Seamless transactions across all ecosystem services with minimal fees</span>
-                        </li>
-                        <li>
-                            <div class="icon">🎯</div>
-                            <span><strong>Gaming Currency:</strong> Premium in-game currency for tournaments and exclusive gaming experiences</span>
-                        </li>
-                        <li>
-                            <div class="icon">🗳️</div>
-                            <span><strong>DAO Governance:</strong> Democratic voting rights for ecosystem decisions and future developments</span>
-                        </li>
-                        <li>
-                            <div class="icon">📈</div>
-                            <span><strong>Advanced Staking:</strong> Multiple yield generation mechanisms with compounding rewards</span>
-                        </li>
-                        <li>
-                            <div class="icon">🔥</div>
-                            <span><strong>Deflationary Burn:</strong> Regular token burning to increase scarcity and value</span>
-                        </li>
-                    </ul>
+            <div class="dapp-grid">
+                <div class="dapp-card">
+                    <div class="dapp-icon">🎨</div>
+                    <h3>AI Art Generator</h3>
+                    <p>Generate stunning artwork using advanced AI models. Create unique NFTs with text prompts and artistic styles.</p>
+                    <div class="dapp-actions">
+                        <a href="#" class="dapp-btn primary">🎨 Create Art</a>
+                        <a href="#" class="dapp-btn">🖼️ Gallery</a>
+                    </div>
                 </div>
-                
-                <div class="token-chart animate-on-scroll">
-                    <div class="pie-chart">
-                        <div class="chart-center">
-                            <div class="token-symbol">AET</div>
-                            <div class="total-supply">1B Total Supply</div>
+                <div class="dapp-card">
+                    <div class="dapp-icon">🏪</div>
+                    <h3>NFT Marketplace</h3>
+                    <p>Buy, sell, and auction NFTs in a zero-fee marketplace. Discover exclusive collections and rare digital assets.</p>
+                    <div class="dapp-actions">
+                        <a href="#" class="dapp-btn primary">🛒 Browse</a>
+                        <a href="#" class="dapp-btn">💎 Mint</a>
+                    </div>
+                </div>
+                <div class="dapp-card">
+                    <div class="dapp-icon">🎵</div>
+                    <h3>Music & Media NFTs</h3>
+                    <p>Mint and trade music, videos, and multimedia NFTs. Support creators and earn royalties on resales.</p>
+                    <div class="dapp-actions">
+                        <a href="#" class="dapp-btn primary">🎵 Explore</a>
+                        <a href="#" class="dapp-btn">💿 Upload</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Gaming Section -->
+    <section class="gaming-section fade-in" id="gaming">
+        <div class="dapp-container">
+            <div class="section-header">
+                <h2 class="section-title">Play-to-Earn Gaming Hub</h2>
+                <p class="section-subtitle">Earn real rewards while playing immersive blockchain games</p>
+            </div>
+            <div class="gaming-features">
+                <div class="gaming-card">
+                    <div class="gaming-icon">🎮</div>
+                    <h3>Battle Arena</h3>
+                    <p>Competitive PvP battles with ranked tournaments. Earn AET tokens and rare NFT rewards for victories.</p>
+                    <div class="dapp-actions">
+                        <a href="#" class="dapp-btn primary">⚔️ Play Now</a>
+                    </div>
+                </div>
+                <div class="gaming-card">
+                    <div class="gaming-icon">🏆</div>
+                    <h3>Tournaments</h3>
+                    <p>Join global tournaments with prize pools. Compete against players worldwide for exclusive rewards.</p>
+                    <div class="dapp-actions">
+                        <a href="#" class="dapp-btn primary">🏆 Join</a>
+                    </div>
+                </div>
+                <div class="gaming-card">
+                    <div class="gaming-icon">🎯</div>
+                    <h3>Skill Games</h3>
+                    <p>Test your skills in various mini-games. Earn tokens based on performance and climb the leaderboards.</p>
+                    <div class="dapp-actions">
+                        <a href="#" class="dapp-btn primary">🎯 Play</a>
+                    </div>
+                </div>
+                <div class="gaming-card">
+                    <div class="gaming-icon">🌍</div>
+                    <h3>Metaverse</h3>
+                    <p>Explore the Aetherium metaverse. Own virtual land, build experiences, and monetize your creations.</p>
+                    <div class="dapp-actions">
+                        <a href="#" class="dapp-btn primary">🌍 Explore</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- AI Tools Section -->
+    <section class="ai-tools-section fade-in" id="ai-tools">
+        <div class="dapp-container">
+            <div class="section-header">
+                <h2 class="section-title">AI-Powered Tools Suite</h2>
+                <p class="section-subtitle">Access cutting-edge AI tools for content creation, analysis, and automation</p>
+            </div>
+            <div class="ai-tools-grid">
+                <div class="ai-tool-card">
+                    <div class="ai-icon">🧠</div>
+                    <h3>AI Content Writer</h3>
+                    <p>Generate high-quality content, articles, and social media posts using advanced language models.</p>
+                    <div class="dapp-actions">
+                        <a href="#" class="dapp-btn primary">✍️ Write</a>
+                    </div>
+                </div>
+                <div class="ai-tool-card">
+                    <div class="ai-icon">📊</div>
+                    <h3>Market Analytics</h3>
+                    <p>AI-powered market analysis, price predictions, and trading signals for better investment decisions.</p>
+                    <div class="dapp-actions">
+                        <a href="#" class="dapp-btn primary">📈 Analyze</a>
+                    </div>
+                </div>
+                <div class="ai-tool-card">
+                    <div class="ai-icon">🎙️</div>
+                    <h3>Voice Synthesis</h3>
+                    <p>Create realistic voice overs and audio content using AI voice generation technology.</p>
+                    <div class="dapp-actions">
+                        <a href="#" class="dapp-btn primary">🎙️ Create</a>
+                    </div>
+                </div>
+                <div class="ai-tool-card">
+                    <div class="ai-icon">🎥</div>
+                    <h3>Video Generator</h3>
+                    <p>Generate and edit videos automatically with AI. Perfect for social media and marketing content.</p>
+                    <div class="dapp-actions">
+                        <a href="#" class="dapp-btn primary">🎥 Generate</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Tokenomics Section -->
+    <section class="tokenomics fade-in" id="tokenomics">
+        <div class="tokenomics-container">
+            <div class="chart-container">
+                <div class="pie-chart"></div>
+            </div>
+            <div class="tokenomics-info">
+                <h2>AET Tokenomics</h2>
+                <ul class="token-distribution">
+                    <li>
+                        <div style="display: flex; align-items: center;">
+                            <div class="token-color" style="background: #667eea;"></div>
+                            <span>Public Sale</span>
                         </div>
-                    </div>
-                </div>
+                        <span>30%</span>
+                    </li>
+                    <li>
+                        <div style="display: flex; align-items: center;">
+                            <div class="token-color" style="background: #764ba2;"></div>
+                            <span>Development</span>
+                        </div>
+                        <span>25%</span>
+                    </li>
+                    <li>
+                        <div style="display: flex; align-items: center;">
+                            <div class="token-color" style="background: #f093fb;"></div>
+                            <span>Ecosystem Rewards</span>
+                        </div>
+                        <span>20%</span>
+                    </li>
+                    <li>
+                        <div style="display: flex; align-items: center;">
+                            <div class="token-color" style="background: #f5576c;"></div>
+                            <span>Team & Advisors</span>
+                        </div>
+                        <span>15%</span>
+                    </li>
+                    <li>
+                        <div style="display: flex; align-items: center;">
+                            <div class="token-color" style="background: #4facfe;"></div>
+                            <span>Reserve Fund</span>
+                        </div>
+                        <span>10%</span>
+                    </li>
+                </ul>
             </div>
         </div>
     </section>
-
-    <!-- Advanced Roadmap Section -->
-    <section id="roadmap" class="roadmap">
-        <div class="container">
-            <div class="section-header animate-on-scroll">
-                <h2 class="section-title">Development Roadmap</h2>
-                <p class="section-description">
-                    Strategic milestones toward building the most comprehensive Web3 ecosystem, 
-                    with each phase bringing revolutionary features and capabilities.
-                </p>
-            </div>
-            
-            <div class="roadmap-timeline">
-                <div class="timeline-line"></div>
-                <div class="roadmap-items">
-                    <div class="roadmap-item animate-on-scroll">
-                        <div class="phase-number">1</div>
-                        <h4>Foundation & Core</h4>
-                        <div class="timeline">Q4 2025</div>
-                        <p>Smart contract development, security audits, core infrastructure setup, initial community building, and comprehensive testing of all fundamental systems.</p>
-                    </div>
-                    
-                    <div class="roadmap-item animate-on-scroll">
-                        <div class="phase-number">2</div>
-                        <h4>Beta Ecosystem</h4>
-                        <div class="timeline">Q1 2026</div>
-                        <p>Beta platform launch with AI integration, advanced testing phase, community feedback incorporation, private sale execution, and initial user onboarding.</p>
-                    </div>
-                    
-                    <div class="roadmap-item animate-on-scroll">
-                        <div class="phase-number">3</div>
-                        <h4>Public Launch</h4>
-                        <div class="timeline">Q2 2026</div>
-                        <p>Full public platform launch, DEX listings, comprehensive marketing campaign, strategic partnership announcements, and global community expansion.</p>
-                    </div>
-                    
-                    <div class="roadmap-item animate-on-scroll">
-                        <div class="phase-number">4</div>
-                        <h4>Global Expansion</h4>
-                        <div class="timeline">Q3-Q4 2026</div>
-                        <p>Major CEX listings, advanced AI features rollout, multi-chain integration, international expansion, enterprise partnerships, and ecosystem scaling.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Advanced Team Section -->
-    <section id="team" class="team">
-        <div class="container">
-            <div class="section-header animate-on-scroll">
-                <h2 class="section-title">World-Class Team</h2>
-                <p class="section-description">
-                    International expertise combining blockchain innovation, AI development, 
-                    and enterprise-grade software engineering.
-                </p>
-            </div>
-            
-            <div class="team-grid">
-                <div class="team-member animate-on-scroll">
-                    <div class="member-avatar">PM</div>
-                    <h4>Patrico M.</h4>
-                    <p style="color: var(--primary-cyan); margin-bottom: 20px; font-weight: 600;">Senior Blockchain Architect</p>
-                    <p>Leading blockchain architect from Spain with extensive experience in DeFi protocols, NFT ecosystems, and smart contract optimization. Expert in multi-chain development and security-first architecture design.</p>
-                </div>
-                <div class="team-member animate-on-scroll">
-                    <div class="member-avatar">BR</div>
-                    <h4>B. Rai</h4>
-                    <p style="color: var(--primary-purple); margin-bottom: 20px; font-weight: 600;">AI & Full-Stack Engineer</p>
-                    <p>Full-stack development specialist from India with deep expertise in AI/ML integration, advanced algorithms, and scalable backend architecture. Pioneer in blockchain-AI convergence technologies.</p>
-                </div>
-                <div class="team-member animate-on-scroll">
-                    <div class="member-avatar">DE</div>
-                    <h4>German Development Team</h4>
-                    <p style="color: var(--primary-orange); margin-bottom: 20px; font-weight: 600;">UI/UX & Mobile Specialists</p>
-                    <p>Elite German development team specializing in premium mobile applications, advanced user interface design, and seamless user experience optimization for Web3 platforms.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Advanced CTA Section -->
-    <section id="join" class="cta-section">
-        <div class="container">
-            <div class="cta-content animate-on-scroll">
-                <h2>Join the Aetherium Revolution</h2>
-                <p>
-                    Be part of the future where technology serves humanity. Join our community of innovators, 
-                    creators, and visionaries building the next generation of decentralized digital experiences.
-                </p>
-                <div class="cta-buttons">
-                    <a href="whitepaper.html" class="btn-primary">
-                        Complete Whitepaper
-                        <span>📚</span>
-                    </a>
-                    <a href="#" class="btn-secondary" style="background: rgba(255,255,255,0.1); border-color: white; color: white;">
-                        Join Community
-                        <span>🌍</span>
-                    </a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Advanced Footer -->
+    
+    <!-- Footer -->
     <footer class="footer">
-        <div class="container">
+        <div class="footer-container">
             <div class="footer-content">
                 <div class="footer-section">
-                    <h4>Aetherium Ecosystem</h4>
-                    <p style="margin-bottom: 30px;">Building the future of decentralized social economy through innovative Web3 technologies and AI integration.</p>
+                    <h3>DApp Ecosystem</h3>
+                    <ul>
+                        <li><a href="#dapps">🚀 Launch DApps</a></li>
+                        <li><a href="#exchange">💱 DEX Trading</a></li>
+                        <li><a href="#nft">🎨 NFT Marketplace</a></li>
+                        <li><a href="#gaming">🎮 Gaming Hub</a></li>
+                        <li><a href="#ai-tools">🤖 AI Tools Suite</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Trading & Finance</h3>
+                    <ul>
+                        <li><a href="#">💰 Spot Trading</a></li>
+                        <li><a href="#">📈 Advanced Charts</a></li>
+                        <li><a href="#">💧 Liquidity Pools</a></li>
+                        <li><a href="#">🌾 Yield Farming</a></li>
+                        <li><a href="#">🏦 Lending Protocol</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>NFT & Gaming</h3>
+                    <ul>
+                        <li><a href="#">🎨 AI Art Generator</a></li>
+                        <li><a href="#">🏪 NFT Collections</a></li>
+                        <li><a href="#">⚔️ Battle Arena</a></li>
+                        <li><a href="#">🏆 Tournaments</a></li>
+                        <li><a href="#">🌍 Metaverse</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Resources</h3>
+                    <ul>
+                        <li><a href="whitepaper.html">📄 Whitepaper</a></li>
+                        <li><a href="#">📚 Documentation</a></li>
+                        <li><a href="#">🛡️ Security Audits</a></li>
+                        <li><a href="#">📊 Analytics</a></li>
+                        <li><a href="#">🎓 Academy</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Community</h3>
+                    <ul>
+                        <li><a href="#">💬 Discord</a></li>
+                        <li><a href="#">🐦 Twitter</a></li>
+                        <li><a href="#">📱 Telegram</a></li>
+                        <li><a href="#">📺 YouTube</a></li>
+                        <li><a href="#">📖 Medium</a></li>
+                    </ul>
                     <div class="social-links">
-                        <a href="#" title="Twitter">🐦</a>
-                        <a href="#" title="Discord">💬</a>
-                        <a href="#" title="Telegram">📱</a>
-                        <a href="https://github.com/OrphiChain/Aetherium" title="GitHub">💻</a>
-                        <a href="#" title="LinkedIn">💼</a>
+                        <a href="#" class="social-link">🐦</a>
+                        <a href="#" class="social-link">💬</a>
+                        <a href="#" class="social-link">📱</a>
+                        <a href="#" class="social-link">📺</a>
+                        <a href="#" class="social-link">📖</a>
                     </div>
                 </div>
-                
-                <div class="footer-section">
-                    <h4>Ecosystem</h4>
-                    <ul>
-                        <li><a href="#features">Social Platform</a></li>
-                        <li><a href="#features">DeFi Suite</a></li>
-                        <li><a href="#features">NFT Marketplace</a></li>
-                        <li><a href="#features">Gaming Hub</a></li>
-                        <li><a href="#tokenomics">AET Token</a></li>
-                    </ul>
-                </div>
-                
-                <div class="footer-section">
-                    <h4>Resources</h4>
-                    <ul>
-                        <li><a href="whitepaper.html">Technical Whitepaper</a></li>
-                        <li><a href="#tokenomics">Tokenomics</a></li>
-                        <li><a href="#roadmap">Roadmap</a></li>
-                        <li><a href="#">API Documentation</a></li>
-                        <li><a href="#">Security Audits</a></li>
-                    </ul>
-                </div>
-                
-                <div class="footer-section">
-                    <h4>Company</h4>
-                    <ul>
-                        <li><a href="#team">Our Team</a></li>
-                        <li><a href="#">Careers</a></li>
-                        <li><a href="#">Press Kit</a></li>
-                        <li><a href="#">Contact Us</a></li>
-                        <li><a href="#">Legal</a></li>
-                    </ul>
-                </div>
             </div>
-            
             <div class="footer-bottom">
-                <p>&copy; 2025 Metaweb Technologies FZ LLC. All rights reserved.</p>
-                <p style="margin-top: 20px; color: var(--primary-cyan);">Building the Future of Decentralized Social Economy</p>
+                <div class="footer-logo">Building the Future of Decentralized Economy</div>
+                <p>© 2025 Aetherium. All rights reserved. Built with ❤️ for the Web3 community.</p>
             </div>
         </div>
     </footer>
-
+    
     <script>
+        // Loading Screen
+        window.addEventListener('load', () => {
+            const loading = document.getElementById('loading');
+            setTimeout(() => {
+                loading.classList.add('hidden');
+            }, 800);
+        });
+        
+        // Mobile Menu
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const navLinks = document.getElementById('navLinks');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+        
         // Particle System
         function createParticles() {
             const particlesContainer = document.getElementById('particles');
-            const particleCount = 50;
-
+            const particleCount = window.innerWidth < 768 ? 30 : 50;
+            
             for (let i = 0; i < particleCount; i++) {
                 const particle = document.createElement('div');
                 particle.className = 'particle';
                 particle.style.left = Math.random() * 100 + '%';
-                particle.style.animationDelay = Math.random() * 20 + 's';
-                particle.style.animationDuration = (Math.random() * 15 + 15) + 's';
+                particle.style.animationDuration = (Math.random() * 8 + 8) + 's';
+                particle.style.animationDelay = Math.random() * 8 + 's';
                 particlesContainer.appendChild(particle);
             }
         }
-
-        // Advanced Navbar Effects
-        window.addEventListener('scroll', () => {
-            const navbar = document.getElementById('navbar');
-            if (window.scrollY > 100) {
-                navbar.classList.add('scrolled');
-            } else {
-                navbar.classList.remove('scrolled');
-            }
-        });
-
+        
         // Smooth Scrolling
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
                 const target = document.querySelector(this.getAttribute('href'));
                 if (target) {
+                    navLinks.classList.remove('active');
                     target.scrollIntoView({
                         behavior: 'smooth',
                         block: 'start'
@@ -1585,118 +1421,108 @@
                 }
             });
         });
-
-        // Advanced Scroll Animations
+        
+        // Stats Counter Animation
+        function animateStats() {
+            const stats = document.querySelectorAll('.stat-number');
+            stats.forEach(stat => {
+                const target = parseInt(stat.getAttribute('data-target'));
+                const increment = target / 100;
+                let current = 0;
+                
+                const timer = setInterval(() => {
+                    current += increment;
+                    if (current >= target) {
+                        current = target;
+                        clearInterval(timer);
+                    }
+                    stat.textContent = Math.floor(current).toLocaleString();
+                }, 25);
+            });
+        }
+        
+        // Scroll Animations
         const observerOptions = {
             threshold: 0.1,
-            rootMargin: '0px 0px -10% 0px'
+            rootMargin: '0px 0px -50px 0px'
         };
-
+        
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    entry.target.classList.add('animated');
+                    entry.target.classList.add('visible');
+                    if (entry.target.classList.contains('stats')) {
+                        animateStats();
+                    }
                 }
             });
         }, observerOptions);
-
-        document.querySelectorAll('.animate-on-scroll').forEach(el => {
-            observer.observe(el);
-        });
-
-        // Advanced Counter Animation
-        function animateCounters() {
-            const counters = document.querySelectorAll('.stat-number');
-            const speed = 50;
-
-            counters.forEach(counter => {
-                const animate = () => {
-                    const value = counter.getAttribute('data-value') || counter.innerText;
-                    const data = parseInt(value.replace(/[^\d]/g, ''));
-                    const time = data / speed;
-                    let count = 0;
-
-                    if (data) {
-                        setInterval(() => {
-                            if (count < data) {
-                                count += time;
-                                if (value.includes('$')) {
-                                    counter.innerText = '$' + Math.floor(count).toLocaleString() + value.slice(-1);
-                                } else if (value.includes('B')) {
-                                    counter.innerText = Math.floor(count / 1000000000) + 'B+';
-                                } else {
-                                    counter.innerText = Math.floor(count).toLocaleString();
-                                }
-                            } else {
-                                counter.innerText = value;
-                            }
-                        }, 1);
-                    }
-                };
-                
-                const observer = new IntersectionObserver((entries) => {
-                    entries.forEach(entry => {
-                        if (entry.isIntersecting) {
-                            animate();
-                            observer.unobserve(entry.target);
-                        }
-                    });
-                });
-                
-                observer.observe(counter);
-            });
-        }
-
-        // Advanced Mouse Parallax Effect
-        document.addEventListener('mousemove', (e) => {
-            const cards = document.querySelectorAll('.feature-card, .team-member, .roadmap-item');
-            const mouseX = e.clientX / window.innerWidth;
-            const mouseY = e.clientY / window.innerHeight;
-
-            cards.forEach((card, index) => {
-                const speed = (index + 1) * 0.5;
-                const x = (mouseX - 0.5) * speed;
-                const y = (mouseY - 0.5) * speed;
-                
-                card.style.transform = `translate3d(${x}px, ${y}px, 0) rotateX(${y * 2}deg) rotateY(${x * 2}deg)`;
-            });
-        });
-
-        // Initialize Advanced Features
-        document.addEventListener('DOMContentLoaded', function() {
-            createParticles();
-            animateCounters();
-            
-            // Add loading animation
-            document.body.style.opacity = '0';
-            document.body.style.transition = 'opacity 1s ease-in-out';
-            
-            setTimeout(() => {
-                document.body.style.opacity = '1';
-            }, 100);
-        });
-
-        // Advanced Performance Optimizations
-        const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
         
-        if (prefersReducedMotion.matches) {
-            document.documentElement.style.setProperty('--animation-duration', '0.01s');
-        }
-
-        // Lazy Loading for Better Performance
-        const lazyImages = document.querySelectorAll('img[data-src]');
-        const imageObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    const img = entry.target;
-                    img.src = img.dataset.src;
-                    img.classList.remove('lazy');
-                    imageObserver.unobserve(img);
-                }
+        // Navbar Background on Scroll
+        let lastScrollY = window.scrollY;
+        
+        window.addEventListener('scroll', () => {
+            const navbar = document.getElementById('navbar');
+            const currentScrollY = window.scrollY;
+            
+            if (currentScrollY > 100) {
+                navbar.style.background = 'rgba(13, 17, 23, 0.95)';
+                navbar.style.boxShadow = '0 4px 24px rgba(0, 0, 0, 0.3)';
+            } else {
+                navbar.style.background = 'rgba(13, 17, 23, 0.9)';
+                navbar.style.boxShadow = 'none';
+            }
+            
+            lastScrollY = currentScrollY;
+        });
+        
+        // Initialize
+        document.addEventListener('DOMContentLoaded', () => {
+            createParticles();
+            
+            // Observe elements for animation
+            document.querySelectorAll('.fade-in').forEach(el => {
+                observer.observe(el);
+            });
+            
+            // Add loading completion class
+            setTimeout(() => {
+                document.body.classList.add('loaded');
+            }, 300);
+        });
+        
+        // Enhanced Card Interactions
+        document.querySelectorAll('.dapp-card, .exchange-card, .gaming-card, .ai-tool-card').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-6px)';
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0)';
             });
         });
-
-        lazyImages.forEach(img => imageObserver.observe(img));
+        
+        // Performance optimization
+        let ticking = false;
+        
+        function requestTick() {
+            if (!ticking) {
+                requestAnimationFrame(() => {
+                    ticking = false;
+                });
+                ticking = true;
+            }
+        }
+        
+        // Resize handler for responsive particles
+        window.addEventListener('resize', () => {
+            const particles = document.querySelectorAll('.particle');
+            if (window.innerWidth < 768 && particles.length > 30) {
+                for (let i = 30; i < particles.length; i++) {
+                    particles[i].remove();
+                }
+            }
+        });
     </script>
 </body>
 </html>
