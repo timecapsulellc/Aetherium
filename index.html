@@ -253,8 +253,31 @@
             right: 0;
             bottom: 0;
             background: 
-                radial-gradient(ellipse at top, rgba(99, 102, 241, 0.1) 0%, transparent 70%),
-                radial-gradient(ellipse at bottom, rgba(6, 182, 212, 0.05) 0%, transparent 70%);
+                radial-gradient(ellipse at top left, rgba(99, 102, 241, 0.15) 0%, transparent 50%),
+                radial-gradient(ellipse at top right, rgba(6, 182, 212, 0.1) 0%, transparent 50%),
+                radial-gradient(ellipse at bottom center, rgba(245, 158, 11, 0.05) 0%, transparent 50%),
+                linear-gradient(135deg, rgba(99, 102, 241, 0.02), rgba(6, 182, 212, 0.02));
+        }
+        
+        .hero-bg::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: 
+                radial-gradient(circle at 25% 25%, rgba(99, 102, 241, 0.3) 1px, transparent 1px),
+                radial-gradient(circle at 75% 75%, rgba(6, 182, 212, 0.3) 1px, transparent 1px);
+            background-size: 50px 50px, 30px 30px;
+            animation: float 20s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0) rotate(0deg); }
+            25% { transform: translate(-10px, -5px) rotate(1deg); }
+            50% { transform: translate(5px, -10px) rotate(-1deg); }
+            75% { transform: translate(-5px, 5px) rotate(0.5deg); }
         }
         
         .hero-content {
@@ -621,6 +644,7 @@
             .gaming-content {
                 grid-template-columns: 1fr;
                 text-align: center;
+                gap: 2rem;
             }
             
             .trust-content {
@@ -628,8 +652,14 @@
                 text-align: center;
             }
             
+            .trust-logos {
+                justify-content: center;
+            }
+            
             .hero-actions {
                 justify-content: center;
+                flex-direction: column;
+                align-items: center;
             }
             
             .btn {
@@ -644,6 +674,34 @@
             .tokenomics-chart {
                 width: 250px;
                 height: 250px;
+            }
+            
+            .gaming-visual canvas {
+                width: 100% !important;
+                max-width: 400px;
+                height: auto !important;
+            }
+            
+            .solution-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+            
+            .token-stats {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1rem;
+            }
+            
+            .h1 {
+                font-size: clamp(2rem, 8vw, 3.5rem);
+            }
+            
+            .h2 {
+                font-size: clamp(1.5rem, 6vw, 2.5rem);
+            }
+            
+            .section {
+                padding: clamp(3rem, 8vh, 6rem) 0;
             }
         }
         
@@ -661,13 +719,143 @@
                 font-size: 0.8rem;
                 padding: 0.4rem 0.8rem;
             }
+            
+            .trust-logos {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            .token-stats {
+                grid-template-columns: 1fr;
+            }
+            
+            .problem-visual {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+            
+            .gaming-visual canvas {
+                max-width: 300px;
+            }
+            
+            .nav-container {
+                padding: 0 1rem;
+            }
         }
         
-        /* Animations */
+        @media (max-width: 360px) {
+            .solution-icon,
+            .step-number {
+                width: 60px;
+                height: 60px;
+                font-size: 1.5rem;
+            }
+            
+            .hero-actions {
+                gap: 1rem;
+            }
+            
+            .final-cta-content {
+                padding: 0 1rem;
+            }
+        }
+        
+        /* Enhanced Animations */
         .fade-in-up {
             opacity: 0;
             transform: translateY(30px);
             animation: fadeInUp 0.6s ease-out forwards;
+        }
+        
+        .fade-in-left {
+            opacity: 0;
+            transform: translateX(-30px);
+            transition: all 0.8s ease;
+        }
+        
+        .fade-in-right {
+            opacity: 0;
+            transform: translateX(30px);
+            transition: all 0.8s ease;
+        }
+        
+        .scale-in {
+            opacity: 0;
+            transform: scale(0.9);
+            transition: all 0.6s ease;
+        }
+        
+        .rotate-in {
+            opacity: 0;
+            transform: rotate(-5deg) scale(0.95);
+            transition: all 0.7s ease;
+        }
+        
+        /* Hover effects */
+        .hover-lift {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .hover-lift:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+        
+        .hover-glow {
+            transition: box-shadow 0.3s ease;
+        }
+        
+        .hover-glow:hover {
+            box-shadow: 0 0 30px rgba(99, 102, 241, 0.4);
+        }
+        
+        /* Pulse animation for CTA buttons */
+        .pulse-cta {
+            animation: pulseGlow 2s ease-in-out infinite;
+        }
+        
+        @keyframes pulseGlow {
+            0%, 100% {
+                box-shadow: 0 4px 20px rgba(99, 102, 241, 0.3);
+            }
+            50% {
+                box-shadow: 0 4px 30px rgba(99, 102, 241, 0.6);
+            }
+        }
+        
+        /* Floating particles */
+        .particles {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            pointer-events: none;
+        }
+        
+        .particle {
+            position: absolute;
+            background: rgba(99, 102, 241, 0.6);
+            border-radius: 50%;
+            animation: floatUp 8s linear infinite;
+        }
+        
+        @keyframes floatUp {
+            0% {
+                opacity: 0;
+                transform: translateY(100vh) rotate(0deg);
+            }
+            10% {
+                opacity: 1;
+            }
+            90% {
+                opacity: 1;
+            }
+            100% {
+                opacity: 0;
+                transform: translateY(-100px) rotate(360deg);
+            }
         }
         
         @keyframes fadeInUp {
@@ -682,6 +870,8 @@
         .delay-200 { animation-delay: 0.2s; }
         .delay-300 { animation-delay: 0.3s; }
         .delay-400 { animation-delay: 0.4s; }
+        .delay-500 { animation-delay: 0.5s; }
+        .delay-600 { animation-delay: 0.6s; }
         
         /* Loading states */
         .loading {
@@ -741,6 +931,7 @@
     <!-- Hero Section -->
     <section class="hero">
         <div class="hero-bg"></div>
+        <div class="particles" id="particles"></div>
         <div class="container">
             <div class="hero-content text-center">
                 <div class="hero-badge fade-in-up">
@@ -752,11 +943,11 @@
                     Turn every social interaction into rewards. The Web3 platform where your connections pay you.
                 </p>
                 <div class="hero-actions fade-in-up delay-300">
-                    <button class="btn btn-primary" onclick="joinEarlyAccess()">
+                    <button class="btn btn-primary pulse-cta hover-glow" onclick="joinEarlyAccess()">
                         Start Earning Now
                         <span>→</span>
                     </button>
-                    <a href="#demo" class="btn btn-secondary">See Demo</a>
+                    <a href="#demo" class="btn btn-secondary hover-lift">See Demo</a>
                 </div>
             </div>
         </div>
@@ -826,28 +1017,28 @@
             </p>
             
             <div class="solution-grid">
-                <div class="solution-card fade-in-up">
+                <div class="solution-card hover-lift scale-in">
                     <div class="solution-icon">💬</div>
                     <h3 class="solution-title">Social That Pays</h3>
                     <p class="solution-description">
                         Every post, like, and comment earns tokens. Build your network, grow your wealth.
                     </p>
                 </div>
-                <div class="solution-card fade-in-up delay-100">
+                <div class="solution-card hover-lift scale-in delay-100">
                     <div class="solution-icon">💰</div>
                     <h3 class="solution-title">DeFi Made Simple</h3>
                     <p class="solution-description">
                         Stake, swap, and earn yield without leaving the app. DeFi for real people.
                     </p>
                 </div>
-                <div class="solution-card fade-in-up delay-200">
+                <div class="solution-card hover-lift scale-in delay-200">
                     <div class="solution-icon">🎮</div>
                     <h3 class="solution-title">Play to Earn</h3>
                     <p class="solution-description">
                         Casual games with real rewards. Turn downtime into income.
                     </p>
                 </div>
-                <div class="solution-card fade-in-up delay-300">
+                <div class="solution-card hover-lift scale-in delay-300">
                     <div class="solution-icon">🤖</div>
                     <h3 class="solution-title">AI Content Tools</h3>
                     <p class="solution-description">
@@ -951,10 +1142,10 @@
                     <button class="btn btn-primary" onclick="joinEarlyAccess()">Try Gaming Beta</button>
                 </div>
                 <div class="gaming-visual">
-                    <div class="gaming-placeholder">
-                        <div class="gaming-placeholder-icon">🎮</div>
-                        <p>Interactive Game Demo</p>
-                        <small>Coming in Beta Release</small>
+                    <canvas id="gameCanvas" width="500" height="350" style="border-radius: 16px; background: linear-gradient(135deg, rgba(99, 102, 241, 0.2), rgba(6, 182, 212, 0.2)); border: 1px solid var(--glass-border);"></canvas>
+                    <div class="game-controls" style="margin-top: 1rem; text-align: center;">
+                        <button class="btn btn-primary" onclick="startGame()" id="startBtn">Start Game</button>
+                        <div id="gameScore" style="margin-top: 0.5rem; color: var(--primary-light); font-weight: 600;">Score: 0 | Tokens Earned: 0</div>
                     </div>
                 </div>
             </div>
@@ -989,7 +1180,10 @@
             // Hero 3D animation
             initHero3D();
             
-            // Scroll animations
+            // Initialize particle system
+            initParticles();
+            
+            // Enhanced scroll animations
             gsap.utils.toArray('.fade-in-up').forEach((element, index) => {
                 gsap.fromTo(element, 
                     { opacity: 0, y: 30 },
@@ -1007,26 +1201,127 @@
                 );
             });
             
-            // Solution cards animation
-            gsap.utils.toArray('.solution-card').forEach((card, index) => {
-                gsap.fromTo(card,
-                    { opacity: 0, y: 50 },
+            // Scale in animations
+            gsap.utils.toArray('.scale-in').forEach((element, index) => {
+                gsap.fromTo(element,
+                    { opacity: 0, scale: 0.9 },
                     {
                         opacity: 1,
-                        y: 0,
+                        scale: 1,
                         duration: 0.6,
-                        delay: index * 0.1,
-                        ease: "power2.out",
+                        ease: "back.out(1.7)",
                         scrollTrigger: {
-                            trigger: card,
+                            trigger: element,
                             start: "top 80%"
                         }
                     }
                 );
             });
             
+            // Slide animations
+            gsap.utils.toArray('.fade-in-left').forEach((element) => {
+                gsap.fromTo(element,
+                    { opacity: 0, x: -50 },
+                    {
+                        opacity: 1,
+                        x: 0,
+                        duration: 0.8,
+                        ease: "power2.out",
+                        scrollTrigger: {
+                            trigger: element,
+                            start: "top 80%"
+                        }
+                    }
+                );
+            });
+            
+            gsap.utils.toArray('.fade-in-right').forEach((element) => {
+                gsap.fromTo(element,
+                    { opacity: 0, x: 50 },
+                    {
+                        opacity: 1,
+                        x: 0,
+                        duration: 0.8,
+                        ease: "power2.out",
+                        scrollTrigger: {
+                            trigger: element,
+                            start: "top 80%"
+                        }
+                    }
+                );
+            });
+            
+            // Problem section animation
+            const problemContent = document.querySelector('.problem-content');
+            if (problemContent) {
+                gsap.fromTo(problemContent.children[0],
+                    { opacity: 0, x: -50 },
+                    {
+                        opacity: 1,
+                        x: 0,
+                        duration: 0.8,
+                        scrollTrigger: {
+                            trigger: problemContent,
+                            start: "top 70%"
+                        }
+                    }
+                );
+                
+                gsap.fromTo(problemContent.children[1],
+                    { opacity: 0, x: 50 },
+                    {
+                        opacity: 1,
+                        x: 0,
+                        duration: 0.8,
+                        delay: 0.2,
+                        scrollTrigger: {
+                            trigger: problemContent,
+                            start: "top 70%"
+                        }
+                    }
+                );
+            }
+            
             // Tokenomics chart
             initTokenomicsChart();
+        }
+        
+        // Particle system for hero section
+        function initParticles() {
+            const particlesContainer = document.getElementById('particles');
+            if (!particlesContainer) return;
+            
+            function createParticle() {
+                const particle = document.createElement('div');
+                particle.className = 'particle';
+                
+                // Random size and position
+                const size = Math.random() * 4 + 2;
+                particle.style.width = size + 'px';
+                particle.style.height = size + 'px';
+                particle.style.left = Math.random() * 100 + '%';
+                particle.style.animationDelay = Math.random() * 8 + 's';
+                particle.style.animationDuration = (Math.random() * 4 + 6) + 's';
+                
+                // Random color variation
+                const colors = ['rgba(99, 102, 241, 0.6)', 'rgba(6, 182, 212, 0.4)', 'rgba(245, 158, 11, 0.5)'];
+                particle.style.background = colors[Math.floor(Math.random() * colors.length)];
+                
+                particlesContainer.appendChild(particle);
+                
+                // Remove particle after animation
+                setTimeout(() => {
+                    particle.remove();
+                }, 8000);
+            }
+            
+            // Create particles periodically
+            setInterval(createParticle, 800);
+            
+            // Create initial batch
+            for (let i = 0; i < 5; i++) {
+                setTimeout(createParticle, i * 200);
+            }
         }
         
         // Hero 3D animation with Three.js
@@ -1087,7 +1382,7 @@
             animate();
         }
         
-        // Tokenomics chart with Canvas
+        // Enhanced Tokenomics chart with animation
         function initTokenomicsChart() {
             const canvas = document.createElement('canvas');
             const container = document.getElementById('tokenomicsChart');
@@ -1103,41 +1398,156 @@
             const radius = 120;
             
             const data = [
-                { label: 'Community', value: 30, color: '#6366f1' },
-                { label: 'Liquidity', value: 25, color: '#06b6d4' },
-                { label: 'Development', value: 20, color: '#f59e0b' },
-                { label: 'Team', value: 15, color: '#10b981' },
-                { label: 'Public Sale', value: 10, color: '#ef4444' }
+                { label: 'Community Rewards', value: 30, color: '#6366f1', highlight: '#818cf8' },
+                { label: 'Liquidity & Staking', value: 25, color: '#06b6d4', highlight: '#22d3ee' },
+                { label: 'Development', value: 20, color: '#f59e0b', highlight: '#fbbf24' },
+                { label: 'Team & Advisors', value: 15, color: '#10b981', highlight: '#34d399' },
+                { label: 'Public Sale', value: 10, color: '#ef4444', highlight: '#f87171' }
             ];
             
-            let currentAngle = -Math.PI / 2;
+            let animationProgress = 0;
+            let hoveredSegment = -1;
             
-            data.forEach(segment => {
-                const sliceAngle = (segment.value / 100) * 2 * Math.PI;
+            function drawChart(progress = 1) {
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                
+                let currentAngle = -Math.PI / 2;
+                
+                data.forEach((segment, index) => {
+                    const sliceAngle = (segment.value / 100) * 2 * Math.PI * progress;
+                    const isHovered = hoveredSegment === index;
+                    const segmentRadius = isHovered ? radius + 10 : radius;
+                    
+                    // Draw segment
+                    ctx.beginPath();
+                    ctx.moveTo(centerX, centerY);
+                    ctx.arc(centerX, centerY, segmentRadius, currentAngle, currentAngle + sliceAngle);
+                    ctx.closePath();
+                    
+                    // Create gradient for segment
+                    const gradient = ctx.createRadialGradient(centerX, centerY, 0, centerX, centerY, segmentRadius);
+                    gradient.addColorStop(0, isHovered ? segment.highlight : segment.color);
+                    gradient.addColorStop(1, segment.color);
+                    
+                    ctx.fillStyle = gradient;
+                    ctx.fill();
+                    
+                    // Add subtle border
+                    ctx.strokeStyle = 'rgba(255, 255, 255, 0.1)';
+                    ctx.lineWidth = 2;
+                    ctx.stroke();
+                    
+                    // Draw label if hovered
+                    if (isHovered && progress === 1) {
+                        const labelAngle = currentAngle + sliceAngle / 2;
+                        const labelX = centerX + Math.cos(labelAngle) * (radius + 30);
+                        const labelY = centerY + Math.sin(labelAngle) * (radius + 30);
+                        
+                        ctx.fillStyle = '#ffffff';
+                        ctx.font = 'bold 12px Inter';
+                        ctx.textAlign = 'center';
+                        ctx.fillText(segment.label, labelX, labelY);
+                        ctx.fillText(`${segment.value}%`, labelX, labelY + 15);
+                    }
+                    
+                    currentAngle += sliceAngle;
+                });
+                
+                // Add center circle with gradient
+                const centerGradient = ctx.createRadialGradient(centerX, centerY, 0, centerX, centerY, 60);
+                centerGradient.addColorStop(0, '#2a2a2a');
+                centerGradient.addColorStop(1, '#1a1a1a');
                 
                 ctx.beginPath();
-                ctx.moveTo(centerX, centerY);
-                ctx.arc(centerX, centerY, radius, currentAngle, currentAngle + sliceAngle);
-                ctx.closePath();
-                ctx.fillStyle = segment.color;
+                ctx.arc(centerX, centerY, 60, 0, 2 * Math.PI);
+                ctx.fillStyle = centerGradient;
                 ctx.fill();
                 
-                currentAngle += sliceAngle;
+                ctx.strokeStyle = 'rgba(255, 255, 255, 0.1)';
+                ctx.lineWidth = 2;
+                ctx.stroke();
+                
+                // Add center text with glow
+                ctx.shadowColor = '#6366f1';
+                ctx.shadowBlur = 10;
+                ctx.fillStyle = '#ffffff';
+                ctx.font = 'bold 24px Space Grotesk';
+                ctx.textAlign = 'center';
+                ctx.fillText('AET', centerX, centerY - 5);
+                
+                ctx.shadowBlur = 5;
+                ctx.font = '14px Inter';
+                ctx.fillText('Token', centerX, centerY + 15);
+                
+                ctx.shadowBlur = 0;
+            }
+            
+            // Animation function
+            function animate() {
+                if (animationProgress < 1) {
+                    animationProgress += 0.02;
+                    drawChart(animationProgress);
+                    requestAnimationFrame(animate);
+                } else {
+                    drawChart(1);
+                }
+            }
+            
+            // Mouse interaction
+            canvas.addEventListener('mousemove', (e) => {
+                const rect = canvas.getBoundingClientRect();
+                const x = e.clientX - rect.left - centerX;
+                const y = e.clientY - rect.top - centerY;
+                const distance = Math.sqrt(x * x + y * y);
+                
+                if (distance < radius && distance > 60) {
+                    let angle = Math.atan2(y, x);
+                    if (angle < 0) angle += 2 * Math.PI;
+                    angle = (angle + Math.PI / 2) % (2 * Math.PI);
+                    
+                    let currentAngle = 0;
+                    let newHoveredSegment = -1;
+                    
+                    for (let i = 0; i < data.length; i++) {
+                        const sliceAngle = (data[i].value / 100) * 2 * Math.PI;
+                        if (angle >= currentAngle && angle < currentAngle + sliceAngle) {
+                            newHoveredSegment = i;
+                            break;
+                        }
+                        currentAngle += sliceAngle;
+                    }
+                    
+                    if (newHoveredSegment !== hoveredSegment) {
+                        hoveredSegment = newHoveredSegment;
+                        canvas.style.cursor = 'pointer';
+                        drawChart(1);
+                    }
+                } else {
+                    if (hoveredSegment !== -1) {
+                        hoveredSegment = -1;
+                        canvas.style.cursor = 'default';
+                        drawChart(1);
+                    }
+                }
             });
             
-            // Add center circle
-            ctx.beginPath();
-            ctx.arc(centerX, centerY, 60, 0, 2 * Math.PI);
-            ctx.fillStyle = '#1a1a1a';
-            ctx.fill();
+            canvas.addEventListener('mouseleave', () => {
+                hoveredSegment = -1;
+                canvas.style.cursor = 'default';
+                drawChart(1);
+            });
             
-            // Add center text
-            ctx.fillStyle = '#ffffff';
-            ctx.font = 'bold 24px Space Grotesk';
-            ctx.textAlign = 'center';
-            ctx.fillText('AET', centerX, centerY - 5);
-            ctx.font = '14px Inter';
-            ctx.fillText('Token', centerX, centerY + 15);
+            // Start animation when in view
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        animate();
+                        observer.unobserve(entry.target);
+                    }
+                });
+            });
+            
+            observer.observe(canvas);
         }
         
         // Early access functionality
@@ -1219,8 +1629,242 @@
             });
         });
         
+        // Simple canvas game implementation
+        function initGame() {
+            const canvas = document.getElementById('gameCanvas');
+            const ctx = canvas.getContext('2d');
+            
+            let game = {
+                player: { x: 50, y: 275, width: 30, height: 30, speed: 5 },
+                obstacles: [],
+                tokens: [],
+                score: 0,
+                tokensEarned: 0,
+                gameSpeed: 2,
+                running: false,
+                animationId: null
+            };
+            
+            // Game objects
+            function createObstacle() {
+                return {
+                    x: canvas.width,
+                    y: Math.random() * (canvas.height - 100) + 50,
+                    width: 20,
+                    height: 60,
+                    speed: game.gameSpeed
+                };
+            }
+            
+            function createToken() {
+                return {
+                    x: canvas.width,
+                    y: Math.random() * (canvas.height - 100) + 50,
+                    width: 15,
+                    height: 15,
+                    speed: game.gameSpeed,
+                    collected: false
+                };
+            }
+            
+            // Game mechanics
+            function update() {
+                if (!game.running) return;
+                
+                // Move obstacles
+                game.obstacles.forEach((obstacle, index) => {
+                    obstacle.x -= obstacle.speed;
+                    if (obstacle.x + obstacle.width < 0) {
+                        game.obstacles.splice(index, 1);
+                        game.score += 10;
+                    }
+                });
+                
+                // Move tokens
+                game.tokens.forEach((token, index) => {
+                    token.x -= token.speed;
+                    if (token.x + token.width < 0) {
+                        game.tokens.splice(index, 1);
+                    }
+                    
+                    // Check token collection
+                    if (!token.collected && 
+                        game.player.x < token.x + token.width &&
+                        game.player.x + game.player.width > token.x &&
+                        game.player.y < token.y + token.height &&
+                        game.player.y + game.player.height > token.y) {
+                        token.collected = true;
+                        game.tokensEarned++;
+                        game.score += 50;
+                        game.tokens.splice(index, 1);
+                    }
+                });
+                
+                // Check collisions with obstacles
+                game.obstacles.forEach(obstacle => {
+                    if (game.player.x < obstacle.x + obstacle.width &&
+                        game.player.x + game.player.width > obstacle.x &&
+                        game.player.y < obstacle.y + obstacle.height &&
+                        game.player.y + game.player.height > obstacle.y) {
+                        endGame();
+                    }
+                });
+                
+                // Spawn new objects
+                if (Math.random() < 0.005) game.obstacles.push(createObstacle());
+                if (Math.random() < 0.003) game.tokens.push(createToken());
+                
+                // Increase difficulty
+                game.gameSpeed = Math.min(4, 2 + game.score / 1000);
+            }
+            
+            function draw() {
+                // Clear canvas
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                
+                // Draw player (cube with gradient)
+                const playerGradient = ctx.createLinearGradient(game.player.x, game.player.y, game.player.x + game.player.width, game.player.y + game.player.height);
+                playerGradient.addColorStop(0, '#6366f1');
+                playerGradient.addColorStop(1, '#818cf8');
+                ctx.fillStyle = playerGradient;
+                ctx.fillRect(game.player.x, game.player.y, game.player.width, game.player.height);
+                
+                // Draw obstacles
+                ctx.fillStyle = '#ef4444';
+                game.obstacles.forEach(obstacle => {
+                    ctx.fillRect(obstacle.x, obstacle.y, obstacle.width, obstacle.height);
+                });
+                
+                // Draw tokens
+                ctx.fillStyle = '#f59e0b';
+                game.tokens.forEach(token => {
+                    ctx.beginPath();
+                    ctx.arc(token.x + token.width/2, token.y + token.height/2, token.width/2, 0, Math.PI * 2);
+                    ctx.fill();
+                });
+                
+                // Draw UI elements
+                if (game.running) {
+                    ctx.fillStyle = '#ffffff';
+                    ctx.font = '16px Inter';
+                    ctx.fillText('Use WASD or Arrow Keys to move', 10, 25);
+                    ctx.fillText('Collect coins, avoid red blocks', 10, 45);
+                }
+            }
+            
+            function gameLoop() {
+                update();
+                draw();
+                updateScore();
+                if (game.running) {
+                    game.animationId = requestAnimationFrame(gameLoop);
+                }
+            }
+            
+            function updateScore() {
+                const scoreElement = document.getElementById('gameScore');
+                if (scoreElement) {
+                    scoreElement.textContent = `Score: ${game.score} | Tokens Earned: ${game.tokensEarned}`;
+                }
+            }
+            
+            function endGame() {
+                game.running = false;
+                if (game.animationId) {
+                    cancelAnimationFrame(game.animationId);
+                }
+                
+                const startBtn = document.getElementById('startBtn');
+                if (startBtn) {
+                    startBtn.textContent = 'Play Again';
+                }
+                
+                // Show game over message
+                ctx.fillStyle = 'rgba(0, 0, 0, 0.8)';
+                ctx.fillRect(0, 0, canvas.width, canvas.height);
+                
+                ctx.fillStyle = '#ffffff';
+                ctx.font = 'bold 32px Space Grotesk';
+                ctx.textAlign = 'center';
+                ctx.fillText('Game Over!', canvas.width/2, canvas.height/2 - 40);
+                
+                ctx.font = '18px Inter';
+                ctx.fillText(`Final Score: ${game.score}`, canvas.width/2, canvas.height/2);
+                ctx.fillText(`AET Tokens Earned: ${game.tokensEarned}`, canvas.width/2, canvas.height/2 + 25);
+                
+                ctx.font = '14px Inter';
+                ctx.fillText('Join Early Access to earn real tokens!', canvas.width/2, canvas.height/2 + 60);
+                
+                ctx.textAlign = 'left';
+                
+                if (game.tokensEarned > 5) {
+                    showNotification('🎉 Nice game! Join Early Access to earn real AET tokens!');
+                }
+            }
+            
+            // Controls
+            const keys = {};
+            
+            window.addEventListener('keydown', (e) => {
+                keys[e.key.toLowerCase()] = true;
+                if (['ArrowUp', 'ArrowDown', 'ArrowLeft', 'ArrowRight', ' '].includes(e.key)) {
+                    e.preventDefault();
+                }
+            });
+            
+            window.addEventListener('keyup', (e) => {
+                keys[e.key.toLowerCase()] = false;
+            });
+            
+            function handleInput() {
+                if (!game.running) return;
+                
+                if (keys['w'] || keys['arrowup']) {
+                    game.player.y = Math.max(0, game.player.y - game.player.speed);
+                }
+                if (keys['s'] || keys['arrowdown']) {
+                    game.player.y = Math.min(canvas.height - game.player.height, game.player.y + game.player.speed);
+                }
+                if (keys['a'] || keys['arrowleft']) {
+                    game.player.x = Math.max(0, game.player.x - game.player.speed);
+                }
+                if (keys['d'] || keys['arrowright']) {
+                    game.player.x = Math.min(canvas.width - game.player.width, game.player.x + game.player.speed);
+                }
+                
+                requestAnimationFrame(handleInput);
+            }
+            
+            handleInput();
+            
+            // Start game function
+            window.startGame = function() {
+                game.obstacles = [];
+                game.tokens = [];
+                game.score = 0;
+                game.tokensEarned = 0;
+                game.gameSpeed = 2;
+                game.player.x = 50;
+                game.player.y = 275;
+                game.running = true;
+                
+                const startBtn = document.getElementById('startBtn');
+                if (startBtn) {
+                    startBtn.textContent = 'Playing...';
+                }
+                
+                gameLoop();
+            };
+            
+            // Initial draw
+            draw();
+        }
+        
         // Initialize everything when DOM is loaded
-        document.addEventListener('DOMContentLoaded', initAnimations);
+        document.addEventListener('DOMContentLoaded', () => {
+            initAnimations();
+            initGame();
+        });
         
         // Add viewport meta tag for mobile
         if (!document.querySelector('meta[name="viewport"]')) {
