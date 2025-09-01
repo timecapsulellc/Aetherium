@@ -3,1746 +3,1214 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aetherium - The Future of Decentralized Economy</title>
+    <title>Aetherium - Monetize Your Network</title>
     
     <!-- SEO Meta Tags -->
-    <meta name="description" content="Experience the next evolution of Web3 with Aetherium's unified ecosystem combining DApps, DeFi, NFTs, gaming, and AI-powered tools.">
-    <meta name="keywords" content="Web3, DApp, DeFi, NFT, Blockchain, Gaming, AI Tools, Cryptocurrency, Exchange, NFT Marketplace">
-    <meta name="author" content="Aetherium Team">
+    <meta name="description" content="Turn your social connections into rewards. Join the Web3 social platform where every interaction pays you.">
+    <meta name="keywords" content="Web3 Social, Monetize Network, Crypto Rewards, Social DeFi, friend.tech alternative">
+    <meta name="author" content="Aetherium">
     
     <!-- Open Graph Tags -->
-    <meta property="og:title" content="Aetherium - The Future of Decentralized Economy">
-    <meta property="og:description" content="Launch DApps, trade tokens, create NFTs, play games, and access AI tools in one unified Web3 ecosystem">
-    <meta property="og:image" content="https://aetherium.vercel.app/og-image.png">
-    <meta property="og:url" content="https://aetherium.vercel.app">
+    <meta property="og:title" content="Aetherium - Monetize Your Network">
+    <meta property="og:description" content="Turn your social connections into rewards. Join the Web3 social platform where every interaction pays you.">
     <meta property="og:type" content="website">
+    <meta property="og:url" content="https://aetheriumcrypto.netlify.app">
     
     <!-- Twitter Card Tags -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Aetherium - The Future of Decentralized Economy">
-    <meta name="twitter:description" content="Launch DApps, trade tokens, create NFTs, play games, and access AI tools">
-    <meta name="twitter:image" content="https://aetherium.vercel.app/twitter-card.png">
-    
-    <!-- Favicon -->
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='40' fill='%2300d4ff'/><path d='M30,50 Q50,20 70,50 Q50,80 30,50' fill='%236c63ff'/></svg>">
+    <meta name="twitter:title" content="Aetherium - Monetize Your Network">
+    <meta name="twitter:description" content="Turn your social connections into rewards">
     
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- 3D and Animation Libraries -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
     
     <style>
+        :root {
+            /* Colors inspired by friend.tech and Rainbow */
+            --primary: #6366f1;
+            --primary-light: #818cf8;
+            --primary-dark: #4338ca;
+            --secondary: #06b6d4;
+            --accent: #f59e0b;
+            --success: #10b981;
+            --danger: #ef4444;
+            
+            /* Neutral colors */
+            --white: #ffffff;
+            --gray-50: #f9fafb;
+            --gray-100: #f3f4f6;
+            --gray-200: #e5e7eb;
+            --gray-300: #d1d5db;
+            --gray-400: #9ca3af;
+            --gray-500: #6b7280;
+            --gray-600: #4b5563;
+            --gray-700: #374151;
+            --gray-800: #1f2937;
+            --gray-900: #111827;
+            
+            /* Background */
+            --bg-primary: #0c0c0c;
+            --bg-secondary: #1a1a1a;
+            --bg-card: rgba(255, 255, 255, 0.03);
+            
+            /* Glass effect */
+            --glass-bg: rgba(255, 255, 255, 0.05);
+            --glass-border: rgba(255, 255, 255, 0.1);
+            
+            /* Typography */
+            --font-primary: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            --font-display: 'Space Grotesk', var(--font-primary);
+            
+            /* Spacing */
+            --container-padding: clamp(1rem, 5vw, 2rem);
+            --section-spacing: clamp(4rem, 10vh, 8rem);
+            
+            /* Animations */
+            --transition: 0.2s ease;
+            --transition-slow: 0.4s ease;
+        }
+        
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
         
-        :root {
-            --primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            --secondary-gradient: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
-            --accent-gradient: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
-            --success-gradient: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
-            --warning-gradient: linear-gradient(135deg, #fcb045 0%, #fd1d1d 100%);
-            --text-primary: #ffffff;
-            --text-secondary: #a0aec0;
-            --text-muted: #718096;
-            --background-primary: #0d1117;
-            --background-secondary: #161b22;
-            --background-tertiary: #21262d;
-            --background-card: rgba(33, 38, 45, 0.8);
-            --glass-bg: rgba(255, 255, 255, 0.05);
-            --glass-border: rgba(255, 255, 255, 0.1);
-            --shadow-primary: 0 8px 32px rgba(0, 0, 0, 0.4);
-            --shadow-glass: 0 8px 32px rgba(31, 38, 135, 0.2);
-            --border-radius: 16px;
-            --border-radius-lg: 24px;
-            --spacing-unit: 1rem;
+        html {
+            scroll-behavior: smooth;
         }
         
         body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            background: var(--background-primary);
-            color: var(--text-primary);
+            font-family: var(--font-primary);
+            background: var(--bg-primary);
+            color: var(--white);
             line-height: 1.6;
             overflow-x: hidden;
-            font-size: 16px;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
         }
         
-        /* Animated Background */
-        .animated-bg {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100vh;
-            background: linear-gradient(45deg, var(--background-primary), var(--background-secondary), var(--background-tertiary));
-            background-size: 400% 400%;
-            animation: gradientShift 20s ease infinite;
-            z-index: -2;
+        /* Utility Classes */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 var(--container-padding);
         }
         
-        @keyframes gradientShift {
-            0%, 100% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
+        .section {
+            padding: var(--section-spacing) 0;
         }
         
-        /* Navigation - Fixed Layout Issues */
-        .navbar {
+        .text-center { text-align: center; }
+        .text-left { text-align: left; }
+        
+        /* Typography */
+        .h1 {
+            font-family: var(--font-display);
+            font-size: clamp(2.5rem, 6vw, 4rem);
+            font-weight: 700;
+            line-height: 1.1;
+            letter-spacing: -0.02em;
+        }
+        
+        .h2 {
+            font-family: var(--font-display);
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 600;
+            line-height: 1.2;
+            letter-spacing: -0.01em;
+        }
+        
+        .h3 {
+            font-family: var(--font-display);
+            font-size: clamp(1.5rem, 3vw, 2rem);
+            font-weight: 600;
+            line-height: 1.3;
+        }
+        
+        .subtitle {
+            font-size: clamp(1.125rem, 2.5vw, 1.25rem);
+            color: var(--gray-400);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .body-large {
+            font-size: 1.125rem;
+            line-height: 1.7;
+        }
+        
+        /* Buttons */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 12px;
+            font-weight: 600;
+            font-size: 1rem;
+            text-decoration: none;
+            cursor: pointer;
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary), var(--primary-light));
+            color: var(--white);
+            box-shadow: 0 4px 20px rgba(99, 102, 241, 0.3);
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(99, 102, 241, 0.4);
+        }
+        
+        .btn-secondary {
+            background: var(--glass-bg);
+            color: var(--white);
+            border: 1px solid var(--glass-border);
+            backdrop-filter: blur(20px);
+        }
+        
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: rgba(255, 255, 255, 0.2);
+        }
+        
+        /* Navigation */
+        .nav {
             position: fixed;
             top: 0;
             left: 0;
             right: 0;
             z-index: 1000;
-            padding: 0.75rem 0;
+            background: rgba(12, 12, 12, 0.8);
             backdrop-filter: blur(20px);
-            background: rgba(13, 17, 23, 0.9);
             border-bottom: 1px solid var(--glass-border);
-            transition: all 0.3s ease;
         }
         
         .nav-container {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 0 1.5rem;
             display: flex;
+            align-items: center;
             justify-content: space-between;
-            align-items: center;
-            height: 60px;
+            height: 70px;
         }
         
-        .logo {
+        .nav-logo {
             display: flex;
             align-items: center;
-            gap: 0.5rem;
-            font-size: 1.25rem;
-            font-weight: 700;
-            color: var(--text-primary);
+            gap: 0.75rem;
             text-decoration: none;
-            z-index: 1001;
+            color: var(--white);
+            font-weight: 700;
+            font-size: 1.25rem;
         }
         
-        .logo-svg {
+        .nav-logo svg {
             width: 32px;
             height: 32px;
-            flex-shrink: 0;
-            animation: logoRotate 15s linear infinite;
         }
         
-        @keyframes logoRotate {
-            from { transform: rotate(0deg); }
-            to { transform: rotate(360deg); }
-        }
-        
-        .nav-links {
+        .nav-actions {
             display: flex;
-            list-style: none;
-            gap: 1.5rem;
             align-items: center;
+            gap: 1rem;
         }
         
-        .nav-links a {
-            color: var(--text-secondary);
-            text-decoration: none;
-            font-weight: 500;
-            font-size: 0.9rem;
-            transition: all 0.3s ease;
-            padding: 0.5rem 0.75rem;
-            border-radius: 8px;
-            white-space: nowrap;
-        }
-        
-        .nav-links a:hover {
-            color: var(--text-primary);
-            background: var(--glass-bg);
-        }
-        
-        .cta-button {
-            background: var(--accent-gradient);
-            padding: 0.6rem 1.2rem;
-            border-radius: 10px;
-            font-weight: 600;
-            font-size: 0.9rem;
-            transition: all 0.3s ease;
-            box-shadow: var(--shadow-glass);
-        }
-        
-        .cta-button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 32px rgba(79, 172, 254, 0.4);
-        }
-        
-        /* Mobile Menu */
-        .mobile-menu-btn {
+        .nav-mobile-toggle {
             display: none;
-            flex-direction: column;
-            gap: 4px;
             background: none;
             border: none;
-            padding: 8px;
+            color: var(--white);
+            font-size: 1.5rem;
             cursor: pointer;
         }
         
-        .mobile-menu-btn span {
-            width: 24px;
-            height: 2px;
-            background: var(--text-primary);
-            transition: all 0.3s ease;
-        }
-        
-        /* Hero Section - Fixed Typography */
+        /* Hero Section */
         .hero {
             min-height: 100vh;
             display: flex;
             align-items: center;
-            justify-content: center;
-            text-align: center;
-            padding: 2rem 1rem;
-            position: relative;
-        }
-        
-        .hero-content {
-            max-width: 800px;
-            z-index: 10;
-        }
-        
-        .hero-logo {
-            width: 80px;
-            height: 80px;
-            margin: 0 auto 1.5rem;
-            display: block;
-            animation: heroFloat 6s ease-in-out infinite;
-        }
-        
-        @keyframes heroFloat {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-10px); }
-        }
-        
-        .hero h1 {
-            font-size: clamp(2rem, 6vw, 3.5rem);
-            font-weight: 800;
-            line-height: 1.1;
-            margin-bottom: 1rem;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
-            background-size: 200% 200%;
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            animation: gradientMove 4s ease-in-out infinite;
-        }
-        
-        @keyframes gradientMove {
-            0%, 100% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-        }
-        
-        .hero p {
-            font-size: clamp(1rem, 2vw, 1.2rem);
-            color: var(--text-secondary);
-            margin-bottom: 2rem;
-            line-height: 1.5;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-        
-        .hero-buttons {
-            display: flex;
-            gap: 1rem;
-            justify-content: center;
-            flex-wrap: wrap;
-            margin-bottom: 2rem;
-        }
-        
-        .btn-primary {
-            background: var(--accent-gradient);
-            color: white;
-            padding: 0.875rem 1.75rem;
-            border-radius: var(--border-radius);
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 1rem;
-            transition: all 0.3s ease;
-            box-shadow: var(--shadow-glass);
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            border: none;
-            cursor: pointer;
-        }
-        
-        .btn-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 12px 40px rgba(79, 172, 254, 0.4);
-        }
-        
-        .btn-secondary {
-            background: var(--glass-bg);
-            color: var(--text-primary);
-            padding: 0.875rem 1.75rem;
-            border-radius: var(--border-radius);
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 1rem;
-            border: 1px solid var(--glass-border);
-            transition: all 0.3s ease;
-            backdrop-filter: blur(10px);
-        }
-        
-        .btn-secondary:hover {
-            background: rgba(255, 255, 255, 0.1);
-            transform: translateY(-2px);
-        }
-        
-        /* Web3 Action Buttons */
-        .web3-actions {
-            display: flex;
-            gap: 0.75rem;
-            justify-content: center;
-            flex-wrap: wrap;
-            margin-top: 1rem;
-        }
-        
-        .web3-btn {
-            background: var(--background-card);
-            color: var(--text-primary);
-            padding: 0.6rem 1rem;
-            border-radius: 12px;
-            text-decoration: none;
-            font-weight: 500;
-            font-size: 0.875rem;
-            border: 1px solid var(--glass-border);
-            transition: all 0.3s ease;
-            backdrop-filter: blur(10px);
-            display: inline-flex;
-            align-items: center;
-            gap: 0.375rem;
-        }
-        
-        .web3-btn:hover {
-            background: var(--glass-bg);
-            transform: translateY(-1px);
-            box-shadow: var(--shadow-glass);
-        }
-        
-        /* DApp Launch Section */
-        .dapp-section {
-            padding: 4rem 1.5rem;
-            background: var(--background-secondary);
-        }
-        
-        .dapp-container {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-        
-        .section-header {
-            text-align: center;
-            margin-bottom: 3rem;
-        }
-        
-        .section-title {
-            font-size: clamp(1.8rem, 4vw, 2.5rem);
-            font-weight: 700;
-            margin-bottom: 0.75rem;
-            background: var(--primary-gradient);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-        
-        .section-subtitle {
-            font-size: 1rem;
-            color: var(--text-secondary);
-            max-width: 500px;
-            margin: 0 auto;
-        }
-        
-        .dapp-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 1.5rem;
-        }
-        
-        .dapp-card {
-            background: var(--background-card);
-            border: 1px solid var(--glass-border);
-            border-radius: var(--border-radius-lg);
-            padding: 2rem;
-            backdrop-filter: blur(20px);
-            transition: all 0.3s ease;
             position: relative;
             overflow: hidden;
         }
         
-        .dapp-card::before {
-            content: '';
+        .hero-bg {
             position: absolute;
             top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.05), transparent);
-            transition: all 0.6s ease;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(ellipse at top, rgba(99, 102, 241, 0.1) 0%, transparent 70%),
+                radial-gradient(ellipse at bottom, rgba(6, 182, 212, 0.05) 0%, transparent 70%);
         }
         
-        .dapp-card:hover::before {
-            left: 100%;
+        .hero-content {
+            position: relative;
+            z-index: 2;
         }
         
-        .dapp-card:hover {
-            transform: translateY(-4px);
-            box-shadow: var(--shadow-primary);
-            border-color: var(--glass-border);
-        }
-        
-        .dapp-icon {
-            width: 60px;
-            height: 60px;
-            margin-bottom: 1rem;
-            background: var(--accent-gradient);
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.5rem;
-        }
-        
-        .dapp-card h3 {
-            font-size: 1.25rem;
-            font-weight: 700;
-            margin-bottom: 0.75rem;
-            color: var(--text-primary);
-        }
-        
-        .dapp-card p {
-            color: var(--text-secondary);
-            font-size: 0.9rem;
-            line-height: 1.5;
-            margin-bottom: 1.5rem;
-        }
-        
-        .dapp-actions {
-            display: flex;
-            gap: 0.75rem;
-            flex-wrap: wrap;
-        }
-        
-        .dapp-btn {
-            background: var(--glass-bg);
-            color: var(--text-primary);
-            padding: 0.5rem 1rem;
-            border-radius: 8px;
-            text-decoration: none;
-            font-weight: 500;
-            font-size: 0.875rem;
-            border: 1px solid var(--glass-border);
-            transition: all 0.3s ease;
+        .hero-badge {
             display: inline-flex;
             align-items: center;
-            gap: 0.375rem;
-        }
-        
-        .dapp-btn:hover {
-            background: rgba(255, 255, 255, 0.1);
-            transform: translateY(-1px);
-        }
-        
-        .dapp-btn.primary {
-            background: var(--accent-gradient);
-            border: none;
-        }
-        
-        /* Stats Section - Improved */
-        .stats {
-            padding: 3rem 1.5rem;
-            background: var(--background-primary);
-            position: relative;
-        }
-        
-        .stats-container {
-            max-width: 1000px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 1.5rem;
-            text-align: center;
-        }
-        
-        .stat-item {
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
             background: var(--glass-bg);
-            padding: 1.5rem;
-            border-radius: var(--border-radius);
             border: 1px solid var(--glass-border);
-            backdrop-filter: blur(20px);
-            transition: all 0.3s ease;
-        }
-        
-        .stat-item:hover {
-            transform: translateY(-3px);
-            box-shadow: var(--shadow-glass);
-        }
-        
-        .stat-number {
-            font-size: 2rem;
-            font-weight: 700;
-            background: var(--accent-gradient);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            display: block;
-        }
-        
-        .stat-label {
-            font-size: 0.9rem;
-            color: var(--text-secondary);
-            margin-top: 0.25rem;
-        }
-        
-        /* Exchange Section */
-        .exchange-section {
-            padding: 4rem 1.5rem;
-            background: var(--background-tertiary);
-        }
-        
-        .exchange-container {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-        
-        .exchange-features {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-        
-        .exchange-card {
-            background: var(--background-card);
-            border: 1px solid var(--glass-border);
-            border-radius: var(--border-radius-lg);
-            padding: 2rem;
-            backdrop-filter: blur(20px);
-            transition: all 0.3s ease;
-        }
-        
-        .exchange-card:hover {
-            transform: translateY(-4px);
-            box-shadow: var(--shadow-primary);
-        }
-        
-        .exchange-icon {
-            width: 60px;
-            height: 60px;
-            background: var(--success-gradient);
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
-        }
-        
-        /* Tokenomics Section - Improved */
-        .tokenomics {
-            padding: 4rem 1.5rem;
-            background: var(--background-secondary);
-            position: relative;
-        }
-        
-        .tokenomics-container {
-            max-width: 1000px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 3rem;
-            align-items: center;
-        }
-        
-        .chart-container {
-            position: relative;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-        
-        .pie-chart {
-            width: 250px;
-            height: 250px;
-            border-radius: 50%;
-            background: conic-gradient(
-                from 0deg,
-                #667eea 0deg 108deg,
-                #764ba2 108deg 180deg,
-                #f093fb 180deg 252deg,
-                #f5576c 252deg 324deg,
-                #4facfe 324deg 360deg
-            );
-            animation: rotateChart 15s linear infinite;
-            position: relative;
-        }
-        
-        .pie-chart::after {
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            width: 60%;
-            height: 60%;
-            background: var(--background-secondary);
-            border-radius: 50%;
-            transform: translate(-50%, -50%);
-        }
-        
-        @keyframes rotateChart {
-            from { transform: rotate(0deg); }
-            to { transform: rotate(360deg); }
-        }
-        
-        .tokenomics-info h2 {
-            font-size: 2rem;
-            font-weight: 700;
-            margin-bottom: 1.5rem;
-            background: var(--primary-gradient);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-        
-        .token-distribution {
-            list-style: none;
-        }
-        
-        .token-distribution li {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 0.75rem 0;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-            font-size: 0.9rem;
-        }
-        
-        .token-color {
-            width: 16px;
-            height: 16px;
-            border-radius: 4px;
-            margin-right: 0.75rem;
-        }
-        
-        /* Gaming Section */
-        .gaming-section {
-            padding: 4rem 1.5rem;
-            background: var(--background-primary);
-        }
-        
-        .gaming-features {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 1.5rem;
-            margin-top: 3rem;
-        }
-        
-        .gaming-card {
-            background: var(--background-card);
-            border: 1px solid var(--glass-border);
-            border-radius: var(--border-radius-lg);
-            padding: 2rem;
-            backdrop-filter: blur(20px);
-            transition: all 0.3s ease;
-            text-align: center;
-        }
-        
-        .gaming-card:hover {
-            transform: translateY(-4px);
-            box-shadow: var(--shadow-primary);
-        }
-        
-        .gaming-icon {
-            width: 60px;
-            height: 60px;
-            background: var(--warning-gradient);
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.5rem;
-            margin: 0 auto 1rem;
-        }
-        
-        /* AI Tools Section */
-        .ai-tools-section {
-            padding: 4rem 1.5rem;
-            background: var(--background-secondary);
-        }
-        
-        .ai-tools-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-        
-        .ai-tool-card {
-            background: var(--background-card);
-            border: 1px solid var(--glass-border);
-            border-radius: var(--border-radius-lg);
-            padding: 2rem;
-            backdrop-filter: blur(20px);
-            transition: all 0.3s ease;
-        }
-        
-        .ai-tool-card:hover {
-            transform: translateY(-4px);
-            box-shadow: var(--shadow-primary);
-        }
-        
-        .ai-icon {
-            width: 60px;
-            height: 60px;
-            background: var(--secondary-gradient);
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
-        }
-        
-        /* Footer - Improved Organization */
-        .footer {
-            background: var(--background-primary);
-            padding: 3rem 1.5rem 1.5rem;
-            border-top: 1px solid rgba(255, 255, 255, 0.05);
-        }
-        
-        .footer-container {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-        
-        .footer-content {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 2rem;
+            border-radius: 50px;
+            font-size: 0.875rem;
+            color: var(--gray-300);
             margin-bottom: 2rem;
         }
         
-        .footer-section h3 {
-            font-size: 1.1rem;
-            font-weight: 700;
-            margin-bottom: 1rem;
-            color: var(--text-primary);
+        .hero-badge-dot {
+            width: 6px;
+            height: 6px;
+            background: var(--success);
+            border-radius: 50%;
         }
         
-        .footer-section ul {
-            list-style: none;
+        .hero-title {
+            margin-bottom: 1.5rem;
+            background: linear-gradient(135deg, var(--white) 0%, var(--gray-300) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
         
-        .footer-section ul li {
-            margin-bottom: 0.5rem;
+        .hero-subtitle {
+            margin-bottom: 3rem;
         }
         
-        .footer-section ul li a {
-            color: var(--text-secondary);
-            text-decoration: none;
-            font-size: 0.9rem;
-            transition: all 0.3s ease;
+        .hero-actions {
             display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-        
-        .footer-section ul li a:hover {
-            color: var(--text-primary);
-            padding-left: 0.25rem;
-        }
-        
-        .social-links {
-            display: flex;
-            gap: 0.75rem;
-            margin-top: 1rem;
-        }
-        
-        .social-link {
-            display: inline-flex;
-            align-items: center;
+            gap: 1rem;
+            flex-wrap: wrap;
             justify-content: center;
-            width: 36px;
-            height: 36px;
+        }
+        
+        .hero-3d {
+            position: absolute;
+            right: 10%;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 400px;
+            height: 400px;
+            opacity: 0.6;
+        }
+        
+        /* Trust Section */
+        .trust-section {
+            padding: 3rem 0;
+            background: var(--glass-bg);
+            border-top: 1px solid var(--glass-border);
+            border-bottom: 1px solid var(--glass-border);
+        }
+        
+        .trust-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 2rem;
+        }
+        
+        .trust-text {
+            font-size: 0.875rem;
+            color: var(--gray-400);
+        }
+        
+        .trust-logos {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+        
+        .trust-logo {
+            padding: 0.5rem 1rem;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 8px;
+            font-size: 0.875rem;
+            color: var(--gray-400);
+        }
+        
+        /* Problem Section */
+        .problem {
+            background: var(--bg-secondary);
+        }
+        
+        .problem-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+        
+        .problem-visual {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+        
+        .problem-item {
+            padding: 2rem;
             background: var(--glass-bg);
             border: 1px solid var(--glass-border);
-            border-radius: 8px;
-            color: var(--text-secondary);
-            text-decoration: none;
-            transition: all 0.3s ease;
-            backdrop-filter: blur(10px);
-        }
-        
-        .social-link:hover {
-            background: var(--accent-gradient);
-            color: white;
-            transform: translateY(-2px);
-        }
-        
-        .footer-bottom {
+            border-radius: 16px;
             text-align: center;
-            padding-top: 1.5rem;
-            border-top: 1px solid rgba(255, 255, 255, 0.05);
-            color: var(--text-secondary);
-            font-size: 0.875rem;
         }
         
-        .footer-logo {
-            font-size: 1rem;
-            color: #4facfe;
-            font-weight: 600;
+        .problem-icon {
+            width: 60px;
+            height: 60px;
+            background: rgba(239, 68, 68, 0.1);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1rem;
+            font-size: 1.5rem;
+            color: var(--danger);
+        }
+        
+        /* Solution Cards */
+        .solution-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .solution-card {
+            padding: 2.5rem;
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 20px;
+            text-align: center;
+            transition: var(--transition-slow);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .solution-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            transform: scaleX(0);
+            transition: var(--transition);
+        }
+        
+        .solution-card:hover {
+            transform: translateY(-4px);
+            border-color: rgba(255, 255, 255, 0.2);
+        }
+        
+        .solution-card:hover::before {
+            transform: scaleX(1);
+        }
+        
+        .solution-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--primary), var(--primary-light));
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            font-size: 2rem;
+        }
+        
+        .solution-title {
+            margin-bottom: 1rem;
+            color: var(--white);
+        }
+        
+        .solution-description {
+            color: var(--gray-400);
+            line-height: 1.6;
+        }
+        
+        /* How It Works */
+        .how-it-works {
+            background: var(--bg-secondary);
+        }
+        
+        .steps-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .step {
+            text-align: center;
+            position: relative;
+        }
+        
+        .step:not(:last-child)::after {
+            content: '→';
+            position: absolute;
+            top: 50px;
+            right: -1rem;
+            font-size: 2rem;
+            color: var(--primary);
+        }
+        
+        .step-number {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--primary), var(--primary-light));
+            color: var(--white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 1.5rem;
+            margin: 0 auto 1.5rem;
+        }
+        
+        .step-title {
+            margin-bottom: 1rem;
+            color: var(--white);
+        }
+        
+        .step-description {
+            color: var(--gray-400);
+        }
+        
+        /* Tokenomics */
+        .tokenomics-visual {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 3rem 0;
+        }
+        
+        .tokenomics-chart {
+            width: 300px;
+            height: 300px;
+            position: relative;
+        }
+        
+        .token-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .token-stat {
+            text-align: center;
+            padding: 1.5rem;
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 16px;
+        }
+        
+        .token-stat-number {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--primary-light);
             margin-bottom: 0.5rem;
         }
         
-        /* Mobile Responsiveness - Enhanced for Professional Mobile Experience */
+        .token-stat-label {
+            color: var(--gray-400);
+        }
+        
+        /* Gaming Demo */
+        .gaming-demo {
+            background: var(--bg-secondary);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .gaming-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+        
+        .gaming-visual {
+            position: relative;
+            aspect-ratio: 16/9;
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.1), rgba(6, 182, 212, 0.1));
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid var(--glass-border);
+        }
+        
+        .gaming-placeholder {
+            text-align: center;
+            color: var(--gray-400);
+        }
+        
+        .gaming-placeholder-icon {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+        }
+        
+        /* Final CTA */
+        .final-cta {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            text-align: center;
+        }
+        
+        .final-cta-content {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .final-cta .h2 {
+            color: var(--white);
+            margin-bottom: 1rem;
+        }
+        
+        .final-cta .subtitle {
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 2rem;
+        }
+        
+        .final-cta .btn-primary {
+            background: rgba(255, 255, 255, 0.2);
+            color: var(--white);
+            backdrop-filter: blur(20px);
+        }
+        
+        .final-cta .btn-primary:hover {
+            background: rgba(255, 255, 255, 0.3);
+        }
+        
+        /* Mobile Responsiveness */
         @media (max-width: 768px) {
-            .nav-links {
+            .nav-actions > .btn {
                 display: none;
-                position: fixed;
-                top: 70px;
-                left: 0;
-                right: 0;
-                height: calc(100vh - 70px);
-                background: rgba(13, 17, 23, 0.98);
-                backdrop-filter: blur(30px);
-                border-top: 1px solid var(--glass-border);
-                padding: 2rem 1rem;
-                flex-direction: column;
-                gap: 1.5rem;
-                z-index: 999;
-                overflow-y: auto;
             }
             
-            .nav-links.active {
-                display: flex;
-            }
-            
-            .nav-links li {
-                width: 100%;
-            }
-            
-            .nav-links a {
+            .nav-mobile-toggle {
                 display: block;
-                padding: 1rem 1.5rem;
-                font-size: 1.1rem;
-                text-align: center;
-                border-radius: 12px;
-                background: var(--glass-bg);
-                border: 1px solid var(--glass-border);
-                width: 100%;
             }
             
-            .mobile-menu-btn {
-                display: flex;
-                z-index: 1001;
+            .hero-3d {
+                display: none;
             }
             
-            .mobile-menu-btn.active span:nth-child(1) {
-                transform: rotate(45deg) translate(5px, 5px);
-            }
-            
-            .mobile-menu-btn.active span:nth-child(2) {
-                opacity: 0;
-            }
-            
-            .mobile-menu-btn.active span:nth-child(3) {
-                transform: rotate(-45deg) translate(7px, -6px);
-            }
-            
-            /* Mobile-First Hero Section */
-            .hero {
-                padding: 1.5rem 1rem 2rem;
-                min-height: 90vh;
-            }
-            
-            .hero-content {
-                max-width: 100%;
-            }
-            
-            .hero-logo {
-                width: 60px;
-                height: 60px;
-                margin-bottom: 1rem;
-            }
-            
-            .hero h1 {
-                font-size: clamp(1.8rem, 8vw, 2.4rem);
-                line-height: 1.15;
-                margin-bottom: 0.75rem;
-            }
-            
-            .hero p {
-                font-size: 1rem;
-                line-height: 1.4;
-                margin-bottom: 1.5rem;
-                padding: 0 0.5rem;
-            }
-            
-            .hero-buttons {
-                flex-direction: column;
-                align-items: stretch;
-                gap: 0.75rem;
-                max-width: 300px;
-                margin: 0 auto 1.5rem;
-            }
-            
-            .btn-primary,
-            .btn-secondary {
-                width: 100%;
-                justify-content: center;
-                padding: 1rem 1.5rem;
-                font-size: 1rem;
-                border-radius: 12px;
-            }
-            
-            .web3-actions {
-                justify-content: center;
-                gap: 0.5rem;
-                flex-wrap: wrap;
-                max-width: 320px;
-                margin: 0 auto;
-            }
-            
-            .web3-btn {
-                padding: 0.75rem 1rem;
-                font-size: 0.85rem;
-                border-radius: 10px;
-                min-width: 90px;
-            }
-            
-            /* Mobile Stats Section */
-            .stats {
-                padding: 2rem 1rem;
-            }
-            
-            .stats-container {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 1rem;
-            }
-            
-            .stat-item {
-                padding: 1.25rem 1rem;
-            }
-            
-            .stat-number {
-                font-size: 1.5rem;
-            }
-            
-            .stat-label {
-                font-size: 0.8rem;
-            }
-            
-            /* Mobile Sections */
-            .dapp-section,
-            .exchange-section,
-            .gaming-section,
-            .ai-tools-section {
-                padding: 3rem 1rem;
-            }
-            
-            .section-title {
-                font-size: clamp(1.5rem, 6vw, 2rem);
-                line-height: 1.2;
-                margin-bottom: 0.5rem;
-            }
-            
-            .section-subtitle {
-                font-size: 0.9rem;
-                line-height: 1.4;
-            }
-            
-            .dapp-grid,
-            .exchange-features,
-            .gaming-features,
-            .ai-tools-grid {
+            .problem-content,
+            .gaming-content {
                 grid-template-columns: 1fr;
-                gap: 1.25rem;
+                text-align: center;
             }
             
-            .dapp-card,
-            .exchange-card,
-            .gaming-card,
-            .ai-tool-card {
+            .trust-content {
+                justify-content: center;
+                text-align: center;
+            }
+            
+            .hero-actions {
+                justify-content: center;
+            }
+            
+            .btn {
+                width: 100%;
+                max-width: 300px;
+            }
+            
+            .step:not(:last-child)::after {
+                display: none;
+            }
+            
+            .tokenomics-chart {
+                width: 250px;
+                height: 250px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .container {
+                padding: 0 1rem;
+            }
+            
+            .solution-card,
+            .step {
                 padding: 1.5rem;
             }
             
-            .dapp-card h3,
-            .exchange-card h3,
-            .gaming-card h3,
-            .ai-tool-card h3 {
-                font-size: 1.1rem;
-                margin-bottom: 0.5rem;
-            }
-            
-            .dapp-card p,
-            .exchange-card p,
-            .gaming-card p,
-            .ai-tool-card p {
-                font-size: 0.85rem;
-                line-height: 1.4;
-                margin-bottom: 1.25rem;
-            }
-            
-            .dapp-actions {
-                gap: 0.5rem;
-            }
-            
-            .dapp-btn {
-                padding: 0.6rem 1rem;
+            .hero-badge {
                 font-size: 0.8rem;
-            }
-            
-            /* Mobile Tokenomics */
-            .tokenomics {
-                padding: 3rem 1rem;
-            }
-            
-            .tokenomics-container {
-                grid-template-columns: 1fr;
-                text-align: center;
-                gap: 2rem;
-            }
-            
-            .pie-chart {
-                width: 220px;
-                height: 220px;
-            }
-            
-            .tokenomics-info h2 {
-                font-size: 1.5rem;
-                margin-bottom: 1rem;
-            }
-            
-            .token-distribution li {
-                padding: 0.6rem 0;
-                font-size: 0.85rem;
-            }
-            
-            .token-color {
-                width: 14px;
-                height: 14px;
-            }
-            
-            /* Mobile Footer */
-            .footer {
-                padding: 2.5rem 1rem 1rem;
-            }
-            
-            .footer-content {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 1.5rem;
-                margin-bottom: 1.5rem;
-            }
-            
-            .footer-section h3 {
-                font-size: 1rem;
-                margin-bottom: 0.75rem;
-            }
-            
-            .footer-section ul li a {
-                font-size: 0.85rem;
-            }
-            
-            .social-links {
-                justify-content: center;
-                gap: 0.5rem;
-            }
-            
-            .social-link {
-                width: 32px;
-                height: 32px;
-                font-size: 0.9rem;
-            }
-            
-            .footer-bottom {
-                font-size: 0.8rem;
-                line-height: 1.4;
-            }
-            
-            .navbar {
-                padding: 0.5rem 0;
-            }
-            
-            .nav-container {
-                padding: 0 1rem;
-                height: 50px;
-            }
-            
-            .logo {
-                font-size: 1.1rem;
-            }
-            
-            .logo-svg {
-                width: 28px;
-                height: 28px;
+                padding: 0.4rem 0.8rem;
             }
         }
         
-        /* Extra Small Mobile Devices */
-        @media (max-width: 480px) {
-            .hero {
-                padding: 1rem 0.75rem 1.5rem;
-            }
-            
-            .hero h1 {
-                font-size: clamp(1.6rem, 7vw, 2rem);
-            }
-            
-            .hero p {
-                font-size: 0.9rem;
-                padding: 0 0.25rem;
-            }
-            
-            .stats-container {
-                grid-template-columns: 1fr;
-                gap: 0.75rem;
-            }
-            
-            .section-title {
-                font-size: 1.4rem;
-            }
-            
-            .dapp-section,
-            .exchange-section,
-            .gaming-section,
-            .ai-tools-section {
-                padding: 2.5rem 0.75rem;
-            }
-            
-            .dapp-card,
-            .exchange-card,
-            .gaming-card,
-            .ai-tool-card {
-                padding: 1.25rem;
-            }
-            
-            .pie-chart {
-                width: 180px;
-                height: 180px;
-            }
-            
-            .footer-content {
-                grid-template-columns: 1fr;
-                gap: 1.25rem;
-                text-align: center;
-            }
-            
-            .web3-actions {
-                max-width: 280px;
-            }
-            
-            .web3-btn {
-                min-width: 80px;
-                padding: 0.6rem 0.8rem;
-                font-size: 0.8rem;
-            }
-        }
-        
-        /* Touch Interactions for Mobile */
-        @media (hover: none) and (pointer: coarse) {
-            .dapp-card:active,
-            .exchange-card:active,
-            .gaming-card:active,
-            .ai-tool-card:active {
-                transform: scale(0.98);
-                transition: transform 0.1s ease;
-            }
-            
-            .btn-primary:active,
-            .btn-secondary:active,
-            .dapp-btn:active {
-                transform: scale(0.95);
-                transition: transform 0.1s ease;
-            }
-        }
-        
-        /* Scroll Animations */
-        .fade-in {
+        /* Animations */
+        .fade-in-up {
             opacity: 0;
-            transform: translateY(20px);
-            transition: all 0.6s ease;
+            transform: translateY(30px);
+            animation: fadeInUp 0.6s ease-out forwards;
         }
         
-        .fade-in.visible {
-            opacity: 1;
-            transform: translateY(0);
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
         
-        /* Loading Animation */
+        /* Scroll reveal delays */
+        .delay-100 { animation-delay: 0.1s; }
+        .delay-200 { animation-delay: 0.2s; }
+        .delay-300 { animation-delay: 0.3s; }
+        .delay-400 { animation-delay: 0.4s; }
+        
+        /* Loading states */
         .loading {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100vh;
-            background: var(--background-primary);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            z-index: 9999;
-            transition: opacity 0.5s ease;
-        }
-        
-        .loading.hidden {
-            opacity: 0;
+            opacity: 0.6;
             pointer-events: none;
         }
         
-        .loading-spinner {
-            width: 50px;
-            height: 50px;
-            border: 3px solid rgba(79, 172, 254, 0.3);
-            border-top: 3px solid #4facfe;
-            border-radius: 50%;
-            animation: spin 1s linear infinite;
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
         }
         
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
+        ::-webkit-scrollbar-track {
+            background: var(--bg-secondary);
         }
         
-        /* Particles */
-        .particles {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100vh;
-            z-index: -1;
-            pointer-events: none;
+        ::-webkit-scrollbar-thumb {
+            background: var(--primary);
+            border-radius: 4px;
         }
         
-        .particle {
-            position: absolute;
-            width: 2px;
-            height: 2px;
-            background: rgba(255, 255, 255, 0.3);
-            border-radius: 50%;
-            animation: float linear infinite;
-        }
-        
-        @keyframes float {
-            0% {
-                opacity: 0;
-                transform: translateY(100vh) scale(0);
-            }
-            10% {
-                opacity: 1;
-            }
-            90% {
-                opacity: 1;
-            }
-            100% {
-                opacity: 0;
-                transform: translateY(-100vh) scale(1);
-            }
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--primary-light);
         }
     </style>
 </head>
 <body>
-    <!-- Loading Screen -->
-    <div class="loading" id="loading">
-        <div class="loading-spinner"></div>
-    </div>
-    
-    <!-- Animated Background -->
-    <div class="animated-bg"></div>
-    
-    <!-- Particles -->
-    <div class="particles" id="particles"></div>
-    
     <!-- Navigation -->
-    <nav class="navbar" id="navbar">
-        <div class="nav-container">
-            <a href="#" class="logo">
-                <svg class="logo-svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-                    <defs>
-                        <linearGradient id="logoGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                            <stop offset="0%" style="stop-color:#667eea"/>
-                            <stop offset="50%" style="stop-color:#764ba2"/>
-                            <stop offset="100%" style="stop-color:#f093fb"/>
-                        </linearGradient>
-                    </defs>
-                    <circle cx="50" cy="50" r="35" fill="url(#logoGradient)" opacity="0.8"/>
-                    <path d="M30,50 Q50,25 70,50 Q50,75 30,50" fill="url(#logoGradient)"/>
-                </svg>
-                AETHERIUM
-            </a>
-            <ul class="nav-links" id="navLinks">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#dapps">DApps</a></li>
-                <li><a href="#exchange">Exchange</a></li>
-                <li><a href="#nft">NFT Market</a></li>
-                <li><a href="#gaming">Gaming</a></li>
-                <li><a href="#ai-tools">AI Tools</a></li>
-                <li><a href="#tokenomics">Tokenomics</a></li>
-                <li><a href="whitepaper.html">Whitepaper</a></li>
-                <li><a href="#" class="cta-button">Connect Wallet</a></li>
-            </ul>
-            <button class="mobile-menu-btn" id="mobileMenuBtn">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
+    <nav class="nav">
+        <div class="container">
+            <div class="nav-container">
+                <a href="#" class="nav-logo">
+                    <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                        <defs>
+                            <linearGradient id="logoGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" style="stop-color:#6366f1"/>
+                                <stop offset="100%" style="stop-color:#06b6d4"/>
+                            </linearGradient>
+                        </defs>
+                        <path d="M100 40 L60 140 L80 140 L88 120 L112 120 L120 140 L140 140 Z M100 70 L92 100 L108 100 Z" 
+                              fill="none" stroke="url(#logoGradient)" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+                        <circle cx="100" cy="40" r="8" fill="#6366f1"/>
+                        <circle cx="60" cy="140" r="8" fill="#06b6d4"/>
+                        <circle cx="140" cy="140" r="8" fill="#06b6d4"/>
+                    </svg>
+                    Aetherium
+                </a>
+                <div class="nav-actions">
+                    <a href="#how-it-works" class="btn btn-secondary">How it works</a>
+                    <button class="btn btn-primary" onclick="joinEarlyAccess()">Join Early Access</button>
+                    <button class="nav-mobile-toggle">☰</button>
+                </div>
+            </div>
         </div>
     </nav>
-    
+
     <!-- Hero Section -->
-    <section class="hero" id="home">
-        <div class="hero-content">
-            <svg class="hero-logo" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-                <defs>
-                    <linearGradient id="heroLogoGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                        <stop offset="0%" style="stop-color:#667eea"/>
-                        <stop offset="33%" style="stop-color:#764ba2"/>
-                        <stop offset="66%" style="stop-color:#f093fb"/>
-                        <stop offset="100%" style="stop-color:#4facfe"/>
-                    </linearGradient>
-                </defs>
-                <circle cx="50" cy="50" r="35" fill="url(#heroLogoGradient)" opacity="0.9"/>
-                <path d="M30,50 Q50,20 70,50 Q50,80 30,50" fill="url(#heroLogoGradient)"/>
-                <circle cx="50" cy="50" r="15" fill="none" stroke="white" stroke-width="2" opacity="0.8"/>
-            </svg>
-            <h1>The Future of Decentralized Economy</h1>
-            <p>Launch DApps, trade tokens, create NFTs, play games, and access AI tools in one unified Web3 ecosystem. Experience the next evolution of decentralized finance and digital ownership.</p>
-            <div class="hero-buttons">
-                <a href="#dapps" class="btn-primary">
-                    🚀 Launch DApp
-                </a>
-                <a href="whitepaper.html" class="btn-secondary">Read Whitepaper</a>
+    <section class="hero">
+        <div class="hero-bg"></div>
+        <div class="container">
+            <div class="hero-content text-center">
+                <div class="hero-badge fade-in-up">
+                    <div class="hero-badge-dot"></div>
+                    Live on Testnet
+                </div>
+                <h1 class="h1 hero-title fade-in-up delay-100">Monetize Your Network</h1>
+                <p class="subtitle hero-subtitle fade-in-up delay-200">
+                    Turn every social interaction into rewards. The Web3 platform where your connections pay you.
+                </p>
+                <div class="hero-actions fade-in-up delay-300">
+                    <button class="btn btn-primary" onclick="joinEarlyAccess()">
+                        Start Earning Now
+                        <span>→</span>
+                    </button>
+                    <a href="#demo" class="btn btn-secondary">See Demo</a>
+                </div>
             </div>
-            <div class="web3-actions">
-                <a href="#exchange" class="web3-btn">💱 Trade Tokens</a>
-                <a href="#nft" class="web3-btn">🎨 Mint NFTs</a>
-                <a href="#gaming" class="web3-btn">🎮 Play & Earn</a>
-                <a href="#ai-tools" class="web3-btn">🤖 AI Tools</a>
+        </div>
+        <div class="hero-3d" id="hero3d"></div>
+    </section>
+
+    <!-- Trust Section -->
+    <section class="trust-section">
+        <div class="container">
+            <div class="trust-content">
+                <div class="trust-text">Trusted by 10,000+ early users</div>
+                <div class="trust-logos">
+                    <div class="trust-logo">🔒 Audited by CertiK</div>
+                    <div class="trust-logo">📰 Featured in CoinDesk</div>
+                    <div class="trust-logo">⭐ 4.9/5 Rating</div>
+                </div>
             </div>
         </div>
     </section>
-    
-    <!-- Stats Section -->
-    <section class="stats fade-in">
-        <div class="stats-container">
-            <div class="stat-item">
-                <span class="stat-number" data-target="250000">0</span>
-                <div class="stat-label">Active DApp Users</div>
-            </div>
-            <div class="stat-item">
-                <span class="stat-number" data-target="1000000">0</span>
-                <div class="stat-label">Total Transactions</div>
-            </div>
-            <div class="stat-item">
-                <span class="stat-number" data-target="75000">0</span>
-                <div class="stat-label">NFTs Created</div>
-            </div>
-            <div class="stat-item">
-                <span class="stat-number" data-target="15000">0</span>
-                <div class="stat-label">Gaming Players</div>
-            </div>
-        </div>
-    </section>
-    
-    <!-- DApp Launch Section -->
-    <section class="dapp-section fade-in" id="dapps">
-        <div class="dapp-container">
-            <div class="section-header">
-                <h2 class="section-title">Launch Decentralized Applications</h2>
-                <p class="section-subtitle">Access powerful Web3 tools and services through our integrated DApp ecosystem</p>
-            </div>
-            <div class="dapp-grid">
-                <div class="dapp-card">
-                    <div class="dapp-icon">🌐</div>
-                    <h3>Social DApp</h3>
-                    <p>Decentralized social platform with content monetization, NFT integration, and community rewards. Own your social presence.</p>
-                    <div class="dapp-actions">
-                        <a href="#" class="dapp-btn primary">🚀 Launch</a>
-                        <a href="#" class="dapp-btn">📊 Analytics</a>
-                    </div>
+
+    <!-- Problem Section -->
+    <section class="problem section">
+        <div class="container">
+            <div class="problem-content">
+                <div>
+                    <h2 class="h2">Social Media Broke</h2>
+                    <p class="body-large" style="margin: 1.5rem 0; color: var(--gray-400);">
+                        You create content, build communities, drive engagement. 
+                        Platforms make billions. You get nothing.
+                    </p>
+                    <p class="body-large" style="color: var(--gray-400);">
+                        It's time for a better way.
+                    </p>
                 </div>
-                <div class="dapp-card">
-                    <div class="dapp-icon">💰</div>
-                    <h3>DeFi Suite</h3>
-                    <p>Complete decentralized finance toolkit with lending, borrowing, yield farming, and advanced trading features.</p>
-                    <div class="dapp-actions">
-                        <a href="#" class="dapp-btn primary">🚀 Launch</a>
-                        <a href="#" class="dapp-btn">📈 Markets</a>
+                <div class="problem-visual">
+                    <div class="problem-item">
+                        <div class="problem-icon">📱</div>
+                        <h3 style="font-size: 1rem; margin-bottom: 0.5rem;">Fragmented</h3>
+                        <p style="font-size: 0.875rem; color: var(--gray-500);">5+ apps for everything</p>
                     </div>
-                </div>
-                <div class="dapp-card">
-                    <div class="dapp-icon">🏛️</div>
-                    <h3>Governance</h3>
-                    <p>Participate in protocol governance, propose changes, and vote on ecosystem improvements. Shape the future.</p>
-                    <div class="dapp-actions">
-                        <a href="#" class="dapp-btn primary">🚀 Launch</a>
-                        <a href="#" class="dapp-btn">🗳️ Vote</a>
+                    <div class="problem-item">
+                        <div class="problem-icon">💸</div>
+                        <h3 style="font-size: 1rem; margin-bottom: 0.5rem;">No Rewards</h3>
+                        <p style="font-size: 0.875rem; color: var(--gray-500);">Your data sold, you paid $0</p>
                     </div>
-                </div>
-                <div class="dapp-card">
-                    <div class="dapp-icon">🏗️</div>
-                    <h3>Builder Tools</h3>
-                    <p>Developer toolkit for creating custom DApps, smart contracts, and integrations with Aetherium ecosystem.</p>
-                    <div class="dapp-actions">
-                        <a href="#" class="dapp-btn primary">🚀 Launch</a>
-                        <a href="#" class="dapp-btn">📚 Docs</a>
+                    <div class="problem-item">
+                        <div class="problem-icon">🚫</div>
+                        <h3 style="font-size: 1rem; margin-bottom: 0.5rem;">Censored</h3>
+                        <p style="font-size: 0.875rem; color: var(--gray-500);">Algorithm controls reach</p>
+                    </div>
+                    <div class="problem-item">
+                        <div class="problem-icon">🔒</div>
+                        <h3 style="font-size: 1rem; margin-bottom: 0.5rem;">Locked In</h3>
+                        <p style="font-size: 0.875rem; color: var(--gray-500);">Can't own your network</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
-    
-    <!-- Exchange Section -->
-    <section class="exchange-section fade-in" id="exchange">
-        <div class="exchange-container">
-            <div class="section-header">
-                <h2 class="section-title">Decentralized Exchange</h2>
-                <p class="section-subtitle">Trade tokens with zero fees, deep liquidity, and advanced trading features</p>
-            </div>
-            <div class="exchange-features">
-                <div class="exchange-card">
-                    <div class="exchange-icon">⚡</div>
-                    <h3>Instant Swaps</h3>
-                    <p>Lightning-fast token swaps with minimal slippage and zero platform fees. Powered by advanced AMM algorithms.</p>
-                    <div class="dapp-actions">
-                        <a href="#" class="dapp-btn primary">💱 Trade Now</a>
-                    </div>
+
+    <!-- Solution Section -->
+    <section class="section">
+        <div class="container text-center">
+            <h2 class="h2">One App. Four Superpowers.</h2>
+            <p class="subtitle" style="margin-top: 1rem;">
+                Social, Finance, Gaming, and AI - unified where every action earns you AET tokens.
+            </p>
+            
+            <div class="solution-grid">
+                <div class="solution-card fade-in-up">
+                    <div class="solution-icon">💬</div>
+                    <h3 class="solution-title">Social That Pays</h3>
+                    <p class="solution-description">
+                        Every post, like, and comment earns tokens. Build your network, grow your wealth.
+                    </p>
                 </div>
-                <div class="exchange-card">
-                    <div class="exchange-icon">💧</div>
-                    <h3>Liquidity Pools</h3>
-                    <p>Provide liquidity and earn rewards. Access to exclusive yield farming opportunities with high APY returns.</p>
-                    <div class="dapp-actions">
-                        <a href="#" class="dapp-btn primary">💰 Add Liquidity</a>
-                    </div>
+                <div class="solution-card fade-in-up delay-100">
+                    <div class="solution-icon">💰</div>
+                    <h3 class="solution-title">DeFi Made Simple</h3>
+                    <p class="solution-description">
+                        Stake, swap, and earn yield without leaving the app. DeFi for real people.
+                    </p>
                 </div>
-                <div class="exchange-card">
-                    <div class="exchange-icon">📊</div>
-                    <h3>Advanced Trading</h3>
-                    <p>Professional trading interface with charts, limit orders, and portfolio management tools for serious traders.</p>
-                    <div class="dapp-actions">
-                        <a href="#" class="dapp-btn primary">📈 Pro Trading</a>
-                    </div>
+                <div class="solution-card fade-in-up delay-200">
+                    <div class="solution-icon">🎮</div>
+                    <h3 class="solution-title">Play to Earn</h3>
+                    <p class="solution-description">
+                        Casual games with real rewards. Turn downtime into income.
+                    </p>
                 </div>
-            </div>
-        </div>
-    </section>
-    
-    <!-- NFT Marketplace Section -->
-    <section class="dapp-section fade-in" id="nft">
-        <div class="dapp-container">
-            <div class="section-header">
-                <h2 class="section-title">AI-Powered NFT Marketplace</h2>
-                <p class="section-subtitle">Create, trade, and discover unique digital assets with integrated AI generation</p>
-            </div>
-            <div class="dapp-grid">
-                <div class="dapp-card">
-                    <div class="dapp-icon">🎨</div>
-                    <h3>AI Art Generator</h3>
-                    <p>Generate stunning artwork using advanced AI models. Create unique NFTs with text prompts and artistic styles.</p>
-                    <div class="dapp-actions">
-                        <a href="#" class="dapp-btn primary">🎨 Create Art</a>
-                        <a href="#" class="dapp-btn">🖼️ Gallery</a>
-                    </div>
-                </div>
-                <div class="dapp-card">
-                    <div class="dapp-icon">🏪</div>
-                    <h3>NFT Marketplace</h3>
-                    <p>Buy, sell, and auction NFTs in a zero-fee marketplace. Discover exclusive collections and rare digital assets.</p>
-                    <div class="dapp-actions">
-                        <a href="#" class="dapp-btn primary">🛒 Browse</a>
-                        <a href="#" class="dapp-btn">💎 Mint</a>
-                    </div>
-                </div>
-                <div class="dapp-card">
-                    <div class="dapp-icon">🎵</div>
-                    <h3>Music & Media NFTs</h3>
-                    <p>Mint and trade music, videos, and multimedia NFTs. Support creators and earn royalties on resales.</p>
-                    <div class="dapp-actions">
-                        <a href="#" class="dapp-btn primary">🎵 Explore</a>
-                        <a href="#" class="dapp-btn">💿 Upload</a>
-                    </div>
+                <div class="solution-card fade-in-up delay-300">
+                    <div class="solution-icon">🤖</div>
+                    <h3 class="solution-title">AI Content Tools</h3>
+                    <p class="solution-description">
+                        Generate images, write posts, create NFTs. AI that makes you money.
+                    </p>
                 </div>
             </div>
         </div>
     </section>
-    
-    <!-- Gaming Section -->
-    <section class="gaming-section fade-in" id="gaming">
-        <div class="dapp-container">
-            <div class="section-header">
-                <h2 class="section-title">Play-to-Earn Gaming Hub</h2>
-                <p class="section-subtitle">Earn real rewards while playing immersive blockchain games</p>
-            </div>
-            <div class="gaming-features">
-                <div class="gaming-card">
-                    <div class="gaming-icon">🎮</div>
-                    <h3>Battle Arena</h3>
-                    <p>Competitive PvP battles with ranked tournaments. Earn AET tokens and rare NFT rewards for victories.</p>
-                    <div class="dapp-actions">
-                        <a href="#" class="dapp-btn primary">⚔️ Play Now</a>
-                    </div>
+
+    <!-- How It Works -->
+    <section class="how-it-works section" id="how-it-works">
+        <div class="container text-center">
+            <h2 class="h2">How It Works</h2>
+            <p class="subtitle" style="margin-top: 1rem;">
+                Start earning in 3 simple steps
+            </p>
+            
+            <div class="steps-container">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <h3 class="h3 step-title">Join & Connect</h3>
+                    <p class="step-description">
+                        Sign up with your email. No wallet required to start.
+                    </p>
                 </div>
-                <div class="gaming-card">
-                    <div class="gaming-icon">🏆</div>
-                    <h3>Tournaments</h3>
-                    <p>Join global tournaments with prize pools. Compete against players worldwide for exclusive rewards.</p>
-                    <div class="dapp-actions">
-                        <a href="#" class="dapp-btn primary">🏆 Join</a>
-                    </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <h3 class="h3 step-title">Create & Play</h3>
+                    <p class="step-description">
+                        Post content, play games, or use AI tools. Every action matters.
+                    </p>
                 </div>
-                <div class="gaming-card">
-                    <div class="gaming-icon">🎯</div>
-                    <h3>Skill Games</h3>
-                    <p>Test your skills in various mini-games. Earn tokens based on performance and climb the leaderboards.</p>
-                    <div class="dapp-actions">
-                        <a href="#" class="dapp-btn primary">🎯 Play</a>
-                    </div>
-                </div>
-                <div class="gaming-card">
-                    <div class="gaming-icon">🌍</div>
-                    <h3>Metaverse</h3>
-                    <p>Explore the Aetherium metaverse. Own virtual land, build experiences, and monetize your creations.</p>
-                    <div class="dapp-actions">
-                        <a href="#" class="dapp-btn primary">🌍 Explore</a>
-                    </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <h3 class="h3 step-title">Earn Rewards</h3>
+                    <p class="step-description">
+                        Watch AET tokens flow into your account. Cash out anytime.
+                    </p>
                 </div>
             </div>
         </div>
     </section>
-    
-    <!-- AI Tools Section -->
-    <section class="ai-tools-section fade-in" id="ai-tools">
-        <div class="dapp-container">
-            <div class="section-header">
-                <h2 class="section-title">AI-Powered Tools Suite</h2>
-                <p class="section-subtitle">Access cutting-edge AI tools for content creation, analysis, and automation</p>
+
+    <!-- Tokenomics -->
+    <section class="section">
+        <div class="container text-center">
+            <h2 class="h2">Simple Tokenomics</h2>
+            <p class="subtitle" style="margin-top: 1rem;">
+                1 billion AET tokens. 30% reserved for community rewards.
+            </p>
+            
+            <div class="tokenomics-visual">
+                <div class="tokenomics-chart" id="tokenomicsChart"></div>
             </div>
-            <div class="ai-tools-grid">
-                <div class="ai-tool-card">
-                    <div class="ai-icon">🧠</div>
-                    <h3>AI Content Writer</h3>
-                    <p>Generate high-quality content, articles, and social media posts using advanced language models.</p>
-                    <div class="dapp-actions">
-                        <a href="#" class="dapp-btn primary">✍️ Write</a>
-                    </div>
+            
+            <div class="token-stats">
+                <div class="token-stat">
+                    <div class="token-stat-number">1B</div>
+                    <div class="token-stat-label">Total Supply</div>
                 </div>
-                <div class="ai-tool-card">
-                    <div class="ai-icon">📊</div>
-                    <h3>Market Analytics</h3>
-                    <p>AI-powered market analysis, price predictions, and trading signals for better investment decisions.</p>
-                    <div class="dapp-actions">
-                        <a href="#" class="dapp-btn primary">📈 Analyze</a>
-                    </div>
+                <div class="token-stat">
+                    <div class="token-stat-number">30%</div>
+                    <div class="token-stat-label">Community Rewards</div>
                 </div>
-                <div class="ai-tool-card">
-                    <div class="ai-icon">🎙️</div>
-                    <h3>Voice Synthesis</h3>
-                    <p>Create realistic voice overs and audio content using AI voice generation technology.</p>
-                    <div class="dapp-actions">
-                        <a href="#" class="dapp-btn primary">🎙️ Create</a>
-                    </div>
+                <div class="token-stat">
+                    <div class="token-stat-number">25%</div>
+                    <div class="token-stat-label">Liquidity & Staking</div>
                 </div>
-                <div class="ai-tool-card">
-                    <div class="ai-icon">🎥</div>
-                    <h3>Video Generator</h3>
-                    <p>Generate and edit videos automatically with AI. Perfect for social media and marketing content.</p>
-                    <div class="dapp-actions">
-                        <a href="#" class="dapp-btn primary">🎥 Generate</a>
-                    </div>
+                <div class="token-stat">
+                    <div class="token-stat-number">$0.001</div>
+                    <div class="token-stat-label">Starting Price</div>
                 </div>
             </div>
         </div>
     </section>
-    
-    <!-- Tokenomics Section -->
-    <section class="tokenomics fade-in" id="tokenomics">
-        <div class="tokenomics-container">
-            <div class="chart-container">
-                <div class="pie-chart"></div>
-            </div>
-            <div class="tokenomics-info">
-                <h2>AET Tokenomics</h2>
-                <ul class="token-distribution">
-                    <li>
-                        <div style="display: flex; align-items: center;">
-                            <div class="token-color" style="background: #667eea;"></div>
-                            <span>Public Sale</span>
-                        </div>
-                        <span>30%</span>
-                    </li>
-                    <li>
-                        <div style="display: flex; align-items: center;">
-                            <div class="token-color" style="background: #764ba2;"></div>
-                            <span>Development</span>
-                        </div>
-                        <span>25%</span>
-                    </li>
-                    <li>
-                        <div style="display: flex; align-items: center;">
-                            <div class="token-color" style="background: #f093fb;"></div>
-                            <span>Ecosystem Rewards</span>
-                        </div>
-                        <span>20%</span>
-                    </li>
-                    <li>
-                        <div style="display: flex; align-items: center;">
-                            <div class="token-color" style="background: #f5576c;"></div>
-                            <span>Team & Advisors</span>
-                        </div>
-                        <span>15%</span>
-                    </li>
-                    <li>
-                        <div style="display: flex; align-items: center;">
-                            <div class="token-color" style="background: #4facfe;"></div>
-                            <span>Reserve Fund</span>
-                        </div>
-                        <span>10%</span>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </section>
-    
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="footer-container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h3>DApp Ecosystem</h3>
-                    <ul>
-                        <li><a href="#dapps">🚀 Launch DApps</a></li>
-                        <li><a href="#exchange">💱 DEX Trading</a></li>
-                        <li><a href="#nft">🎨 NFT Marketplace</a></li>
-                        <li><a href="#gaming">🎮 Gaming Hub</a></li>
-                        <li><a href="#ai-tools">🤖 AI Tools Suite</a></li>
+
+    <!-- Gaming Demo -->
+    <section class="gaming-demo section" id="demo">
+        <div class="container">
+            <div class="gaming-content">
+                <div>
+                    <h2 class="h2">Real Games. Real Rewards.</h2>
+                    <p class="body-large" style="margin: 1.5rem 0; color: var(--gray-400);">
+                        Play simple, addictive games and earn AET tokens. No complex mechanics, just fun and rewards.
+                    </p>
+                    <ul style="list-style: none; padding: 0; margin: 2rem 0;">
+                        <li style="display: flex; align-items: center; margin-bottom: 1rem; color: var(--gray-400);">
+                            <span style="color: var(--success); margin-right: 0.75rem;">✓</span>
+                            Puzzle games that pay
+                        </li>
+                        <li style="display: flex; align-items: center; margin-bottom: 1rem; color: var(--gray-400);">
+                            <span style="color: var(--success); margin-right: 0.75rem;">✓</span>
+                            Daily tournaments with prizes
+                        </li>
+                        <li style="display: flex; align-items: center; margin-bottom: 1rem; color: var(--gray-400);">
+                            <span style="color: var(--success); margin-right: 0.75rem;">✓</span>
+                            Leaderboards and achievements
+                        </li>
                     </ul>
+                    <button class="btn btn-primary" onclick="joinEarlyAccess()">Try Gaming Beta</button>
                 </div>
-                <div class="footer-section">
-                    <h3>Trading & Finance</h3>
-                    <ul>
-                        <li><a href="#">💰 Spot Trading</a></li>
-                        <li><a href="#">📈 Advanced Charts</a></li>
-                        <li><a href="#">💧 Liquidity Pools</a></li>
-                        <li><a href="#">🌾 Yield Farming</a></li>
-                        <li><a href="#">🏦 Lending Protocol</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h3>NFT & Gaming</h3>
-                    <ul>
-                        <li><a href="#">🎨 AI Art Generator</a></li>
-                        <li><a href="#">🏪 NFT Collections</a></li>
-                        <li><a href="#">⚔️ Battle Arena</a></li>
-                        <li><a href="#">🏆 Tournaments</a></li>
-                        <li><a href="#">🌍 Metaverse</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h3>Resources</h3>
-                    <ul>
-                        <li><a href="whitepaper.html">📄 Whitepaper</a></li>
-                        <li><a href="#">📚 Documentation</a></li>
-                        <li><a href="#">🛡️ Security Audits</a></li>
-                        <li><a href="#">📊 Analytics</a></li>
-                        <li><a href="#">🎓 Academy</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h3>Community</h3>
-                    <ul>
-                        <li><a href="#">💬 Discord</a></li>
-                        <li><a href="#">🐦 Twitter</a></li>
-                        <li><a href="#">📱 Telegram</a></li>
-                        <li><a href="#">📺 YouTube</a></li>
-                        <li><a href="#">📖 Medium</a></li>
-                    </ul>
-                    <div class="social-links">
-                        <a href="#" class="social-link">🐦</a>
-                        <a href="#" class="social-link">💬</a>
-                        <a href="#" class="social-link">📱</a>
-                        <a href="#" class="social-link">📺</a>
-                        <a href="#" class="social-link">📖</a>
+                <div class="gaming-visual">
+                    <div class="gaming-placeholder">
+                        <div class="gaming-placeholder-icon">🎮</div>
+                        <p>Interactive Game Demo</p>
+                        <small>Coming in Beta Release</small>
                     </div>
                 </div>
             </div>
-            <div class="footer-bottom">
-                <div class="footer-logo">Building the Future of Decentralized Economy</div>
-                <p>© 2025 Aetherium. All rights reserved. Built with ❤️ for the Web3 community.</p>
+        </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section class="final-cta section">
+        <div class="container">
+            <div class="final-cta-content">
+                <h2 class="h2">Ready to Monetize Your Network?</h2>
+                <p class="subtitle">
+                    Join 10,000+ users already earning. No wallet required to start.
+                </p>
+                <button class="btn btn-primary" onclick="joinEarlyAccess()">
+                    Join Early Access Free
+                </button>
+                <p style="margin-top: 1rem; font-size: 0.875rem; opacity: 0.8;">
+                    ⚡ Setup takes 30 seconds • 🔒 Your email stays private • 💰 Start earning immediately
+                </p>
             </div>
         </div>
-    </footer>
-    
+    </section>
+
+    <!-- JavaScript -->
     <script>
-        // Loading Screen
-        window.addEventListener('load', () => {
-            const loading = document.getElementById('loading');
-            setTimeout(() => {
-                loading.classList.add('hidden');
-            }, 800);
-        });
+        // GSAP ScrollTrigger setup
+        gsap.registerPlugin(ScrollTrigger);
         
-        // Enhanced Mobile Menu
-        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
-        const navLinks = document.getElementById('navLinks');
-        
-        mobileMenuBtn.addEventListener('click', () => {
-            navLinks.classList.toggle('active');
-            mobileMenuBtn.classList.toggle('active');
+        // Initialize animations
+        function initAnimations() {
+            // Hero 3D animation
+            initHero3D();
             
-            // Prevent body scroll when menu is open
-            if (navLinks.classList.contains('active')) {
-                document.body.style.overflow = 'hidden';
-            } else {
-                document.body.style.overflow = '';
-            }
-        });
-        
-        // Close mobile menu when clicking outside
-        document.addEventListener('click', (e) => {
-            if (!mobileMenuBtn.contains(e.target) && !navLinks.contains(e.target)) {
-                navLinks.classList.remove('active');
-                mobileMenuBtn.classList.remove('active');
-                document.body.style.overflow = '';
-            }
-        });
-        
-        // Close mobile menu on window resize
-        window.addEventListener('resize', () => {
-            if (window.innerWidth > 768) {
-                navLinks.classList.remove('active');
-                mobileMenuBtn.classList.remove('active');
-                document.body.style.overflow = '';
-            }
-        });
-        
-        // Particle System
-        function createParticles() {
-            const particlesContainer = document.getElementById('particles');
-            const particleCount = window.innerWidth < 768 ? 30 : 50;
+            // Scroll animations
+            gsap.utils.toArray('.fade-in-up').forEach((element, index) => {
+                gsap.fromTo(element, 
+                    { opacity: 0, y: 30 },
+                    {
+                        opacity: 1,
+                        y: 0,
+                        duration: 0.6,
+                        ease: "power2.out",
+                        scrollTrigger: {
+                            trigger: element,
+                            start: "top 80%",
+                            toggleActions: "play none none reverse"
+                        }
+                    }
+                );
+            });
             
-            for (let i = 0; i < particleCount; i++) {
-                const particle = document.createElement('div');
-                particle.className = 'particle';
-                particle.style.left = Math.random() * 100 + '%';
-                particle.style.animationDuration = (Math.random() * 8 + 8) + 's';
-                particle.style.animationDelay = Math.random() * 8 + 's';
-                particlesContainer.appendChild(particle);
+            // Solution cards animation
+            gsap.utils.toArray('.solution-card').forEach((card, index) => {
+                gsap.fromTo(card,
+                    { opacity: 0, y: 50 },
+                    {
+                        opacity: 1,
+                        y: 0,
+                        duration: 0.6,
+                        delay: index * 0.1,
+                        ease: "power2.out",
+                        scrollTrigger: {
+                            trigger: card,
+                            start: "top 80%"
+                        }
+                    }
+                );
+            });
+            
+            // Tokenomics chart
+            initTokenomicsChart();
+        }
+        
+        // Hero 3D animation with Three.js
+        function initHero3D() {
+            const container = document.getElementById('hero3d');
+            if (!container) return;
+            
+            const scene = new THREE.Scene();
+            const camera = new THREE.PerspectiveCamera(75, 1, 0.1, 1000);
+            const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
+            
+            renderer.setSize(400, 400);
+            renderer.setClearColor(0x000000, 0);
+            container.appendChild(renderer.domElement);
+            
+            // Create geometric shapes
+            const geometry = new THREE.TorusGeometry(1, 0.3, 16, 100);
+            const material = new THREE.MeshBasicMaterial({ 
+                color: 0x6366f1,
+                wireframe: true,
+                transparent: true,
+                opacity: 0.6
+            });
+            const torus = new THREE.Mesh(geometry, material);
+            scene.add(torus);
+            
+            // Add smaller spheres
+            for (let i = 0; i < 6; i++) {
+                const sphereGeometry = new THREE.SphereGeometry(0.1, 32, 32);
+                const sphereMaterial = new THREE.MeshBasicMaterial({ 
+                    color: 0x06b6d4,
+                    transparent: true,
+                    opacity: 0.8
+                });
+                const sphere = new THREE.Mesh(sphereGeometry, sphereMaterial);
+                sphere.position.x = Math.random() * 4 - 2;
+                sphere.position.y = Math.random() * 4 - 2;
+                sphere.position.z = Math.random() * 4 - 2;
+                scene.add(sphere);
+            }
+            
+            camera.position.z = 5;
+            
+            function animate() {
+                requestAnimationFrame(animate);
+                
+                torus.rotation.x += 0.01;
+                torus.rotation.y += 0.01;
+                
+                scene.children.forEach((child, index) => {
+                    if (child.geometry && child.geometry.type === 'SphereGeometry') {
+                        child.position.y += Math.sin(Date.now() * 0.001 + index) * 0.01;
+                    }
+                });
+                
+                renderer.render(scene, camera);
+            }
+            animate();
+        }
+        
+        // Tokenomics chart with Canvas
+        function initTokenomicsChart() {
+            const canvas = document.createElement('canvas');
+            const container = document.getElementById('tokenomicsChart');
+            if (!container) return;
+            
+            canvas.width = 300;
+            canvas.height = 300;
+            container.appendChild(canvas);
+            
+            const ctx = canvas.getContext('2d');
+            const centerX = canvas.width / 2;
+            const centerY = canvas.height / 2;
+            const radius = 120;
+            
+            const data = [
+                { label: 'Community', value: 30, color: '#6366f1' },
+                { label: 'Liquidity', value: 25, color: '#06b6d4' },
+                { label: 'Development', value: 20, color: '#f59e0b' },
+                { label: 'Team', value: 15, color: '#10b981' },
+                { label: 'Public Sale', value: 10, color: '#ef4444' }
+            ];
+            
+            let currentAngle = -Math.PI / 2;
+            
+            data.forEach(segment => {
+                const sliceAngle = (segment.value / 100) * 2 * Math.PI;
+                
+                ctx.beginPath();
+                ctx.moveTo(centerX, centerY);
+                ctx.arc(centerX, centerY, radius, currentAngle, currentAngle + sliceAngle);
+                ctx.closePath();
+                ctx.fillStyle = segment.color;
+                ctx.fill();
+                
+                currentAngle += sliceAngle;
+            });
+            
+            // Add center circle
+            ctx.beginPath();
+            ctx.arc(centerX, centerY, 60, 0, 2 * Math.PI);
+            ctx.fillStyle = '#1a1a1a';
+            ctx.fill();
+            
+            // Add center text
+            ctx.fillStyle = '#ffffff';
+            ctx.font = 'bold 24px Space Grotesk';
+            ctx.textAlign = 'center';
+            ctx.fillText('AET', centerX, centerY - 5);
+            ctx.font = '14px Inter';
+            ctx.fillText('Token', centerX, centerY + 15);
+        }
+        
+        // Early access functionality
+        function joinEarlyAccess() {
+            // Show email capture modal
+            const email = prompt('Enter your email to join early access:');
+            if (email && validateEmail(email)) {
+                // Simulate API call
+                showNotification('🎉 You\'re in! Check your email for next steps.');
+                
+                // Track conversion
+                if (typeof gtag !== 'undefined') {
+                    gtag('event', 'conversion', {
+                        'send_to': 'AW-CONVERSION_ID/CONVERSION_LABEL',
+                        'value': 1.0,
+                        'currency': 'USD'
+                    });
+                }
             }
         }
         
-        // Smooth Scrolling
+        function validateEmail(email) {
+            return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+        }
+        
+        function showNotification(message) {
+            // Create and show notification
+            const notification = document.createElement('div');
+            notification.style.cssText = `
+                position: fixed;
+                top: 100px;
+                right: 20px;
+                background: linear-gradient(135deg, #10b981, #34d399);
+                color: white;
+                padding: 1rem 1.5rem;
+                border-radius: 12px;
+                box-shadow: 0 4px 20px rgba(16, 185, 129, 0.3);
+                z-index: 10000;
+                font-weight: 600;
+            `;
+            notification.textContent = message;
+            document.body.appendChild(notification);
+            
+            // Animate in
+            gsap.fromTo(notification, 
+                { opacity: 0, x: 100 },
+                { opacity: 1, x: 0, duration: 0.5, ease: "power2.out" }
+            );
+            
+            // Remove after 5 seconds
+            setTimeout(() => {
+                gsap.to(notification, {
+                    opacity: 0,
+                    x: 100,
+                    duration: 0.5,
+                    ease: "power2.in",
+                    onComplete: () => notification.remove()
+                });
+            }, 5000);
+        }
+        
+        // Mobile navigation
+        document.querySelector('.nav-mobile-toggle').addEventListener('click', () => {
+            // Add mobile menu functionality
+            alert('Mobile menu - to be implemented');
+        });
+        
+        // Smooth scrolling for anchor links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
                 const target = document.querySelector(this.getAttribute('href'));
                 if (target) {
-                    navLinks.classList.remove('active');
                     target.scrollIntoView({
                         behavior: 'smooth',
                         block: 'start'
@@ -1751,105 +1219,26 @@
             });
         });
         
-        // Stats Counter Animation
-        function animateStats() {
-            const stats = document.querySelectorAll('.stat-number');
-            stats.forEach(stat => {
-                const target = parseInt(stat.getAttribute('data-target'));
-                const increment = target / 100;
-                let current = 0;
-                
-                const timer = setInterval(() => {
-                    current += increment;
-                    if (current >= target) {
-                        current = target;
-                        clearInterval(timer);
-                    }
-                    stat.textContent = Math.floor(current).toLocaleString();
-                }, 25);
-            });
+        // Initialize everything when DOM is loaded
+        document.addEventListener('DOMContentLoaded', initAnimations);
+        
+        // Add viewport meta tag for mobile
+        if (!document.querySelector('meta[name="viewport"]')) {
+            const viewport = document.createElement('meta');
+            viewport.name = 'viewport';
+            viewport.content = 'width=device-width, initial-scale=1.0';
+            document.head.appendChild(viewport);
         }
         
-        // Scroll Animations
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-        
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                    if (entry.target.classList.contains('stats')) {
-                        animateStats();
-                    }
-                }
-            });
-        }, observerOptions);
-        
-        // Navbar Background on Scroll
-        let lastScrollY = window.scrollY;
-        
-        window.addEventListener('scroll', () => {
-            const navbar = document.getElementById('navbar');
-            const currentScrollY = window.scrollY;
+        // Performance tracking
+        window.addEventListener('load', () => {
+            // Track load time
+            const loadTime = performance.now();
+            console.log(`Page loaded in ${loadTime.toFixed(2)}ms`);
             
-            if (currentScrollY > 100) {
-                navbar.style.background = 'rgba(13, 17, 23, 0.95)';
-                navbar.style.boxShadow = '0 4px 24px rgba(0, 0, 0, 0.3)';
-            } else {
-                navbar.style.background = 'rgba(13, 17, 23, 0.9)';
-                navbar.style.boxShadow = 'none';
-            }
-            
-            lastScrollY = currentScrollY;
-        });
-        
-        // Initialize
-        document.addEventListener('DOMContentLoaded', () => {
-            createParticles();
-            
-            // Observe elements for animation
-            document.querySelectorAll('.fade-in').forEach(el => {
-                observer.observe(el);
-            });
-            
-            // Add loading completion class
-            setTimeout(() => {
-                document.body.classList.add('loaded');
-            }, 300);
-        });
-        
-        // Enhanced Card Interactions
-        document.querySelectorAll('.dapp-card, .exchange-card, .gaming-card, .ai-tool-card').forEach(card => {
-            card.addEventListener('mouseenter', function() {
-                this.style.transform = 'translateY(-6px)';
-            });
-            
-            card.addEventListener('mouseleave', function() {
-                this.style.transform = 'translateY(0)';
-            });
-        });
-        
-        // Performance optimization
-        let ticking = false;
-        
-        function requestTick() {
-            if (!ticking) {
-                requestAnimationFrame(() => {
-                    ticking = false;
-                });
-                ticking = true;
-            }
-        }
-        
-        // Resize handler for responsive particles
-        window.addEventListener('resize', () => {
-            const particles = document.querySelectorAll('.particle');
-            if (window.innerWidth < 768 && particles.length > 30) {
-                for (let i = 30; i < particles.length; i++) {
-                    particles[i].remove();
-                }
+            // Track Core Web Vitals if supported
+            if ('web-vital' in window) {
+                // Implementation would go here
             }
         });
     </script>
